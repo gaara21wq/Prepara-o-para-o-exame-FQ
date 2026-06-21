@@ -17,6 +17,8 @@
     --eletr:#1f4e79;
     --quim:#8a5a16;
     --accent:#c8552d;
+    --correct:#2f5d50;
+    --correct-bg:#e3ece7;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -52,6 +54,7 @@
   }
   .toc a{text-decoration:none; color:var(--ink-faint); border-bottom:1px solid transparent;}
   .toc a:hover{color:var(--ink); border-bottom-color:var(--ink);}
+  .toc .toc-count{color:#a59f8c; font-size:11px;}
 
   section.tema-section{margin-top:46px;}
   .tema-heading{
@@ -98,10 +101,10 @@
     max-height:0; overflow:hidden;
     transition:max-height .25s ease;
   }
-  .categoria.open .questoes-lista{max-height:4000px;}
+  .categoria.open .questoes-lista{max-height:20000px;}
 
   .questao-item{
-    padding:14px 4px 18px 4px;
+    padding:16px 4px 20px 4px;
     border-top:1px dotted var(--rule);
   }
   .questao-item:first-child{border-top:none;}
@@ -110,10 +113,53 @@
     margin-bottom:6px;
   }
   .questao-ref b{color:var(--ink);}
-  .questao-enunciado{
-    font-size:15.5px; line-height:1.6; margin:0 0 8px;
+  .questao-contexto{
+    font-size:14px; line-height:1.55; margin:0 0 8px; color:var(--ink-faint); font-style:italic;
   }
-  .questao-links{font-family:'JetBrains Mono',monospace; font-size:11.5px;}
+  .questao-enunciado{
+    font-size:15.5px; line-height:1.6; margin:0 0 10px; font-weight:600;
+  }
+
+  .opcoes-lista{list-style:none; margin:0 0 12px; padding:0;}
+  .opcao{
+    display:flex; gap:10px; align-items:baseline;
+    padding:7px 10px; margin-bottom:4px;
+    border:1px solid var(--rule); border-radius:3px;
+    font-size:14.5px; line-height:1.45;
+    background:#fff;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .opcao .letra{
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
+    color:var(--ink-faint); flex-shrink:0;
+  }
+  .opcao.is-correct{
+    background:var(--correct-bg); border-color:var(--correct);
+  }
+  .opcao.is-correct .letra{color:var(--correct);}
+  .categoria-meta-tipo{
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); font-style:italic;
+  }
+
+  .reveal-btn{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+    padding:7px 14px; border-radius:3px;
+    background:var(--ink); color:var(--paper);
+    border:none; cursor:pointer;
+    margin-right:10px;
+  }
+  .reveal-btn:hover{background:var(--accent);}
+  .reveal-btn.revealed{background:var(--correct);}
+
+  .resposta-texto{
+    font-size:14px; line-height:1.55; margin:10px 0 0;
+    padding:10px 12px; background:#fff; border-left:3px solid var(--correct);
+    display:none;
+  }
+  .resposta-texto.show{display:block;}
+  .resposta-texto b{color:var(--correct);}
+
+  .questao-links{font-family:'JetBrains Mono',monospace; font-size:11.5px; margin-top:10px;}
   .questao-links a{color:var(--accent); text-decoration:none; margin-right:16px;}
   .questao-links a:hover{text-decoration:underline;}
 
@@ -148,7 +194,7 @@
 <header>
   <div class="eyebrow">11º ano · exames nacionais</div>
   <h1>Banco de Exames — Física e Química A</h1>
-  <div class="tagline">questões compiladas por tema, a partir das provas finais nacionais do IAVE</div>
+  <div class="tagline">questões compiladas por tema, com escolhas múltiplas para resolver</div>
 </header>
 
 <main>
@@ -161,19 +207,16 @@
 
 <footer>
   Fonte das provas: <a href="https://iave.pt" target="_blank">IAVE — Instituto de Avaliação Educativa</a>.
-  Cobertura atual: 1ª fase, 2ª fase e época especial de 2022 a 2024 — em expansão.
+  Temas e categorias ordenados da frequência mais alta para a mais baixa. Cobertura atual: 2024 (1ª fase, 2ª fase, época especial) — em expansão.
 </footer>
 
 <script>
-const TEMAS_ORDEM = ["Mecânica", "Ondas e Sinais", "Eletricidade", "Química"];
-
 let QUESTOES = [];
 
 fetch('questoes.json')
   .then(r => r.json())
   .then(data => {
     QUESTOES = data;
-    montarIndice();
     renderTudo();
   })
   .catch(() => {
@@ -184,66 +227,70 @@ function slug(s){
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').toLowerCase();
 }
 
-function montarIndice(){
-  const toc = document.getElementById('toc');
-  toc.innerHTML = TEMAS_ORDEM.map(t => `<a href="#${slug(t)}">${t}</a>`).join('');
-}
+function ordenarPorFrequencia(lista){
+  // conta ocorrências de cada tema
+  const contagemTemas = {};
+  lista.forEach(q => contagemTemas[q.tema] = (contagemTemas[q.tema]||0) + 1);
+  const temasOrdenados = Object.keys(contagemTemas).sort((a,b) => contagemTemas[b] - contagemTemas[a]);
 
-function agrupar(lista){
+  // agrupa por tema -> categoria
   const porTema = {};
-  TEMAS_ORDEM.forEach(t => porTema[t] = {});
+  temasOrdenados.forEach(t => porTema[t] = {});
   lista.forEach(q => {
-    if(!porTema[q.tema]) porTema[q.tema] = {};
     if(!porTema[q.tema][q.categoria]) porTema[q.tema][q.categoria] = [];
     porTema[q.tema][q.categoria].push(q);
   });
-  return porTema;
+
+  // ordena categorias dentro de cada tema por frequência
+  const resultado = temasOrdenados.map(tema => {
+    const categorias = Object.keys(porTema[tema])
+      .map(cat => ({ nome: cat, questoes: porTema[tema][cat] }))
+      .sort((a,b) => b.questoes.length - a.questoes.length);
+    return { tema, total: contagemTemas[tema], categorias };
+  });
+
+  return resultado;
+}
+
+function montarIndice(estrutura){
+  const toc = document.getElementById('toc');
+  toc.innerHTML = estrutura.map(({tema, total}) =>
+    `<a href="#${slug(tema)}">${tema} <span class="toc-count">(${total})</span></a>`
+  ).join('');
 }
 
 function renderTudo(termo){
   termo = (termo || '').toLowerCase().trim();
-  let lista = QUESTOES;
+  let lista = QUESTOES.filter(q => q.tipo !== 'nota_interna');
   if (termo){
-    lista = QUESTOES.filter(q => {
-      const blob = (q.enunciado + ' ' + q.categoria + ' ' + q.tema + ' ' + q.subtema).toLowerCase();
+    lista = lista.filter(q => {
+      const blob = (q.enunciado + ' ' + (q.contexto||'') + ' ' + q.categoria + ' ' + q.tema).toLowerCase();
       return blob.includes(termo);
     });
   }
 
-  const porTema = agrupar(lista);
   const cont = document.getElementById('conteudo');
 
   if (lista.length === 0){
+    document.getElementById('toc').innerHTML = '';
     cont.innerHTML = '<p class="no-results">Nenhuma questão encontrada com esse termo.</p>';
     return;
   }
 
-  cont.innerHTML = TEMAS_ORDEM.map(tema => {
-    const categorias = porTema[tema] || {};
-    const nomesCategorias = Object.keys(categorias).sort();
-    if (nomesCategorias.length === 0) return '';
+  const estrutura = ordenarPorFrequencia(lista);
+  montarIndice(estrutura);
 
-    const totalTema = nomesCategorias.reduce((acc, c) => acc + categorias[c].length, 0);
-
-    const linhasCategorias = nomesCategorias.map(cat => {
-      const qs = categorias[cat].sort((a,b) => b.ano - a.ano);
-      const itens = qs.map(q => `
-        <div class="questao-item">
-          <div class="questao-ref"><b>${q.ano}</b> · ${q.fase} · item ${q.numero} · ${q.tipo}</div>
-          <p class="questao-enunciado">${q.enunciado}</p>
-          <div class="questao-links">
-            <a href="${q.pdf_enunciado}" target="_blank">enunciado completo ↗</a>
-            <a href="${q.pdf_criterios}" target="_blank">critérios de correção ↗</a>
-          </div>
-        </div>
-      `).join('');
+  cont.innerHTML = estrutura.map(({tema, total, categorias}) => {
+    const linhasCategorias = categorias.map(({nome, questoes}) => {
+      const qs = questoes.slice().sort((a,b) => b.ano - a.ano);
+      const itens = qs.map(q => renderQuestao(q)).join('');
 
       return `
-        <div class="categoria" data-cat="${cat}">
+        <div class="categoria" data-cat="${nome}">
           <div class="categoria-row" onclick="this.parentElement.classList.toggle('open')">
-            <span class="categoria-nome">${cat}</span>
+            <span class="categoria-nome">${nome}</span>
             <span class="categoria-meta">
-              <span class="categoria-count">${qs.length} questão${qs.length===1?'':'ões'}</span>
+              <span class="categoria-count">${questoes.length} questão${questoes.length===1?'':'ões'}</span>
               <span class="toggle-icon">+</span>
             </span>
           </div>
@@ -258,16 +305,70 @@ function renderTudo(termo){
           <span class="swatch"></span>
           <h2>${tema}</h2>
         </div>
-        <p class="tema-sub">${totalTema} questão${totalTema===1?'':'ões'} catalogada${totalTema===1?'':'s'} em ${nomesCategorias.length} categorias</p>
+        <p class="tema-sub">${total} questão${total===1?'':'ões'} catalogada${total===1?'':'s'} em ${categorias.length} categorias</p>
         ${linhasCategorias}
       </section>
     `;
   }).join('');
 
-  // se houver pesquisa ativa, abrir automaticamente todas as categorias com resultados
   if (termo){
     document.querySelectorAll('.categoria').forEach(c => c.classList.add('open'));
   }
+}
+
+function renderQuestao(q){
+  const contextoHtml = q.contexto ? `<p class="questao-contexto">${q.contexto}</p>` : '';
+
+  let corpoHtml = '';
+  if (q.tipo === 'escolha_multipla' && q.opcoes){
+    const letras = ['A','B','C','D'];
+    const opcoesHtml = letras.filter(l => q.opcoes[l]).map(l =>
+      `<li class="opcao" data-letra="${l}"><span class="letra">${l}</span><span>${q.opcoes[l]}</span></li>`
+    ).join('');
+    corpoHtml = `
+      <ul class="opcoes-lista">${opcoesHtml}</ul>
+      <button class="reveal-btn" onclick="revelarResposta(this, '${q.id}', '${q.resposta_certa}')">ver resposta certa</button>
+    `;
+  } else {
+    const labelTipo = {
+      'calculo': 'item de cálculo',
+      'resposta_aberta': 'resposta aberta / texto estruturado',
+      'associacao': 'associação'
+    }[q.tipo] || q.tipo;
+    corpoHtml = `
+      <span class="categoria-meta-tipo">${labelTipo}</span>
+      <button class="reveal-btn" onclick="revelarResposta(this, '${q.id}', null)">ver resolução</button>
+    `;
+  }
+
+  const respostaTexto = q.resposta_certa ? (q.tipo === 'escolha_multipla' ? '' : q.resposta_certa) : '';
+
+  return `
+    <div class="questao-item">
+      <div class="questao-ref"><b>${q.ano}</b> · ${q.fase} · item ${q.numero}</div>
+      ${contextoHtml}
+      <p class="questao-enunciado">${q.enunciado}</p>
+      ${corpoHtml}
+      ${respostaTexto ? `<div class="resposta-texto" id="resp-${q.id}"><b>Resolução:</b> ${respostaTexto}</div>` : `<div class="resposta-texto" id="resp-${q.id}"></div>`}
+      <div class="questao-links">
+        <a href="${q.pdf_enunciado}" target="_blank">enunciado completo ↗</a>
+        <a href="${q.pdf_criterios}" target="_blank">critérios de correção ↗</a>
+      </div>
+    </div>
+  `;
+}
+
+function revelarResposta(btn, qId, letraCerta){
+  const item = btn.closest('.questao-item');
+  if (letraCerta){
+    const opcaoCerta = item.querySelector(`.opcao[data-letra="${letraCerta}"]`);
+    if (opcaoCerta) opcaoCerta.classList.add('is-correct');
+  }
+  const respDiv = document.getElementById('resp-' + qId);
+  if (respDiv) respDiv.classList.add('show');
+  btn.textContent = letraCerta ? `resposta certa: ${letraCerta}` : 'resolução revelada';
+  btn.classList.add('revealed');
+  btn.disabled = true;
 }
 
 document.getElementById('search').addEventListener('input', (e) => {
