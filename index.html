@@ -5,319 +5,274 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Banco de Exames — Física e Química A</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
   :root{
     --paper:#f6f3ec;
-    --paper-edge:#e9e3d3;
     --ink:#1d2421;
-    --ink-faint:#5d645f;
-    --rule:#cfc8b4;
+    --ink-faint:#6b716c;
+    --rule:#d8d1bd;
     --mech:#2f5d50;
-    --mech-bg:#e3ece7;
     --ondas:#7a3b2e;
-    --ondas-bg:#f1e2d8;
     --eletr:#1f4e79;
-    --eletr-bg:#dfe7f1;
     --quim:#8a5a16;
-    --quim-bg:#f0e4cd;
     --accent:#c8552d;
-    --shadow: 0 1px 0 rgba(29,36,33,0.04);
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:
-      radial-gradient(circle at 1px 1px, rgba(29,36,33,0.05) 1px, transparent 0) 0 0/22px 22px,
-      var(--paper);
+    background:var(--paper);
     color:var(--ink);
-    font-family:'Inter', sans-serif;
+    font-family:'Source Serif 4', serif;
     -webkit-font-smoothing:antialiased;
     min-height:100vh;
   }
+  a{color:inherit;}
 
-  /* HEADER */
   header{
-    border-bottom:1px solid var(--rule);
-    padding:28px 24px 22px;
-    background:var(--paper);
-    position:sticky; top:0; z-index:50;
-    backdrop-filter: blur(2px);
+    border-bottom:2px solid var(--ink);
+    padding:30px 24px 20px;
+    max-width:900px; margin:0 auto;
   }
-  .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-  .brand{display:flex;align-items:baseline;gap:14px;}
-  .brand .mark{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px; font-weight:700; letter-spacing:.12em;
-    color:var(--paper); background:var(--ink);
-    padding:4px 8px; border-radius:3px;
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.12em; color:var(--accent);
   }
-  h1{
-    font-family:'Source Serif 4', serif;
-    font-weight:700; font-size:26px; margin:0;
-    letter-spacing:-0.01em;
-  }
-  .tagline{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint);letter-spacing:.02em;}
+  h1{font-size:30px; font-weight:700; margin:6px 0 4px; letter-spacing:-0.01em;}
+  .tagline{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-faint);}
 
-  /* STATS BAR */
-  .statsbar{
-    max-width:1100px;margin:18px auto 0; padding:0 24px;
-    display:flex; gap:28px; flex-wrap:wrap;
+  main{max-width:900px; margin:0 auto; padding:10px 24px 80px;}
+
+  .toc{
+    display:flex; flex-wrap:wrap; gap:6px 18px;
+    padding:18px 0 26px;
+    border-bottom:1px dashed var(--rule);
+    margin-bottom:8px;
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+  }
+  .toc a{text-decoration:none; color:var(--ink-faint); border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--ink); border-bottom-color:var(--ink);}
+
+  section.tema-section{margin-top:46px;}
+  .tema-heading{
+    display:flex; align-items:baseline; gap:12px;
+    margin-bottom:4px;
+  }
+  .tema-heading h2{
+    font-size:23px; font-weight:700; margin:0;
+  }
+  .tema-heading .swatch{
+    width:11px; height:11px; border-radius:50%;
+    display:inline-block; position:relative; top:-1px;
+  }
+  [data-tema="Mecânica"] .swatch{background:var(--mech);}
+  [data-tema="Ondas e Sinais"] .swatch{background:var(--ondas);}
+  [data-tema="Eletricidade"] .swatch{background:var(--eletr);}
+  [data-tema="Química"] .swatch{background:var(--quim);}
+
+  .tema-sub{
     font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint);
+    margin:0 0 16px;
   }
-  .statsbar b{color:var(--ink); font-size:15px; font-family:'Source Serif 4',serif; font-weight:700;}
 
-  /* CONTROLS */
-  .controls{
-    max-width:1100px;margin:26px auto 0;padding:0 24px;
-    display:flex; flex-direction:column; gap:16px;
+  .categoria{margin-bottom:6px; border-bottom:1px solid var(--rule);}
+  .categoria-row{
+    display:flex; justify-content:space-between; align-items:center; gap:14px;
+    padding:13px 4px;
+    cursor:pointer;
   }
-  .search-row{display:flex; gap:10px;}
-  input[type="text"]{
-    flex:1;
-    font-family:'Source Serif 4',serif; font-size:16px;
-    padding:12px 16px;
-    border:1px solid var(--rule); border-radius:4px;
+  .categoria-row:hover .categoria-nome{color:var(--accent);}
+  .categoria-nome{font-size:17px; font-weight:600; transition:color .12s ease;}
+  .categoria-meta{
+    display:flex; align-items:center; gap:14px; flex-shrink:0;
+  }
+  .categoria-count{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint);}
+  .toggle-icon{
+    font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--ink-faint);
+    width:16px; text-align:center;
+    transition:transform .15s ease;
+  }
+  .categoria.open .toggle-icon{transform:rotate(45deg);}
+
+  .questoes-lista{
+    max-height:0; overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .categoria.open .questoes-lista{max-height:4000px;}
+
+  .questao-item{
+    padding:14px 4px 18px 4px;
+    border-top:1px dotted var(--rule);
+  }
+  .questao-item:first-child{border-top:none;}
+  .questao-ref{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint);
+    margin-bottom:6px;
+  }
+  .questao-ref b{color:var(--ink);}
+  .questao-enunciado{
+    font-size:15.5px; line-height:1.6; margin:0 0 8px;
+  }
+  .questao-links{font-family:'JetBrains Mono',monospace; font-size:11.5px;}
+  .questao-links a{color:var(--accent); text-decoration:none; margin-right:16px;}
+  .questao-links a:hover{text-decoration:underline;}
+
+  .search-box{
+    margin:18px 0 0;
+  }
+  .search-box input{
+    width:100%; font-family:'JetBrains Mono',monospace; font-size:13px;
+    padding:10px 14px; border:1px solid var(--rule); border-radius:3px;
     background:#fff; color:var(--ink);
   }
-  input[type="text"]:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .search-box input:focus{outline:2px solid var(--accent); outline-offset:1px;}
 
-  .filter-group{display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
-  .filter-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint); margin-right:4px;}
-  .chip{
-    font-family:'JetBrains Mono',monospace; font-size:12.5px;
-    padding:7px 13px; border-radius:20px;
-    border:1px solid var(--rule); background:#fff; color:var(--ink-faint);
-    cursor:pointer; transition:all .15s ease; user-select:none;
-  }
-  .chip:hover{border-color:var(--ink-faint);}
-  .chip.active{ color:#fff; border-color:transparent; }
-  .chip.active[data-tema="Mecânica"]{background:var(--mech);}
-  .chip.active[data-tema="Ondas e Sinais"]{background:var(--ondas);}
-  .chip.active[data-tema="Eletricidade"]{background:var(--eletr);}
-  .chip.active[data-tema="Química"]{background:var(--quim);}
-  .chip.active[data-tema="todos"]{background:var(--ink);}
-  .chip.active[data-year]{background:var(--ink);}
-  .chip.active[data-fase]{background:var(--ink);}
-
-  /* MAIN */
-  main{max-width:1100px;margin:0 auto;padding:30px 24px 80px;}
-  .results-count{
-    font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint);
-    margin-bottom:18px; padding-bottom:10px; border-bottom:1px dashed var(--rule);
-  }
-
-  .card{
-    background:#fff;
-    border:1px solid var(--rule);
-    border-left:4px solid var(--ink);
-    border-radius:2px;
-    padding:20px 22px 18px;
-    margin-bottom:16px;
-    box-shadow:var(--shadow);
-  }
-  .card[data-tema="Mecânica"]{border-left-color:var(--mech);}
-  .card[data-tema="Ondas e Sinais"]{border-left-color:var(--ondas);}
-  .card[data-tema="Eletricidade"]{border-left-color:var(--eletr);}
-  .card[data-tema="Química"]{border-left-color:var(--quim);}
-
-  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:10px; flex-wrap:wrap;}
-  .meta-left{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
-  .tema-tag{
-    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-    text-transform:uppercase; letter-spacing:.06em;
-    padding:3px 9px; border-radius:3px; color:#fff;
-  }
-  .tema-tag[data-tema="Mecânica"]{background:var(--mech);}
-  .tema-tag[data-tema="Ondas e Sinais"]{background:var(--ondas);}
-  .tema-tag[data-tema="Eletricidade"]{background:var(--eletr);}
-  .tema-tag[data-tema="Química"]{background:var(--quim);}
-  .subtema{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-faint);}
-  .examref{
-    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint);
-    white-space:nowrap;
-  }
-  .examref b{color:var(--ink);}
-
-  .enunciado{
-    font-family:'Source Serif 4', serif; font-size:16.5px; line-height:1.62;
-    color:var(--ink); margin:10px 0 14px;
-  }
-
-  .card-bottom{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; padding-top:10px; border-top:1px solid var(--paper-edge);}
-  .tipo-badge{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); font-style:italic;}
-  .links a{
-    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
-    color:var(--accent); text-decoration:none; margin-left:16px;
-    border-bottom:1px solid transparent;
-  }
-  .links a:hover{border-bottom-color:var(--accent);}
-
-  .empty{
-    text-align:center; padding:60px 20px; color:var(--ink-faint);
-    font-family:'Source Serif 4',serif; font-size:18px; font-style:italic;
-  }
+  .no-results{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink-faint); padding:16px 4px;}
 
   footer{
-    border-top:1px solid var(--rule); padding:26px 24px; text-align:center;
-    font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint);
+    border-top:2px solid var(--ink); padding:24px; text-align:center;
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint);
+    max-width:900px; margin:0 auto;
   }
   footer a{color:var(--ink-faint);}
 
   @media (max-width:600px){
-    h1{font-size:21px;}
-    .enunciado{font-size:15.5px;}
+    h1{font-size:24px;}
+    .categoria-nome{font-size:15.5px;}
+    .questao-enunciado{font-size:14.5px;}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="brand">
-      <span class="mark">FQA</span>
-      <div>
-        <h1>Banco de Exames de Física e Química A</h1>
-        <div class="tagline">questões de exames nacionais, organizadas por tema · 11º ano</div>
-      </div>
-    </div>
-  </div>
-  <div class="statsbar">
-    <div><b id="stat-total">—</b> questões catalogadas</div>
-    <div><b id="stat-anos">—</b> anos cobertos (2022–2024)</div>
-    <div><b id="stat-temas">4</b> temas: Mecânica · Ondas e Sinais · Eletricidade · Química</div>
-  </div>
+  <div class="eyebrow">11º ano · exames nacionais</div>
+  <h1>Banco de Exames — Física e Química A</h1>
+  <div class="tagline">questões compiladas por tema, a partir das provas finais nacionais do IAVE</div>
 </header>
 
-<div class="controls">
-  <div class="search-row">
-    <input type="text" id="search" placeholder="Pesquisar por palavra-chave (ex: &quot;movimento circular&quot;, &quot;refração&quot;, &quot;pilha&quot;)…">
-  </div>
-  <div class="filter-group">
-    <span class="filter-label">Tema</span>
-    <span class="chip active" data-tema="todos">Todos</span>
-    <span class="chip" data-tema="Mecânica">Mecânica</span>
-    <span class="chip" data-tema="Ondas e Sinais">Ondas e Sinais</span>
-    <span class="chip" data-tema="Eletricidade">Eletricidade</span>
-    <span class="chip" data-tema="Química">Química</span>
-  </div>
-  <div class="filter-group">
-    <span class="filter-label">Ano</span>
-    <span class="chip active" data-year="todos">Todos</span>
-    <span class="chip" data-year="2024">2024</span>
-    <span class="chip" data-year="2023">2023</span>
-    <span class="chip" data-year="2022">2022</span>
-  </div>
-  <div class="filter-group">
-    <span class="filter-label">Fase</span>
-    <span class="chip active" data-fase="todos">Todas</span>
-    <span class="chip" data-fase="1ª Fase">1ª Fase</span>
-    <span class="chip" data-fase="2ª Fase">2ª Fase</span>
-    <span class="chip" data-fase="Época Especial">Época Especial</span>
-  </div>
-</div>
-
 <main>
-  <div class="results-count" id="results-count"></div>
-  <div id="cards"></div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Pesquisar por palavra-chave (ex: &quot;equilíbrio&quot;, &quot;refração&quot;, &quot;pilha&quot;)…">
+  </div>
+  <nav class="toc" id="toc"></nav>
+  <div id="conteudo"></div>
 </main>
 
 <footer>
   Fonte das provas: <a href="https://iave.pt" target="_blank">IAVE — Instituto de Avaliação Educativa</a>.
-  Questões reorganizadas por tema para fins de estudo. Cobertura atual: 1ª fase, 2ª fase e época especial de 2022 a 2024 — em expansão.
+  Cobertura atual: 1ª fase, 2ª fase e época especial de 2022 a 2024 — em expansão.
 </footer>
 
 <script>
+const TEMAS_ORDEM = ["Mecânica", "Ondas e Sinais", "Eletricidade", "Química"];
+
 let QUESTOES = [];
-let filtros = { tema: 'todos', ano: 'todos', fase: 'todos', termo: '' };
 
 fetch('questoes.json')
   .then(r => r.json())
   .then(data => {
     QUESTOES = data;
-    document.getElementById('stat-total').textContent = data.length;
-    const anos = new Set(data.map(q => q.ano));
-    document.getElementById('stat-anos').textContent = anos.size;
-    render();
+    montarIndice();
+    renderTudo();
   })
-  .catch(err => {
-    document.getElementById('cards').innerHTML = '<div class="empty">Não foi possível carregar a base de questões (questoes.json).</div>';
+  .catch(() => {
+    document.getElementById('conteudo').innerHTML = '<p class="no-results">Não foi possível carregar questoes.json.</p>';
   });
 
-document.querySelectorAll('[data-tema]').forEach(chip => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('[data-tema]').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    filtros.tema = chip.dataset.tema;
-    render();
-  });
-});
-document.querySelectorAll('[data-year]').forEach(chip => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('[data-year]').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    filtros.ano = chip.dataset.year;
-    render();
-  });
-});
-document.querySelectorAll('[data-fase]').forEach(chip => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('[data-fase]').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    filtros.fase = chip.dataset.fase;
-    render();
-  });
-});
-document.getElementById('search').addEventListener('input', (e) => {
-  filtros.termo = e.target.value.toLowerCase().trim();
-  render();
-});
+function slug(s){
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').toLowerCase();
+}
 
-function render(){
-  let lista = QUESTOES.filter(q => {
-    if (filtros.tema !== 'todos' && q.tema !== filtros.tema) return false;
-    if (filtros.ano !== 'todos' && String(q.ano) !== filtros.ano) return false;
-    if (filtros.fase !== 'todos' && q.fase !== filtros.fase) return false;
-    if (filtros.termo) {
-      const blob = (q.enunciado + ' ' + q.subtema + ' ' + q.tema).toLowerCase();
-      if (!blob.includes(filtros.termo)) return false;
-    }
-    return true;
+function montarIndice(){
+  const toc = document.getElementById('toc');
+  toc.innerHTML = TEMAS_ORDEM.map(t => `<a href="#${slug(t)}">${t}</a>`).join('');
+}
+
+function agrupar(lista){
+  const porTema = {};
+  TEMAS_ORDEM.forEach(t => porTema[t] = {});
+  lista.forEach(q => {
+    if(!porTema[q.tema]) porTema[q.tema] = {};
+    if(!porTema[q.tema][q.categoria]) porTema[q.tema][q.categoria] = [];
+    porTema[q.tema][q.categoria].push(q);
   });
+  return porTema;
+}
 
-  lista.sort((a,b) => b.ano - a.ano || a.fase.localeCompare(b.fase) || (a.numero+'').localeCompare(b.numero+''));
+function renderTudo(termo){
+  termo = (termo || '').toLowerCase().trim();
+  let lista = QUESTOES;
+  if (termo){
+    lista = QUESTOES.filter(q => {
+      const blob = (q.enunciado + ' ' + q.categoria + ' ' + q.tema + ' ' + q.subtema).toLowerCase();
+      return blob.includes(termo);
+    });
+  }
 
-  const countEl = document.getElementById('results-count');
-  countEl.textContent = lista.length === 0
-    ? 'Nenhuma questão encontrada com estes filtros.'
-    : `A mostrar ${lista.length} questão${lista.length===1?'':'ões'}`;
+  const porTema = agrupar(lista);
+  const cont = document.getElementById('conteudo');
 
-  const container = document.getElementById('cards');
   if (lista.length === 0){
-    container.innerHTML = '<div class="empty">Nenhuma questão corresponde à pesquisa.<br>Tenta outro termo ou limpa os filtros.</div>';
+    cont.innerHTML = '<p class="no-results">Nenhuma questão encontrada com esse termo.</p>';
     return;
   }
 
-  container.innerHTML = lista.map(q => `
-    <article class="card" data-tema="${q.tema}">
-      <div class="card-top">
-        <div class="meta-left">
-          <span class="tema-tag" data-tema="${q.tema}">${q.tema}</span>
-          <span class="subtema">${q.subtema}</span>
+  cont.innerHTML = TEMAS_ORDEM.map(tema => {
+    const categorias = porTema[tema] || {};
+    const nomesCategorias = Object.keys(categorias).sort();
+    if (nomesCategorias.length === 0) return '';
+
+    const totalTema = nomesCategorias.reduce((acc, c) => acc + categorias[c].length, 0);
+
+    const linhasCategorias = nomesCategorias.map(cat => {
+      const qs = categorias[cat].sort((a,b) => b.ano - a.ano);
+      const itens = qs.map(q => `
+        <div class="questao-item">
+          <div class="questao-ref"><b>${q.ano}</b> · ${q.fase} · item ${q.numero} · ${q.tipo}</div>
+          <p class="questao-enunciado">${q.enunciado}</p>
+          <div class="questao-links">
+            <a href="${q.pdf_enunciado}" target="_blank">enunciado completo ↗</a>
+            <a href="${q.pdf_criterios}" target="_blank">critérios de correção ↗</a>
+          </div>
         </div>
-        <span class="examref"><b>${q.ano}</b> · ${q.fase} · item ${q.numero}</span>
-      </div>
-      <p class="enunciado">${q.enunciado}</p>
-      <div class="card-bottom">
-        <span class="tipo-badge">${q.tipo}</span>
-        <span class="links">
-          <a href="${q.pdf_enunciado}" target="_blank">enunciado completo ↗</a>
-          <a href="${q.pdf_criterios}" target="_blank">critérios de correção ↗</a>
-        </span>
-      </div>
-    </article>
-  `).join('');
+      `).join('');
+
+      return `
+        <div class="categoria" data-cat="${cat}">
+          <div class="categoria-row" onclick="this.parentElement.classList.toggle('open')">
+            <span class="categoria-nome">${cat}</span>
+            <span class="categoria-meta">
+              <span class="categoria-count">${qs.length} questão${qs.length===1?'':'ões'}</span>
+              <span class="toggle-icon">+</span>
+            </span>
+          </div>
+          <div class="questoes-lista">${itens}</div>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <section class="tema-section" data-tema="${tema}" id="${slug(tema)}">
+        <div class="tema-heading">
+          <span class="swatch"></span>
+          <h2>${tema}</h2>
+        </div>
+        <p class="tema-sub">${totalTema} questão${totalTema===1?'':'ões'} catalogada${totalTema===1?'':'s'} em ${nomesCategorias.length} categorias</p>
+        ${linhasCategorias}
+      </section>
+    `;
+  }).join('');
+
+  // se houver pesquisa ativa, abrir automaticamente todas as categorias com resultados
+  if (termo){
+    document.querySelectorAll('.categoria').forEach(c => c.classList.add('open'));
+  }
 }
+
+document.getElementById('search').addEventListener('input', (e) => {
+  renderTudo(e.target.value);
+});
 </script>
 
 </body>

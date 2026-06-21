@@ -2,9 +2,12 @@
 
 Site simples e funcional para pesquisar questões de exames nacionais de FQA por tema (Mecânica, Ondas e Sinais, Eletricidade), ano e fase.
 
+## Formato
+Inspirado no [mat.absolutamente.net](https://mat.absolutamente.net): o site mostra um índice por **tema** (Mecânica, Ondas e Sinais, Eletricidade, Química), e dentro de cada tema uma lista de **categorias/capítulos** (ex: "Gravitação Universal", "Equilíbrio Químico", "Som e Ondas Mecânicas"). Cada categoria expande ao clicar, mostrando as questões desse assunto vindas de vários exames e anos, com link direto para o enunciado completo e para os critérios de correção oficiais do IAVE.
+
 ## Estado atual
 - **66 questões** catalogadas, dos exames de **2022, 2023 e 2024** (1ª fase, 2ª fase e época especial de 2024; 1ª e 2ª fase de 2023 e 2022).
-- Cobre os 4 grandes temas: **Mecânica** (17), **Ondas e Sinais** (10), **Eletricidade** (8) e **Química** (31).
+- Organizadas em **19 categorias** dentro dos 4 grandes temas: Mecânica, Ondas e Sinais, Eletricidade e Química.
 - Ainda falta: 2022 época especial, 2021, 2020 (e potencialmente 2015–2019, conforme combinado).
 - Cada questão tem: tema, subtema, enunciado resumido, tipo de item, e links diretos para o PDF do enunciado completo e dos critérios de correção (hospedados no IAVE).
 
@@ -30,7 +33,8 @@ Todas as questões estão no ficheiro `questoes.json`, que é uma lista de objet
   "fase": "1ª Fase",
   "numero": "1",
   "tema": "Mecânica",
-  "subtema": "Cinemática / Trabalho da força gravítica",
+  "categoria": "Trabalho, Energia e Conservação",
+  "subtema": "Cinemática / Trabalho da força gravítica / Movimento circular",
   "enunciado": "Resumo do contexto e das perguntas do item...",
   "tipo": "Escolha múltipla",
   "pdf_enunciado": "https://iave.pt/.../enunciado.pdf",
@@ -39,9 +43,17 @@ Todas as questões estão no ficheiro `questoes.json`, que é uma lista de objet
 ```
 
 Regras importantes:
-- `tema` tem de ser exatamente um destes quatro valores (para as cores funcionarem): `"Mecânica"`, `"Ondas e Sinais"`, `"Eletricidade"`, `"Química"`. Se quiserem subdividir mais (ex: separar "Eletromagnetismo" de "Eletricidade"), têm de adicionar esse valor também no HTML (na secção de filtros e no CSS `.tema-tag[data-tema="..."]`, `.card[data-tema="..."]` e `.chip.active[data-tema="..."]`).
+- `tema` tem de ser exatamente um destes quatro valores: `"Mecânica"`, `"Ondas e Sinais"`, `"Eletricidade"`, `"Química"`.
+- `categoria` é o "capítulo" mostrado no índice (equivalente a "Trigonometria" ou "Produto escalar" no Absolutamente). É este campo que agrupa as questões na página — pode reutilizar uma categoria já existente ou criar uma nova categoria (aparece automaticamente, não precisa mexer no HTML).
+- `subtema` é só um detalhe descritivo interno, não aparece diretamente no site — pode deixar mais específico que `categoria`.
 - `ano` é número, não string.
 - Basta adicionar novos objetos à lista (separados por vírgula) — o site atualiza-se sozinho, não precisa de mexer no HTML.
+
+Categorias atualmente em uso (para reaproveitar nos próximos exames, em vez de criar variantes):
+- **Mecânica**: Cinemática e Movimento Circular · Forças e Leis de Newton · Gravitação Universal · Trabalho, Energia e Conservação
+- **Ondas e Sinais**: Modelo de Bohr e Espectros Atómicos · Radiação e Espectro Eletromagnético · Reflexão e Refração da Luz · Som e Ondas Mecânicas
+- **Eletricidade**: Campo Elétrico · Circuitos Elétricos e Corrente · Indução Eletromagnética
+- **Química**: Ácido-Base e pH · Energia, Calor e Reações · Equilíbrio Químico · Estequiometria e Quantidade de Matéria · Estrutura Atómica · Ligação Química e Tabela Periódica · Química Orgânica e Síntese · Solubilidade · Trabalho Laboratorial e Erros
 
 ## Próximos passos sugeridos
 1. Continuar a processar exames de 2020–2021 (e 2015–2019 se quiserem recuar mais).
