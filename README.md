@@ -3,9 +3,15 @@
 ## Formato
 Inspirado no [mat.absolutamente.net](https://mat.absolutamente.net): índice por **tema** (Mecânica, Ondas e Sinais, Eletricidade, Química), com **categorias/capítulos** dentro de cada tema (ex: "Estrutura Atómica", "Gravitação Universal"). Temas e categorias aparecem **ordenados pela frequência** com que saem em exame — do mais comum para o menos comum.
 
-Cada questão de **escolha múltipla** mostra as 4 opções (A-D) e é clicável: ao escolher uma letra, o site diz logo se está certa (verde) ou errada (vermelho, mostrando a certa). Há também um botão "não sei — ver resposta". No topo aparece um placar com as respostas certas da sessão. Questões de cálculo, resposta aberta ou associação mostram um botão "ver resolução" com a resolução resumida (etapas e valores dos critérios do IAVE).
+Cada questão de **escolha múltipla** mostra as 4 opções (A-D) e é clicável: ao escolher uma letra, o site diz logo se está certa (verde) ou errada (vermelho, mostrando a certa). Há também um botão "não sei — ver resposta" (conta como errada). No topo aparece um placar com as respostas certas. Questões de cálculo, resposta aberta ou associação mostram um botão "ver resolução" com a resolução resumida (etapas e valores dos critérios do IAVE).
 
-A pesquisa ignora acentos ("equilibrio" encontra "equilíbrio") e procura também dentro das opções.
+## Funcionalidades
+- **Progresso guardado** — as respostas de escolha múltipla e as resoluções vistas ficam guardadas no browser (`localStorage`, chave `prepfq-progresso-v1`). Ao reabrir o site, as opções marcadas, o feedback e o placar voltam a aparecer. Cada categoria do índice mostra o progresso (ex: "3/5 certas"; nas categorias sem escolha múltipla, "2/4 vistas"). Se a chave de uma questão for corrigida no `questoes.json`, as respostas guardadas são reavaliadas automaticamente.
+- **Recomeçar** — apaga todo o progresso, com confirmação na própria página.
+- **Pesquisa** — ignora acentos ("equilibrio" encontra "equilíbrio") e procura também dentro das opções.
+- **Filtros** (combinam entre si e com a pesquisa) — ano, fase, tipo (escolha múltipla / cálculo / resposta aberta / associação) e estado (todas / por responder / erradas). As opções de ano, fase e tipo são geradas a partir dos dados, por isso novos exames aparecem sozinhos. O botão **"rever as que errei"** é um atalho para o filtro "erradas".
+- **Exame aleatório** — escolhe 10, 15 ou 20 questões e, opcionalmente, um tema. Só entram questões de escolha múltipla, baralhadas, uma de cada vez com barra de progresso. No fim mostra a nota (certas/total e em escala 0–20) e a lista das erradas, com a resposta certa, um link para a questão no banco e outro para o enunciado em PDF. As respostas do exame também contam para o progresso guardado (fica a tentativa mais recente).
+- Funciona em telemóvel; os textos vindos do JSON são escapados antes de irem para a página (símbolos como ⇌, ², ⁻ aparecem normalmente).
 
 ## Estado atual — mudança importante
 Esta versão reestruturou a base de dados: em vez de uma entrada por **questão completa** do exame (que tinha várias alíneas misturadas), agora cada **alínea é uma entrada própria** (ex: "4.1", "4.2", "4.3" são três questões separadas, cada uma com o seu tema e categoria).

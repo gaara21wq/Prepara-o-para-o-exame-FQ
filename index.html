@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Banco de Exames — Física e Química A</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231d2421'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='28' font-weight='700' text-anchor='middle' fill='%23f6f3ec'%3EFQ%3C/text%3E%3Ccircle cx='52' cy='12' r='6' fill='%23c8552d'/%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -24,6 +25,7 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  [hidden]{display:none !important;}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -54,6 +56,7 @@
     margin-bottom:8px;
     font-family:'JetBrains Mono',monospace; font-size:13px;
   }
+  .toc:empty{display:none;}
   .toc a{text-decoration:none; color:var(--ink-faint); border-bottom:1px solid transparent;}
   .toc a:hover{color:var(--ink); border-bottom-color:var(--ink);}
   .toc .toc-count{color:#a59f8c; font-size:11px;}
@@ -87,11 +90,20 @@
     cursor:pointer;
   }
   .categoria-row:hover .categoria-nome{color:var(--accent);}
-  .categoria-nome{font-size:17px; font-weight:600; transition:color .12s ease;}
+  .categoria-row:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
+  .categoria-nome{font-size:17px; font-weight:600; transition:color .12s ease; min-width:0;}
   .categoria-meta{
     display:flex; align-items:center; gap:14px; flex-shrink:0;
   }
   .categoria-count{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint);}
+  .cat-prog{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600;
+    padding:2px 7px; border-radius:10px;
+    border:1px solid var(--rule); color:var(--ink-faint); background:#fff;
+    white-space:nowrap;
+  }
+  .cat-prog.parcial{border-color:var(--ink-faint); color:var(--ink);}
+  .cat-prog.completo{border-color:var(--correct); color:var(--correct); background:var(--correct-bg);}
   .toggle-icon{
     font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--ink-faint);
     width:16px; text-align:center;
@@ -110,6 +122,8 @@
     border-top:1px dotted var(--rule);
   }
   .questao-item:first-child{border-top:none;}
+  .questao-item.destaque{animation:destaque 2.2s ease;}
+  @keyframes destaque{0%,40%{background:#fbe9df;} 100%{background:transparent;}}
   .questao-ref{
     font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--ink-faint);
     margin-bottom:6px;
@@ -137,6 +151,7 @@
   }
   .opcoes-lista:not(.answered) .opcao{cursor:pointer;}
   .opcoes-lista:not(.answered) .opcao:hover{border-color:var(--ink); background:#fbfaf6;}
+  .opcao:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
   .opcao.is-correct{
     background:var(--correct-bg); border-color:var(--correct);
   }
@@ -168,7 +183,7 @@
     margin-right:10px;
   }
   .reveal-btn:hover{background:var(--accent);}
-  .reveal-btn.revealed{background:var(--correct);}
+  .reveal-btn.revealed{background:var(--correct); cursor:default;}
 
   .resposta-texto{
     font-size:14px; line-height:1.55; margin:10px 0 0;
@@ -192,7 +207,99 @@
   }
   .search-box input:focus{outline:2px solid var(--accent); outline-offset:1px;}
 
+  /* filtros e ações */
+  .filtros{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:8px 10px;
+    margin:10px 0 0;
+  }
+  .filtro{display:flex; flex-direction:column; gap:3px; min-width:0;}
+  .filtro span{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em; color:var(--ink-faint);
+  }
+  .filtro select{
+    width:100%; font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    padding:8px 8px; border:1px solid var(--rule); border-radius:3px;
+    background:#fff; color:var(--ink);
+  }
+  .filtro select:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .filtro select.ativo{border-color:var(--accent);}
+
+  .acoes{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0; align-items:center;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+    padding:7px 12px; border-radius:3px;
+    background:transparent; color:var(--ink);
+    border:1px solid var(--ink); cursor:pointer;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent);}
+  .btn:focus-visible{outline:2px solid var(--accent); outline-offset:1px;}
+  .btn[aria-pressed="true"]{background:var(--wrong-bg); border-color:var(--wrong); color:var(--wrong);}
+  .btn-primario{background:var(--ink); color:var(--paper);}
+  .btn-primario:hover{background:var(--accent); border-color:var(--accent); color:var(--paper);}
+  .btn-discreto{border-color:var(--rule); color:var(--ink-faint);}
+  .btn-perigo{background:var(--wrong); border-color:var(--wrong); color:#fff;}
+  .btn-perigo:hover{background:#8c2721; border-color:#8c2721; color:#fff;}
+  .btn:disabled{opacity:.45; cursor:default;}
+  .acoes .empurra{margin-left:auto;}
+
+  .confirmar{
+    margin:12px 0 0; padding:12px 14px;
+    border:1px solid var(--wrong); background:var(--wrong-bg); border-radius:3px;
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.5;
+  }
+  .confirmar p{margin:0 0 10px;}
+  .confirmar .btn{margin-right:6px;}
+  .aviso{
+    margin:12px 0 0; padding:9px 14px;
+    border-left:3px solid var(--correct); background:var(--correct-bg);
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+  }
+
   .no-results{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink-faint); padding:16px 4px;}
+  .no-results .btn{margin-top:10px;}
+
+  /* modo exame */
+  .exame{padding-top:24px;}
+  .exame-topo{
+    display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .exame-titulo{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-faint);}
+  .exame-titulo b{color:var(--ink);}
+  .barra{height:6px; background:var(--rule); border-radius:3px; overflow:hidden; margin-bottom:22px;}
+  .barra > div{height:100%; background:var(--accent); transition:width .25s ease;}
+  .exame .questao-item{border-top:none; padding-top:0;}
+  .exame h2{font-size:23px; font-weight:700; margin:0 0 6px;}
+  .exame .sub{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0 0 20px;}
+  .exame-campo{margin:0 0 20px;}
+  .exame-campo > span{
+    display:block; margin-bottom:6px;
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em; color:var(--ink-faint);
+  }
+  .seg{display:flex; gap:6px; flex-wrap:wrap;}
+  .seg .btn{min-width:56px;}
+  .seg .btn[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--paper);}
+  .exame-campo select{
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    padding:8px 8px; border:1px solid var(--rule); border-radius:3px;
+    background:#fff; color:var(--ink); width:100%; max-width:340px;
+  }
+  .nota-exame{font-size:15px; margin:0 0 6px; font-family:'JetBrains Mono',monospace; color:var(--ink-faint);}
+  .nota-grande{font-size:44px; font-weight:700; line-height:1.1; margin:8px 0 4px;}
+  .nota-grande small{font-size:18px; color:var(--ink-faint); font-weight:400;}
+  .erradas-lista{list-style:none; padding:0; margin:18px 0 0;}
+  .erradas-lista li{padding:14px 4px; border-top:1px dotted var(--rule);}
+  .erradas-lista .questao-enunciado{font-size:14.5px; margin-bottom:6px;}
+  .erradas-lista .linha{font-size:14px; line-height:1.5; margin:2px 0;}
+  .erradas-lista .linha.ko b{color:var(--wrong);}
+  .erradas-lista .linha.ok b{color:var(--correct);}
+  .link-btn{
+    background:none; border:none; padding:0; cursor:pointer;
+    font:inherit; color:var(--accent); margin-right:16px;
+  }
+  .link-btn:hover{text-decoration:underline;}
 
   footer{
     border-top:2px solid var(--ink); padding:24px; text-align:center;
@@ -202,9 +309,19 @@
   footer a{color:var(--ink-faint);}
 
   @media (max-width:600px){
+    header{padding:22px 16px 16px;}
+    main{padding:10px 16px 60px;}
     h1{font-size:24px;}
+    .categoria-row{gap:10px;}
     .categoria-nome{font-size:15.5px;}
+    .categoria-meta{gap:8px;}
+    .categoria-count{font-size:11px;}
     .questao-enunciado{font-size:14.5px;}
+    .filtros{grid-template-columns:repeat(2, 1fr);}
+    .opcao{padding:9px 10px;}
+    .acoes .empurra{margin-left:0;}
+    .reveal-btn{margin-bottom:6px;}
+    .nota-grande{font-size:36px;}
   }
 </style>
 </head>
@@ -218,121 +335,347 @@
 </header>
 
 <main>
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Pesquisar por palavra-chave (ex: &quot;equilíbrio&quot;, &quot;refração&quot;, &quot;pilha&quot;)…">
+  <div id="vista-banco">
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Pesquisar por palavra-chave (ex: &quot;equilíbrio&quot;, &quot;refração&quot;, &quot;pilha&quot;)…">
+    </div>
+    <div class="filtros">
+      <label class="filtro"><span>Ano</span><select id="f-ano"></select></label>
+      <label class="filtro"><span>Fase</span><select id="f-fase"></select></label>
+      <label class="filtro"><span>Tipo</span><select id="f-tipo"></select></label>
+      <label class="filtro"><span>Estado</span>
+        <select id="f-estado">
+          <option value="todas">todas</option>
+          <option value="por-responder">por responder</option>
+          <option value="erradas">erradas</option>
+        </select>
+      </label>
+    </div>
+    <div class="acoes">
+      <button type="button" class="btn" id="btn-erradas" aria-pressed="false">rever as que errei <span id="n-erradas"></span></button>
+      <button type="button" class="btn btn-primario" id="btn-exame">exame aleatório</button>
+      <button type="button" class="btn btn-discreto" id="btn-limpar" hidden>limpar filtros</button>
+      <button type="button" class="btn btn-discreto empurra" id="btn-recomecar">recomeçar</button>
+    </div>
+    <div class="confirmar" id="confirmar" hidden role="alertdialog" aria-labelledby="confirmar-txt">
+      <p id="confirmar-txt">Apagar todo o progresso guardado (respostas e resoluções vistas)? Não é possível desfazer.</p>
+      <button type="button" class="btn btn-perigo" id="btn-confirmar-sim">sim, apagar tudo</button>
+      <button type="button" class="btn" id="btn-confirmar-nao">cancelar</button>
+    </div>
+    <div class="aviso" id="aviso" hidden role="status"></div>
+    <nav class="toc" id="toc"></nav>
+    <div id="conteudo"></div>
   </div>
-  <nav class="toc" id="toc"></nav>
-  <div id="conteudo"></div>
+
+  <section id="vista-exame" class="exame" hidden></section>
 </main>
 
 <footer>
-  Fonte das provas: <a href="https://iave.pt" target="_blank">IAVE — Instituto de Avaliação Educativa</a>.
+  Fonte das provas: <a href="https://iave.pt" target="_blank" rel="noopener">IAVE — Instituto de Avaliação Educativa</a>.
   Temas e categorias ordenados da frequência mais alta para a mais baixa. Cobertura atual: 2024 (1ª fase, 2ª fase, época especial) — em expansão.<br>
   Nos itens de escolha múltipla, a letra certa corresponde à versão do enunciado indicada no link.
+  O teu progresso fica guardado apenas neste browser.
 </footer>
 
 <script>
+'use strict';
+
+/* ---------- dados e estado ---------- */
 let QUESTOES = [];
+const CHAVE_PROGRESSO = 'prepfq-progresso-v1';
 
-fetch('questoes.json')
-  .then(r => r.json())
-  .then(data => {
-    QUESTOES = data;
-    renderTudo();
-    atualizarPlacar();
-  })
-  .catch(() => {
-    document.getElementById('conteudo').innerHTML = '<p class="no-results">Não foi possível carregar questoes.json.</p>';
-  });
+// respostas de escolha múltipla: { id: { escolhida: 'B', certa: true } } ('—' = "não sei")
+let RESPOSTAS = {};
+// itens de cálculo/resposta aberta/associação cuja resolução já foi vista
+let REVELADAS = new Set();
 
-// respostas dadas nesta sess\u00e3o: { id: { escolhida: 'B', certa: true } }
-const RESPOSTAS = {};
-// itens de c\u00e1lculo/resposta aberta cuja resolu\u00e7\u00e3o j\u00e1 foi revelada
-const REVELADAS = new Set();
+const FILTROS = { termo: '', ano: '', fase: '', tipo: '', estado: 'todas' };
+// categorias abertas no índice (chave "tema||categoria"), para não fecharem ao filtrar
+const ABERTAS = new Set();
+
+const ORDEM_FASES = ['1ª Fase', '2ª Fase', 'Época Especial'];
+const ROTULO_TIPO = {
+  'escolha_multipla': 'escolha múltipla',
+  'calculo': 'cálculo',
+  'resposta_aberta': 'resposta aberta',
+  'associacao': 'associação'
+};
+const ROTULO_TIPO_ITEM = {
+  'calculo': 'item de cálculo',
+  'resposta_aberta': 'resposta aberta / texto estruturado',
+  'associacao': 'associação'
+};
+const LETRAS = ['A', 'B', 'C', 'D'];
+
+const $ = id => document.getElementById(id);
+
+/* ---------- utilitários ---------- */
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+
+function urlSegura(u){
+  return /^https?:\/\//i.test(u || '') ? esc(u) : '#';
+}
 
 function semAcentos(s){
-  return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 }
 
 function slug(s){
-  return semAcentos(s).replace(/[^a-z0-9]+/g,'-');
+  return semAcentos(s).replace(/[^a-z0-9]+/g, '-');
 }
 
+function plural(n, sing, plur){ return n === 1 ? sing : plur; }
+
+function chaveCat(tema, cat){ return tema + '||' + cat; }
+
+function baralhar(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function eEM(q){ return q.tipo === 'escolha_multipla' && q.opcoes; }
+
+function questaoPorId(id){ return QUESTOES.find(q => q.id === id); }
+
+function itemNoBanco(id){
+  return document.querySelector(`#conteudo .questao-item[data-id="${CSS.escape(id)}"]`);
+}
+
+/* ---------- progresso guardado ---------- */
+function carregarProgresso(){
+  try {
+    const raw = localStorage.getItem(CHAVE_PROGRESSO);
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    if (d && d.respostas && typeof d.respostas === 'object'){
+      for (const [id, r] of Object.entries(d.respostas)){
+        if (r && typeof r.escolhida === 'string') RESPOSTAS[id] = { escolhida: r.escolhida, certa: !!r.certa };
+      }
+    }
+    if (d && Array.isArray(d.reveladas)){
+      REVELADAS = new Set(d.reveladas.filter(x => typeof x === 'string'));
+    }
+  } catch (e) { /* armazenamento indisponível ou corrompido: começa do zero */ }
+}
+
+function guardarProgresso(){
+  try {
+    localStorage.setItem(CHAVE_PROGRESSO, JSON.stringify({
+      versao: 1, respostas: RESPOSTAS, reveladas: [...REVELADAS]
+    }));
+  } catch (e) { /* sem armazenamento: o progresso fica só nesta sessão */ }
+}
+
+// se a chave de uma questão for corrigida no JSON, a avaliação guardada acompanha
+function reavaliarRespostas(){
+  for (const [id, r] of Object.entries(RESPOSTAS)){
+    const q = questaoPorId(id);
+    if (q && eEM(q)) r.certa = r.escolhida === q.resposta_certa;
+  }
+}
+
+function registarResposta(id, letra){
+  const q = questaoPorId(id);
+  if (!q) return null;
+  const r = { escolhida: letra, certa: letra === q.resposta_certa };
+  RESPOSTAS[id] = r;
+  guardarProgresso();
+  return r;
+}
+
+function apagarProgresso(){
+  RESPOSTAS = {};
+  REVELADAS = new Set();
+  try { localStorage.removeItem(CHAVE_PROGRESSO); } catch (e) {}
+}
+
+/* ---------- placar e contagens ---------- */
 function atualizarPlacar(){
-  const r = Object.values(RESPOSTAS);
-  const certas = r.filter(x => x.certa).length;
-  const total = QUESTOES.filter(q => q.tipo === 'escolha_multipla').length;
-  document.getElementById('placar').innerHTML = r.length
-    ? `acertaste <b>${certas}</b> de <b>${r.length}</b> respondidas \u00b7 ${total} de escolha m\u00faltipla no total`
-    : `${total} quest\u00f5es de escolha m\u00faltipla para resolver`;
+  const em = QUESTOES.filter(eEM);
+  const respondidas = em.filter(q => RESPOSTAS[q.id]);
+  const certas = respondidas.filter(q => RESPOSTAS[q.id].certa).length;
+  const outras = QUESTOES.filter(q => !eEM(q) && q.tipo !== 'nota_interna');
+  const vistas = outras.filter(q => REVELADAS.has(q.id)).length;
+  const extra = vistas ? ` · ${vistas} de ${outras.length} resoluções vistas` : '';
+  $('placar').innerHTML = respondidas.length
+    ? `acertaste <b>${certas}</b> de <b>${respondidas.length}</b> respondidas · ${em.length} de escolha múltipla no total${extra}`
+    : `${em.length} questões de escolha múltipla para resolver${extra}`;
+
+  const nErradas = respondidas.length - certas;
+  $('n-erradas').textContent = `(${nErradas})`;
 }
 
+function progressoCategoria(tema, cat){
+  const qs = QUESTOES.filter(q => q.tema === tema && q.categoria === cat && q.tipo !== 'nota_interna');
+  const em = qs.filter(eEM);
+  if (em.length){
+    const certas = em.filter(q => RESPOSTAS[q.id] && RESPOSTAS[q.id].certa).length;
+    const resp = em.filter(q => RESPOSTAS[q.id]).length;
+    return {
+      texto: `${certas}/${em.length} certas`,
+      titulo: `${resp} de ${em.length} de escolha múltipla respondidas`,
+      classe: certas === em.length ? 'completo' : (resp ? 'parcial' : '')
+    };
+  }
+  const vistas = qs.filter(q => REVELADAS.has(q.id)).length;
+  return {
+    texto: `${vistas}/${qs.length} vistas`,
+    titulo: `${vistas} de ${qs.length} resoluções vistas`,
+    classe: vistas === qs.length ? 'completo' : (vistas ? 'parcial' : '')
+  };
+}
+
+function htmlProgressoCategoria(tema, cat){
+  const p = progressoCategoria(tema, cat);
+  return `<span class="cat-prog ${p.classe}" title="${esc(p.titulo)}">${esc(p.texto)}</span>`;
+}
+
+function atualizarProgressoCategorias(){
+  document.querySelectorAll('#conteudo .categoria').forEach(el => {
+    const alvo = el.querySelector('.cat-prog');
+    if (alvo) alvo.outerHTML = htmlProgressoCategoria(el.dataset.tema, el.dataset.cat);
+  });
+}
+
+function atualizarTudoMenosLista(){
+  atualizarPlacar();
+  atualizarProgressoCategorias();
+}
+
+/* ---------- filtros ---------- */
+function preencherFiltros(){
+  const lista = QUESTOES.filter(q => q.tipo !== 'nota_interna');
+  const opt = (v, t) => `<option value="${esc(v)}">${esc(t)}</option>`;
+
+  const anos = [...new Set(lista.map(q => q.ano))].sort((a, b) => b - a);
+  $('f-ano').innerHTML = opt('', 'todos') + anos.map(a => opt(a, a)).join('');
+
+  const fases = [...new Set(lista.map(q => q.fase))].sort((a, b) => {
+    const ia = ORDEM_FASES.indexOf(a), ib = ORDEM_FASES.indexOf(b);
+    if (ia !== -1 || ib !== -1) return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    return String(a).localeCompare(String(b), 'pt');
+  });
+  $('f-fase').innerHTML = opt('', 'todas') + fases.map(f => opt(f, f)).join('');
+
+  const ordemTipos = Object.keys(ROTULO_TIPO);
+  const tipos = [...new Set(lista.map(q => q.tipo))].sort((a, b) => {
+    const ia = ordemTipos.indexOf(a), ib = ordemTipos.indexOf(b);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+  $('f-tipo').innerHTML = opt('', 'todos') + tipos.map(t => opt(t, ROTULO_TIPO[t] || t)).join('');
+}
+
+function sincronizarControlos(){
+  $('search').value = FILTROS.termo;
+  $('f-ano').value = FILTROS.ano;
+  $('f-fase').value = FILTROS.fase;
+  $('f-tipo').value = FILTROS.tipo;
+  $('f-estado').value = FILTROS.estado;
+  ['f-ano', 'f-fase', 'f-tipo'].forEach(id => $(id).classList.toggle('ativo', !!$(id).value));
+  $('f-estado').classList.toggle('ativo', FILTROS.estado !== 'todas');
+  $('btn-erradas').setAttribute('aria-pressed', FILTROS.estado === 'erradas' ? 'true' : 'false');
+  $('btn-limpar').hidden = !filtrosAtivos();
+}
+
+function filtrosAtivos(){
+  return !!(FILTROS.termo.trim() || FILTROS.ano || FILTROS.fase || FILTROS.tipo || FILTROS.estado !== 'todas');
+}
+
+function limparFiltros(){
+  FILTROS.termo = ''; FILTROS.ano = ''; FILTROS.fase = ''; FILTROS.tipo = ''; FILTROS.estado = 'todas';
+}
+
+function passaFiltros(q, termo){
+  if (q.tipo === 'nota_interna') return false;
+  if (FILTROS.ano && String(q.ano) !== FILTROS.ano) return false;
+  if (FILTROS.fase && q.fase !== FILTROS.fase) return false;
+  if (FILTROS.tipo && q.tipo !== FILTROS.tipo) return false;
+  if (FILTROS.estado === 'por-responder'){
+    if (eEM(q) ? RESPOSTAS[q.id] : REVELADAS.has(q.id)) return false;
+  } else if (FILTROS.estado === 'erradas'){
+    if (!(eEM(q) && RESPOSTAS[q.id] && !RESPOSTAS[q.id].certa)) return false;
+  }
+  if (termo){
+    const opcoes = q.opcoes ? Object.values(q.opcoes).join(' ') : '';
+    const blob = semAcentos([q.enunciado, q.contexto, opcoes, q.categoria, q.tema, q.numero, q.fase].join(' '));
+    if (!blob.includes(termo)) return false;
+  }
+  return true;
+}
+
+/* ---------- índice ---------- */
 function ordenarPorFrequencia(lista){
   // conta ocorrências de cada tema
   const contagemTemas = {};
-  lista.forEach(q => contagemTemas[q.tema] = (contagemTemas[q.tema]||0) + 1);
-  const temasOrdenados = Object.keys(contagemTemas).sort((a,b) => contagemTemas[b] - contagemTemas[a]);
+  lista.forEach(q => contagemTemas[q.tema] = (contagemTemas[q.tema] || 0) + 1);
+  const temasOrdenados = Object.keys(contagemTemas).sort((a, b) => contagemTemas[b] - contagemTemas[a]);
 
   // agrupa por tema -> categoria
   const porTema = {};
   temasOrdenados.forEach(t => porTema[t] = {});
   lista.forEach(q => {
-    if(!porTema[q.tema][q.categoria]) porTema[q.tema][q.categoria] = [];
+    if (!porTema[q.tema][q.categoria]) porTema[q.tema][q.categoria] = [];
     porTema[q.tema][q.categoria].push(q);
   });
 
   // ordena categorias dentro de cada tema por frequência
-  const resultado = temasOrdenados.map(tema => {
+  return temasOrdenados.map(tema => {
     const categorias = Object.keys(porTema[tema])
       .map(cat => ({ nome: cat, questoes: porTema[tema][cat] }))
-      .sort((a,b) => b.questoes.length - a.questoes.length);
+      .sort((a, b) => b.questoes.length - a.questoes.length);
     return { tema, total: contagemTemas[tema], categorias };
   });
-
-  return resultado;
 }
 
 function montarIndice(estrutura){
-  const toc = document.getElementById('toc');
-  toc.innerHTML = estrutura.map(({tema, total}) =>
-    `<a href="#${slug(tema)}">${tema} <span class="toc-count">(${total})</span></a>`
+  $('toc').innerHTML = estrutura.map(({ tema, total }) =>
+    `<a href="#${slug(tema)}">${esc(tema)} <span class="toc-count">(${total})</span></a>`
   ).join('');
 }
 
-function renderTudo(termo){
-  termo = semAcentos(termo).trim();
-  let lista = QUESTOES.filter(q => q.tipo !== 'nota_interna');
-  if (termo){
-    lista = lista.filter(q => {
-      const opcoes = q.opcoes ? Object.values(q.opcoes).join(' ') : '';
-      const blob = semAcentos([q.enunciado, q.contexto, opcoes, q.categoria, q.tema, q.numero, q.fase].join(' '));
-      return blob.includes(termo);
-    });
-  }
+function renderTudo(){
+  sincronizarControlos();
+  atualizarPlacar();
 
-  const cont = document.getElementById('conteudo');
+  const termo = semAcentos(FILTROS.termo).trim();
+  const lista = QUESTOES.filter(q => passaFiltros(q, termo));
+  const cont = $('conteudo');
 
   if (lista.length === 0){
-    document.getElementById('toc').innerHTML = '';
-    cont.innerHTML = '<p class="no-results">Nenhuma questão encontrada com esse termo.</p>';
+    $('toc').innerHTML = '';
+    const msg = FILTROS.estado === 'erradas' && !termo && !FILTROS.ano && !FILTROS.fase && !FILTROS.tipo
+      ? 'Ainda não erraste nenhuma questão de escolha múltipla. 👍'
+      : 'Nenhuma questão encontrada com estes filtros.';
+    cont.innerHTML = `<div class="no-results">${msg}<br><button type="button" class="btn" data-acao="limpar-filtros">limpar filtros</button></div>`;
     return;
   }
 
   const estrutura = ordenarPorFrequencia(lista);
   montarIndice(estrutura);
+  const abrirTodas = filtrosAtivos();
 
-  cont.innerHTML = estrutura.map(({tema, total, categorias}) => {
-    const linhasCategorias = categorias.map(({nome, questoes}) => {
-      const qs = questoes.slice().sort((a,b) => b.ano - a.ano);
-      const itens = qs.map(q => renderQuestao(q)).join('');
+  cont.innerHTML = estrutura.map(({ tema, total, categorias }) => {
+    const linhasCategorias = categorias.map(({ nome, questoes }) => {
+      const qs = questoes.slice().sort((a, b) => b.ano - a.ano);
+      const itens = qs.map(renderQuestao).join('');
+      const aberta = abrirTodas || ABERTAS.has(chaveCat(tema, nome));
 
       return `
-        <div class="categoria" data-cat="${nome}">
-          <div class="categoria-row" onclick="this.parentElement.classList.toggle('open')">
-            <span class="categoria-nome">${nome}</span>
+        <div class="categoria${aberta ? ' open' : ''}" data-tema="${esc(tema)}" data-cat="${esc(nome)}">
+          <div class="categoria-row" role="button" tabindex="0" aria-expanded="${aberta}">
+            <span class="categoria-nome">${esc(nome)}</span>
             <span class="categoria-meta">
-              <span class="categoria-count">${questoes.length} ${questoes.length===1?'questão':'questões'}</span>
-              <span class="toggle-icon">+</span>
+              ${htmlProgressoCategoria(tema, nome)}
+              <span class="categoria-count">${questoes.length} ${plural(questoes.length, 'questão', 'questões')}</span>
+              <span class="toggle-icon" aria-hidden="true">+</span>
             </span>
           </div>
           <div class="questoes-lista">${itens}</div>
@@ -341,106 +684,384 @@ function renderTudo(termo){
     }).join('');
 
     return `
-      <section class="tema-section" data-tema="${tema}" id="${slug(tema)}">
+      <section class="tema-section" data-tema="${esc(tema)}" id="${slug(tema)}">
         <div class="tema-heading">
           <span class="swatch"></span>
-          <h2>${tema}</h2>
+          <h2>${esc(tema)}</h2>
         </div>
-        <p class="tema-sub">${total} ${total===1?'questão':'questões'} catalogada${total===1?'':'s'} em ${categorias.length} ${categorias.length===1?'categoria':'categorias'}</p>
+        <p class="tema-sub">${total} ${plural(total, 'questão', 'questões')} catalogada${total === 1 ? '' : 's'} em ${categorias.length} ${plural(categorias.length, 'categoria', 'categorias')}</p>
         ${linhasCategorias}
       </section>
     `;
   }).join('');
+}
 
-  if (termo){
-    document.querySelectorAll('.categoria').forEach(c => c.classList.add('open'));
-  }
+/* ---------- questões ---------- */
+function htmlOpcoes(q, resp){
+  return `<ul class="opcoes-lista${resp ? ' answered' : ''}">` + LETRAS.filter(l => q.opcoes[l]).map(l => {
+    let cls = 'opcao';
+    if (resp && l === q.resposta_certa) cls += ' is-correct';
+    if (resp && l === resp.escolhida && !resp.certa) cls += ' is-wrong';
+    const interativo = resp ? '' : ' role="button" tabindex="0"';
+    return `<li class="${cls}" data-letra="${l}"${interativo}><span class="letra">${l}</span><span>${esc(q.opcoes[l])}</span></li>`;
+  }).join('') + '</ul>';
+}
+
+function htmlFeedback(q, resp){
+  if (!resp) return '';
+  const certa = esc(q.resposta_certa);
+  if (resp.certa) return `<p class="feedback ok">✓ Certo! Resposta ${certa}.</p>`;
+  if (resp.escolhida === '—') return `<p class="feedback ko">A resposta certa é ${certa}.</p>`;
+  return `<p class="feedback ko">✗ Escolheste ${esc(resp.escolhida)}. A resposta certa é ${certa}.</p>`;
+}
+
+function htmlRef(q){
+  return `<div class="questao-ref"><b>${esc(q.ano)}</b> · ${esc(q.fase)} · item ${esc(q.numero)}</div>`;
+}
+
+function htmlLinks(q){
+  return `
+    <div class="questao-links">
+      <a href="${urlSegura(q.pdf_enunciado)}" target="_blank" rel="noopener">enunciado completo ↗</a>
+      <a href="${urlSegura(q.pdf_criterios)}" target="_blank" rel="noopener">critérios de correção ↗</a>
+    </div>`;
 }
 
 function renderQuestao(q){
-  const contextoHtml = q.contexto ? `<p class="questao-contexto">${q.contexto}</p>` : '';
+  const contextoHtml = q.contexto ? `<p class="questao-contexto">${esc(q.contexto)}</p>` : '';
 
   let corpoHtml = '';
-  if (q.tipo === 'escolha_multipla' && q.opcoes){
-    const letras = ['A','B','C','D'];
+  let respostaHtml = '';
+  if (eEM(q)){
     const resp = RESPOSTAS[q.id];
-    const opcoesHtml = letras.filter(l => q.opcoes[l]).map(l => {
-      let cls = 'opcao';
-      if (resp && l === q.resposta_certa) cls += ' is-correct';
-      if (resp && l === resp.escolhida && !resp.certa) cls += ' is-wrong';
-      return `<li class="${cls}" data-letra="${l}" onclick="escolherOpcao(this, '${q.id}')"><span class="letra">${l}</span><span>${q.opcoes[l]}</span></li>`;
-    }).join('');
-    const feedback = resp
-      ? (resp.certa
-          ? `<p class="feedback ok">✓ Certo! Resposta ${q.resposta_certa}.</p>`
-          : resp.escolhida === '—'
-            ? `<p class="feedback ko">A resposta certa é ${q.resposta_certa}.</p>`
-            : `<p class="feedback ko">✗ Escolheste ${resp.escolhida}. A resposta certa é ${q.resposta_certa}.</p>`)
-      : '';
     corpoHtml = `
-      <ul class="opcoes-lista${resp ? ' answered' : ''}">${opcoesHtml}</ul>
-      <div class="feedback-slot">${feedback}</div>
-      ${resp ? '' : `<button class="reveal-btn" onclick="revelarResposta(this, '${q.id}', '${q.resposta_certa}')">não sei — ver resposta</button>`}
+      ${htmlOpcoes(q, resp)}
+      <div class="feedback-slot">${htmlFeedback(q, resp)}</div>
+      ${resp ? '' : `<button type="button" class="reveal-btn" data-acao="nao-sei">não sei — ver resposta</button>`}
     `;
   } else {
-    const labelTipo = {
-      'calculo': 'item de cálculo',
-      'resposta_aberta': 'resposta aberta / texto estruturado',
-      'associacao': 'associação'
-    }[q.tipo] || q.tipo;
+    const labelTipo = ROTULO_TIPO_ITEM[q.tipo] || q.tipo;
     const revelada = REVELADAS.has(q.id);
     corpoHtml = `
-      <span class="categoria-meta-tipo">${labelTipo}</span>
-      <button class="reveal-btn${revelada ? ' revealed' : ''}" ${revelada ? 'disabled' : ''} onclick="revelarResposta(this, '${q.id}', null)">${revelada ? 'resolução revelada' : 'ver resolução'}</button>
+      <span class="categoria-meta-tipo">${esc(labelTipo)}</span>
+      <button type="button" class="reveal-btn${revelada ? ' revealed' : ''}" ${revelada ? 'disabled' : ''} data-acao="resolucao">${revelada ? 'resolução revelada' : 'ver resolução'}</button>
     `;
+    const texto = q.resposta_certa || 'Resolução ainda não disponível — consulta os critérios de correção.';
+    respostaHtml = `<div class="resposta-texto${revelada ? ' show' : ''}"><b>Resolução:</b> ${esc(texto)}</div>`;
   }
 
-  const respostaTexto = q.tipo === 'escolha_multipla' ? '' : (q.resposta_certa || 'Resolução ainda não disponível — consulta os critérios de correção.');
-  const mostrar = REVELADAS.has(q.id) ? ' show' : '';
-
   return `
-    <div class="questao-item" data-id="${q.id}">
-      <div class="questao-ref"><b>${q.ano}</b> · ${q.fase} · item ${q.numero}</div>
+    <div class="questao-item" data-id="${esc(q.id)}">
+      ${htmlRef(q)}
       ${contextoHtml}
-      <p class="questao-enunciado">${q.enunciado}</p>
+      <p class="questao-enunciado">${esc(q.enunciado)}</p>
       ${corpoHtml}
-      ${respostaTexto ? `<div class="resposta-texto${mostrar}" id="resp-${q.id}"><b>Resolução:</b> ${respostaTexto}</div>` : ''}
-      <div class="questao-links">
-        <a href="${q.pdf_enunciado}" target="_blank">enunciado completo ↗</a>
-        <a href="${q.pdf_criterios}" target="_blank">critérios de correção ↗</a>
-      </div>
+      ${respostaHtml}
+      ${htmlLinks(q)}
     </div>
   `;
 }
 
-function redesenharItem(el, qId){
-  const q = QUESTOES.find(x => x.id === qId);
-  if (q) el.closest('.questao-item').outerHTML = renderQuestao(q);
+function redesenharItem(id){
+  const el = itemNoBanco(id);
+  const q = questaoPorId(id);
+  if (el && q) el.outerHTML = renderQuestao(q);
 }
 
-function escolherOpcao(li, qId){
-  if (RESPOSTAS[qId]) return; // já respondida
-  const q = QUESTOES.find(x => x.id === qId);
-  const letra = li.dataset.letra;
-  RESPOSTAS[qId] = { escolhida: letra, certa: letra === q.resposta_certa };
-  redesenharItem(li, qId);
-  atualizarPlacar();
+function escolherOpcao(id, letra){
+  if (RESPOSTAS[id]) return; // já respondida
+  if (!registarResposta(id, letra)) return;
+  redesenharItem(id);
+  atualizarTudoMenosLista();
 }
 
-function revelarResposta(btn, qId, letraCerta){
-  if (letraCerta){
-    // "não sei": conta como respondida, mas errada
-    if (!RESPOSTAS[qId]) RESPOSTAS[qId] = { escolhida: '—', certa: false };
-    atualizarPlacar();
-  } else {
-    REVELADAS.add(qId);
+function naoSei(id){
+  if (RESPOSTAS[id]) return;
+  // "não sei": conta como respondida, mas errada
+  registarResposta(id, '—');
+  redesenharItem(id);
+  atualizarTudoMenosLista();
+}
+
+function verResolucao(id){
+  REVELADAS.add(id);
+  guardarProgresso();
+  redesenharItem(id);
+  atualizarTudoMenosLista();
+}
+
+function alternarCategoria(row){
+  const cat = row.closest('.categoria');
+  const aberta = cat.classList.toggle('open');
+  row.setAttribute('aria-expanded', aberta);
+  const k = chaveCat(cat.dataset.tema, cat.dataset.cat);
+  if (aberta) ABERTAS.add(k); else ABERTAS.delete(k);
+}
+
+/* ---------- eventos do banco ---------- */
+function ativar(e, handler){
+  // clique, ou Enter/Espaço em elementos com role="button"
+  if (e.type === 'keydown'){
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    if (!e.target.matches('[role="button"]')) return;
+    e.preventDefault();
   }
-  redesenharItem(btn, qId);
+  handler(e);
 }
 
-document.getElementById('search').addEventListener('input', (e) => {
-  renderTudo(e.target.value);
+function tratarBanco(e){
+  const op = e.target.closest('.opcao');
+  if (op && !op.closest('.answered')){
+    escolherOpcao(op.closest('.questao-item').dataset.id, op.dataset.letra);
+    return;
+  }
+  const btn = e.target.closest('[data-acao]');
+  if (btn){
+    const item = btn.closest('.questao-item');
+    if (btn.dataset.acao === 'nao-sei') naoSei(item.dataset.id);
+    else if (btn.dataset.acao === 'resolucao') verResolucao(item.dataset.id);
+    else if (btn.dataset.acao === 'limpar-filtros'){ limparFiltros(); renderTudo(); }
+    return;
+  }
+  const row = e.target.closest('.categoria-row');
+  if (row) alternarCategoria(row);
+}
+
+['click', 'keydown'].forEach(tipo => $('conteudo').addEventListener(tipo, e => ativar(e, tratarBanco)));
+
+$('search').addEventListener('input', e => { FILTROS.termo = e.target.value; renderTudo(); });
+[['f-ano', 'ano'], ['f-fase', 'fase'], ['f-tipo', 'tipo'], ['f-estado', 'estado']].forEach(([id, campo]) => {
+  $(id).addEventListener('change', e => { FILTROS[campo] = e.target.value; renderTudo(); });
 });
+$('btn-erradas').addEventListener('click', () => {
+  FILTROS.estado = FILTROS.estado === 'erradas' ? 'todas' : 'erradas';
+  renderTudo();
+});
+$('btn-limpar').addEventListener('click', () => { limparFiltros(); renderTudo(); });
+
+let avisoTimer = null;
+function mostrarAviso(txt){
+  const a = $('aviso');
+  a.textContent = txt;
+  a.hidden = false;
+  clearTimeout(avisoTimer);
+  avisoTimer = setTimeout(() => { a.hidden = true; }, 3500);
+}
+
+$('btn-recomecar').addEventListener('click', () => {
+  $('confirmar').hidden = false;
+  $('aviso').hidden = true;
+  $('btn-confirmar-nao').focus();
+});
+$('btn-confirmar-nao').addEventListener('click', () => { $('confirmar').hidden = true; $('btn-recomecar').focus(); });
+$('btn-confirmar-sim').addEventListener('click', () => {
+  apagarProgresso();
+  $('confirmar').hidden = true;
+  renderTudo();
+  mostrarAviso('Progresso apagado. Bom recomeço!');
+});
+
+/* ---------- modo exame aleatório ---------- */
+let EXAME = null;          // { questoes, i, respostas: {id: {escolhida, certa}} }
+const CONFIG_EXAME = { n: 10, tema: '' };
+
+function mostrarVista(exame){
+  $('vista-banco').hidden = exame;
+  $('vista-exame').hidden = !exame;
+  window.scrollTo(0, 0);
+}
+
+function poolExame(tema){
+  return QUESTOES.filter(q => eEM(q) && (!tema || q.tema === tema));
+}
+
+function renderConfigExame(){
+  const em = poolExame('');
+  const contagem = {};
+  em.forEach(q => contagem[q.tema] = (contagem[q.tema] || 0) + 1);
+  const temas = Object.keys(contagem).sort((a, b) => contagem[b] - contagem[a]);
+  if (CONFIG_EXAME.tema && !contagem[CONFIG_EXAME.tema]) CONFIG_EXAME.tema = '';
+  const disponiveis = poolExame(CONFIG_EXAME.tema).length;
+  const aviso = disponiveis < CONFIG_EXAME.n
+    ? `<p class="sub">Só há ${disponiveis} ${plural(disponiveis, 'questão', 'questões')} de escolha múltipla ${CONFIG_EXAME.tema ? 'neste tema' : 'disponíveis'} — o exame terá ${disponiveis}.</p>`
+    : '';
+
+  $('vista-exame').innerHTML = `
+    <div class="exame-topo">
+      <span class="exame-titulo"><b>Exame aleatório</b></span>
+      <button type="button" class="btn btn-discreto" data-acao="sair">← voltar ao índice</button>
+    </div>
+    <h2>Preparar exame</h2>
+    <p class="sub">Questões de escolha múltipla, baralhadas, uma de cada vez. As respostas contam para o teu progresso.</p>
+    <div class="exame-campo">
+      <span>Número de questões</span>
+      <div class="seg">
+        ${[10, 15, 20].map(n => `<button type="button" class="btn" data-acao="n" data-n="${n}" aria-pressed="${CONFIG_EXAME.n === n}">${n}</button>`).join('')}
+      </div>
+    </div>
+    <div class="exame-campo">
+      <span>Tema (opcional)</span>
+      <select id="exame-tema">
+        <option value="">todos os temas (${em.length})</option>
+        ${temas.map(t => `<option value="${esc(t)}"${t === CONFIG_EXAME.tema ? ' selected' : ''}>${esc(t)} (${contagem[t]})</option>`).join('')}
+      </select>
+    </div>
+    ${aviso}
+    <button type="button" class="btn btn-primario" data-acao="comecar"${disponiveis ? '' : ' disabled'}>começar exame →</button>
+  `;
+}
+
+function comecarExame(){
+  const pool = poolExame(CONFIG_EXAME.tema);
+  if (!pool.length) return;
+  EXAME = { questoes: baralhar(pool).slice(0, CONFIG_EXAME.n), i: 0, respostas: {} };
+  renderPerguntaExame();
+}
+
+function renderPerguntaExame(){
+  const total = EXAME.questoes.length;
+  const q = EXAME.questoes[EXAME.i];
+  const resp = EXAME.respostas[q.id];
+  const feitas = Object.keys(EXAME.respostas).length;
+  const ultima = EXAME.i === total - 1;
+
+  $('vista-exame').innerHTML = `
+    <div class="exame-topo">
+      <span class="exame-titulo"><b>Questão ${EXAME.i + 1} de ${total}</b>${CONFIG_EXAME.tema ? ' · ' + esc(CONFIG_EXAME.tema) : ''}</span>
+      <button type="button" class="btn btn-discreto" data-acao="sair">sair do exame</button>
+    </div>
+    <div class="barra" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${feitas}"><div style="width:${(feitas / total) * 100}%"></div></div>
+    <div class="questao-item" data-id="${esc(q.id)}">
+      ${htmlRef(q)}
+      ${q.contexto ? `<p class="questao-contexto">${esc(q.contexto)}</p>` : ''}
+      <p class="questao-enunciado">${esc(q.enunciado)}</p>
+      ${htmlOpcoes(q, resp)}
+      <div class="feedback-slot">${htmlFeedback(q, resp)}</div>
+      ${resp
+        ? `<button type="button" class="reveal-btn" data-acao="seguinte">${ultima ? 'ver resultado →' : 'seguinte →'}</button>`
+        : `<button type="button" class="reveal-btn" data-acao="nao-sei">não sei — ver resposta</button>`}
+    </div>
+  `;
+  const foco = $('vista-exame').querySelector(resp ? '[data-acao="seguinte"]' : '.opcao');
+  if (foco) foco.focus({ preventScroll: true });
+}
+
+function responderExame(letra){
+  const q = EXAME.questoes[EXAME.i];
+  if (EXAME.respostas[q.id]) return;
+  // conta para o progresso guardado (fica a tentativa mais recente)
+  EXAME.respostas[q.id] = registarResposta(q.id, letra);
+  atualizarPlacar();
+  renderPerguntaExame();
+}
+
+function renderResultadoExame(){
+  const qs = EXAME.questoes;
+  const total = qs.length;
+  const certas = qs.filter(q => EXAME.respostas[q.id] && EXAME.respostas[q.id].certa).length;
+  const nota = (certas / total * 20).toFixed(1).replace('.', ',');
+  const erradas = qs.filter(q => !(EXAME.respostas[q.id] && EXAME.respostas[q.id].certa));
+
+  const listaErradas = erradas.map(q => {
+    const r = EXAME.respostas[q.id];
+    const tua = !r || r.escolhida === '—'
+      ? 'não respondeste'
+      : `${esc(r.escolhida)} — ${esc(q.opcoes[r.escolhida])}`;
+    return `
+      <li>
+        ${htmlRef(q)}
+        <p class="questao-enunciado">${esc(q.enunciado)}</p>
+        <p class="linha ko"><b>A tua resposta:</b> ${tua}</p>
+        <p class="linha ok"><b>Resposta certa:</b> ${esc(q.resposta_certa)} — ${esc(q.opcoes[q.resposta_certa])}</p>
+        <div class="questao-links">
+          <button type="button" class="link-btn" data-acao="ir-questao" data-id="${esc(q.id)}">ver no banco →</button>
+          <a href="${urlSegura(q.pdf_enunciado)}" target="_blank" rel="noopener">enunciado completo ↗</a>
+        </div>
+      </li>`;
+  }).join('');
+
+  $('vista-exame').innerHTML = `
+    <div class="exame-topo">
+      <span class="exame-titulo"><b>Resultado</b>${CONFIG_EXAME.tema ? ' · ' + esc(CONFIG_EXAME.tema) : ''}</span>
+      <button type="button" class="btn btn-discreto" data-acao="sair">← voltar ao índice</button>
+    </div>
+    <div class="barra"><div style="width:100%"></div></div>
+    <p class="nota-exame">${certas} de ${total} certas</p>
+    <p class="nota-grande">${nota} <small>valores (0–20)</small></p>
+    <div class="acoes">
+      <button type="button" class="btn btn-primario" data-acao="novo">novo exame</button>
+      <button type="button" class="btn" data-acao="sair">voltar ao índice</button>
+    </div>
+    ${erradas.length
+      ? `<h2 style="margin-top:34px">${erradas.length === 1 ? 'A que erraste' : `As ${erradas.length} que erraste`}</h2><ul class="erradas-lista">${listaErradas}</ul>`
+      : `<p class="sub" style="margin-top:24px">Sem erros — excelente! 🎉</p>`}
+  `;
+}
+
+function sairExame(){
+  EXAME = null;
+  mostrarVista(false);
+  renderTudo();
+}
+
+function irParaQuestao(id){
+  const q = questaoPorId(id);
+  EXAME = null;
+  mostrarVista(false);
+  limparFiltros();
+  if (q) ABERTAS.add(chaveCat(q.tema, q.categoria));
+  renderTudo();
+  const el = itemNoBanco(id);
+  if (el){
+    el.scrollIntoView({ block: 'start' });
+    el.classList.add('destaque');
+  }
+}
+
+function tratarExame(e){
+  const op = e.target.closest('.opcao');
+  if (op && EXAME && !op.closest('.answered')){ responderExame(op.dataset.letra); return; }
+  const btn = e.target.closest('[data-acao]');
+  if (!btn) return;
+  switch (btn.dataset.acao){
+    case 'n': CONFIG_EXAME.n = Number(btn.dataset.n); renderConfigExame(); break;
+    case 'comecar': comecarExame(); window.scrollTo(0, 0); break;
+    case 'nao-sei': responderExame('—'); break;
+    case 'seguinte':
+      if (EXAME.i < EXAME.questoes.length - 1){ EXAME.i++; renderPerguntaExame(); }
+      else renderResultadoExame();
+      window.scrollTo(0, 0);
+      break;
+    case 'novo': EXAME = null; renderConfigExame(); window.scrollTo(0, 0); break;
+    case 'sair': sairExame(); break;
+    case 'ir-questao': irParaQuestao(btn.dataset.id); break;
+  }
+}
+
+['click', 'keydown'].forEach(tipo => $('vista-exame').addEventListener(tipo, e => ativar(e, tratarExame)));
+$('vista-exame').addEventListener('change', e => {
+  if (e.target.id === 'exame-tema'){ CONFIG_EXAME.tema = e.target.value; renderConfigExame(); }
+});
+$('btn-exame').addEventListener('click', () => {
+  $('confirmar').hidden = true;
+  renderConfigExame();
+  mostrarVista(true);
+});
+
+/* ---------- arranque ---------- */
+carregarProgresso();
+
+fetch('questoes.json')
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    QUESTOES = Array.isArray(data) ? data : [];
+    reavaliarRespostas();
+    preencherFiltros();
+    renderTudo();
+  })
+  .catch(() => {
+    $('conteudo').innerHTML = '<p class="no-results">Não foi possível carregar questoes.json.</p>';
+  });
 </script>
 
 </body>
