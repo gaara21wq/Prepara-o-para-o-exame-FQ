@@ -25,7 +25,7 @@
     "fase": "1ª Fase",
     "numero": "2.2.1",
     "tema": "Química",
-    "categoria": "Energia, Calor e Reações",
+    "categoria": "Oxidação-Redução",
     "contexto": "A água régia é uma mistura de ácido nítrico e ácido clorídrico que permite extrair o ouro de equipamentos eletrónicos: Au(s) + HNO3(aq) + 4 HCl(aq) → 2 H2O(l) + NO(g) + HAuCl4(aq)",
     "enunciado": "Nesta reação, o ouro é ___, e o HNO3 é o agente ___.",
     "tipo": "escolha_multipla",
@@ -90,7 +90,8 @@
     "enunciado": "Justifique que o atleta A vence a corrida (resposta de construção, com equações do movimento e cálculos).",
     "tipo": "resposta_aberta",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "resposta_certa": "Equações do movimento: A (MRU) x = 6,5t, tem de percorrer 74 m; B (MRUA) x = 6,5t + 0,05t², tem de percorrer 84 m. A chega à meta em ≈ 11,4 s e B em ≈ 11,8 s, logo o atleta A vence."
   },
   {
     "id": "2024-f1-4-1",
@@ -204,7 +205,7 @@
     "contexto": "Extração de metais por pirometalurgia: fusão de 1,40 kg de prata sólida em 600 s, a partir de 25,0°C. Dados: capacidade térmica mássica da prata, ponto de fusão 962°C, entalpia mássica de fusão.",
     "enunciado": "Determine a potência mínima do forno necessária para fundir a amostra de prata nas condições descritas.",
     "tipo": "calculo",
-    "resposta_certa": "Soma da energia para aquecer até à fusão + energia de fusão, dividida pelo tempo (600 s)",
+    "resposta_certa": "Aquecer a prata de 25,0 °C até 961,8 °C (E = m·c·ΔT) + fundir toda a amostra (E = m·ΔH fusão); a soma a dividir por 600 s dá a potência mínima do forno: P ≈ 759 W.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
@@ -433,7 +434,7 @@
     "contexto": "O espelho principal do JWST é revestido a ouro; espelhos comuns na Terra são revestidos a alumínio. Considerar espelhos de área igual revestidos com camadas de igual espessura.",
     "enunciado": "Determine a razão entre o número de átomos de ouro e o número de átomos de alumínio necessários para revestir os dois espelhos.",
     "tipo": "calculo",
-    "resposta_certa": "Calculado a partir das massas volúmicas e massas molares do Au e do Al",
+    "resposta_certa": "Para a mesma área e espessura, o volume de metal é igual, logo N ∝ ρ/M. N(Au)/N(Al) = (19,3/196,97)/(2,7/26,98) = 0,0980/0,1001 ≈ 1 — é praticamente o mesmo número de átomos.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -443,7 +444,7 @@
     "fase": "2ª Fase",
     "numero": "1.4.2",
     "tema": "Química",
-    "categoria": "Energia, Calor e Reações",
+    "categoria": "Oxidação-Redução",
     "contexto": "Reação do alumínio com o dioxigénio do ar: 4 Al(s) + 3 O2(g) → 2 Al2O3(s)",
     "enunciado": "Nesta reação, o alumínio é",
     "tipo": "escolha_multipla",
@@ -488,7 +489,7 @@
     "contexto": "O JWST orbita o Sol numa região exterior à órbita da Terra. Massa do JWST = 6200 kg; força gravítica exercida pelo Sol no JWST = 36,03 N; distâncias Sol-Terra e Sol-JWST dadas.",
     "enunciado": "Determine o período de translação do JWST, em dias, considerando o efeito conjunto das forças gravíticas do Sol e da Terra.",
     "tipo": "calculo",
-    "resposta_certa": "≈ 365 dias (período muito próximo do da Terra, pela proximidade orbital relativa)",
+    "resposta_certa": "Força gravítica Terra–JWST = 1,097 N; resultante das forças gravíticas no JWST = 36,03 + 1,097 = 37,13 N (força centrípeta); daí obtém-se v e T = 2πr/v ≈ 365 dias (igual ao da Terra — o JWST acompanha a Terra no ponto L2).",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -499,12 +500,18 @@
     "numero": "3.1",
     "tema": "Eletricidade",
     "categoria": "Indução Eletromagnética",
-    "contexto": "Sistema de ignição de um automóvel com bobina de 20 000 espiras. Variação do campo magnético de 1,0 T em 1 ms, perpendicular à área da bobina.",
-    "enunciado": "Determine o módulo da força eletromotriz induzida na bobina.",
-    "tipo": "calculo",
-    "resposta_certa": "ε = N · (ΔΦ/Δt), calculado a partir dos dados fornecidos",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "contexto": "Sistema de ignição de um automóvel: bobina de 20 000 espiras, cada uma com área 1,25×10⁻³ m². Quando o sistema é ativado, o módulo do campo magnético varia 1,0 T em 1 ms, com o campo perpendicular ao plano das espiras.",
+    "enunciado": "O módulo da força eletromotriz induzida aos terminais da bobina é ___ e seria maior se o número de espiras ___.",
+    "tipo": "escolha_multipla",
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V2.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "opcoes": {
+      "A": "2,5×10⁴ V ... diminuísse",
+      "B": "2,5×10¹ V ... diminuísse",
+      "C": "2,5×10⁴ V ... aumentasse",
+      "D": "2,5×10¹ V ... aumentasse"
+    }
   },
   {
     "id": "2024-f2-3-2",
@@ -513,25 +520,32 @@
     "numero": "3.2",
     "tema": "Eletricidade",
     "categoria": "Circuitos Elétricos e Corrente",
-    "contexto": "Bateria de chumbo-ácido com seis células em série, medições de tensão e corrente realizadas em laboratório.",
-    "enunciado": "Determine a resistência interna de uma célula da bateria.",
-    "tipo": "calculo",
-    "resposta_certa": "A partir da curva característica U(I) e divisão pelas 6 células em série",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "contexto": "Bateria de chumbo-ácido com seis células iguais em série. Desligada, a tensão aos terminais é 12,00 V (2,00 V por célula). Com o automóvel em funcionamento, a bateria fornece 40,0 A com uma tensão aos terminais de 9,00 V.",
+    "enunciado": "A resistência interna de cada célula da bateria é",
+    "tipo": "escolha_multipla",
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V2.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "opcoes": {
+      "A": "1,25×10⁻² Ω",
+      "B": "3,75×10⁻² Ω",
+      "C": "6,00×10⁻² Ω",
+      "D": "7,50×10⁻² Ω"
+    }
   },
   {
     "id": "2024-f2-3-3",
     "ano": 2024,
     "fase": "2ª Fase",
     "numero": "3.3",
-    "tema": "Mecânica",
-    "categoria": "Trabalho, Energia e Conservação",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
     "contexto": "Comparar a capacidade térmica mássica de dois líquidos de refrigeração de um automóvel, sem necessidade de efetuar cálculos.",
     "enunciado": "Descreva um procedimento experimental que permita comparar as capacidades térmicas mássicas dos dois líquidos.",
     "tipo": "resposta_aberta",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "resposta_certa": "c = P·Δt/(m·ΔT). Aquecer massas iguais de cada líquido com a mesma fonte (mesma potência) durante o mesmo intervalo de tempo e medir as variações de temperatura (ou aquecer até à mesma ΔT e medir os tempos). O melhor líquido de refrigeração é o de maior capacidade térmica mássica: o que aquece menos no mesmo tempo (ou demora mais a atingir a mesma ΔT)."
   },
   {
     "id": "2024-f2-4-1",
@@ -543,7 +557,7 @@
     "contexto": "Automóvel de 1000 kg, parado num semáforo, acelera durante os primeiros 6,0 s segundo o gráfico v(t) fornecido. 90% da energia fornecida pelo motor transforma-se em energia cinética.",
     "enunciado": "Determine a energia fornecida ao automóvel nos primeiros 6,0 segundos.",
     "tipo": "calculo",
-    "resposta_certa": "Ec final / 0,90, com Ec calculada a partir da velocidade final lida no gráfico",
+    "resposta_certa": "Variação da energia cinética: ΔEc = 7,20×10⁴ J; como só 90% se converte em Ec, energia fornecida = 7,20×10⁴ / 0,90 = 8,0×10⁴ J.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -557,7 +571,7 @@
     "contexto": "O automóvel é ultrapassado por uma mota de 150 kg com velocidade constante de 10 m/s, partindo do mesmo ponto e instante.",
     "enunciado": "Determine a distância percorrida pelos dois veículos até se encontrarem novamente.",
     "tipo": "calculo",
-    "resposta_certa": "Igualando as equações de posição do MRU (mota) e MRUA (automóvel)",
+    "resposta_certa": "Nos primeiros 6,0 s o automóvel percorre 36,0 m; igualando as equações de posição (mota em MRU, automóvel em MRUA) os veículos voltam a encontrar-se em t = 18,0 s; distância percorrida por ambos ≈ 1,8×10² m.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -661,7 +675,7 @@
     "contexto": "Duas soluções aquosas de mesma concentração: uma de HNO3 (ácido forte) e outra de HNO2 (ácido fraco), com valores de pH medidos.",
     "enunciado": "Determine a constante de acidez, Ka, do HNO2 a partir dos valores de pH das duas soluções.",
     "tipo": "calculo",
-    "resposta_certa": "Ka = [H3O+]²/(c - [H3O+]), com [H3O+] obtido do pH da solução de HNO2",
+    "resposta_certa": "Ácido forte ⇒ c(HNO3) = [H3O+] = 1,000×10⁻¹ mol/dm³ (é também a concentração da solução de HNO2). [HNO2] no equilíbrio = 9,308×10⁻² mol/dm³. Ka = [H3O+]²/[HNO2] = 5,14×10⁻⁴.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -712,12 +726,18 @@
     "numero": "6.3",
     "tema": "Química",
     "categoria": "Química Orgânica e Síntese",
-    "contexto": "Síntese: ácido salicílico (C7H6O3) + anidrido acético (C4H6O3) → ácido acetilsalicílico (C9H8O4) + ácido acético (C2H4O2).",
-    "enunciado": "Calcule a percentagem, em massa, dos átomos dos reagentes que são incorporados no produto (economia atómica).",
-    "tipo": "calculo",
-    "resposta_certa": "M(ácido acetilsalicílico) / [M(ácido salicílico) + M(anidrido acético)] × 100%",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "contexto": "Síntese: ácido salicílico, C7H6O3 (M = 138,13 g/mol) + anidrido acético, C4H6O3 (M = 102,10 g/mol) → ácido acetilsalicílico, C9H8O4 (M = 180,17 g/mol) + ácido acético.",
+    "enunciado": "A percentagem, em massa, dos átomos dos reagentes que são incorporados no ácido acetilsalicílico é, aproximadamente,",
+    "tipo": "escolha_multipla",
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V2.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "opcoes": {
+      "A": "32%",
+      "B": "49%",
+      "C": "57%",
+      "D": "75%"
+    }
   },
   {
     "id": "2024-f2-6-4",

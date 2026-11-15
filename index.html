@@ -19,6 +19,8 @@
     --accent:#c8552d;
     --correct:#2f5d50;
     --correct-bg:#e3ece7;
+    --wrong:#a8322a;
+    --wrong-bg:#f5e1dd;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
@@ -133,10 +135,27 @@
     font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
     color:var(--ink-faint); flex-shrink:0;
   }
+  .opcoes-lista:not(.answered) .opcao{cursor:pointer;}
+  .opcoes-lista:not(.answered) .opcao:hover{border-color:var(--ink); background:#fbfaf6;}
   .opcao.is-correct{
     background:var(--correct-bg); border-color:var(--correct);
   }
   .opcao.is-correct .letra{color:var(--correct);}
+  .opcao.is-wrong{
+    background:var(--wrong-bg); border-color:var(--wrong);
+  }
+  .opcao.is-wrong .letra{color:var(--wrong);}
+  .feedback{
+    font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600;
+    margin:0 0 10px;
+  }
+  .feedback.ok{color:var(--correct);}
+  .feedback.ko{color:var(--wrong);}
+  .placar{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-faint);
+    margin-top:10px;
+  }
+  .placar b{color:var(--ink);}
   .categoria-meta-tipo{
     font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-faint); font-style:italic;
   }
@@ -194,7 +213,8 @@
 <header>
   <div class="eyebrow">11º ano · exames nacionais</div>
   <h1>Banco de Exames — Física e Química A</h1>
-  <div class="tagline">questões compiladas por tema, com escolhas múltiplas para resolver</div>
+  <div class="tagline">questões compiladas por tema — clica numa opção para responder</div>
+  <div class="placar" id="placar"></div>
 </header>
 
 <main>
@@ -207,7 +227,8 @@
 
 <footer>
   Fonte das provas: <a href="https://iave.pt" target="_blank">IAVE — Instituto de Avaliação Educativa</a>.
-  Temas e categorias ordenados da frequência mais alta para a mais baixa. Cobertura atual: 2024 (1ª fase, 2ª fase, época especial) — em expansão.
+  Temas e categorias ordenados da frequência mais alta para a mais baixa. Cobertura atual: 2024 (1ª fase, 2ª fase, época especial) — em expansão.<br>
+  Nos itens de escolha múltipla, a letra certa corresponde à versão do enunciado indicada no link.
 </footer>
 
 <script>
@@ -218,13 +239,32 @@ fetch('questoes.json')
   .then(data => {
     QUESTOES = data;
     renderTudo();
+    atualizarPlacar();
   })
   .catch(() => {
     document.getElementById('conteudo').innerHTML = '<p class="no-results">Não foi possível carregar questoes.json.</p>';
   });
 
+// respostas dadas nesta sess\u00e3o: { id: { escolhida: 'B', certa: true } }
+const RESPOSTAS = {};
+// itens de c\u00e1lculo/resposta aberta cuja resolu\u00e7\u00e3o j\u00e1 foi revelada
+const REVELADAS = new Set();
+
+function semAcentos(s){
+  return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+}
+
 function slug(s){
-  return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').toLowerCase();
+  return semAcentos(s).replace(/[^a-z0-9]+/g,'-');
+}
+
+function atualizarPlacar(){
+  const r = Object.values(RESPOSTAS);
+  const certas = r.filter(x => x.certa).length;
+  const total = QUESTOES.filter(q => q.tipo === 'escolha_multipla').length;
+  document.getElementById('placar').innerHTML = r.length
+    ? `acertaste <b>${certas}</b> de <b>${r.length}</b> respondidas \u00b7 ${total} de escolha m\u00faltipla no total`
+    : `${total} quest\u00f5es de escolha m\u00faltipla para resolver`;
 }
 
 function ordenarPorFrequencia(lista){
@@ -260,11 +300,12 @@ function montarIndice(estrutura){
 }
 
 function renderTudo(termo){
-  termo = (termo || '').toLowerCase().trim();
+  termo = semAcentos(termo).trim();
   let lista = QUESTOES.filter(q => q.tipo !== 'nota_interna');
   if (termo){
     lista = lista.filter(q => {
-      const blob = (q.enunciado + ' ' + (q.contexto||'') + ' ' + q.categoria + ' ' + q.tema).toLowerCase();
+      const opcoes = q.opcoes ? Object.values(q.opcoes).join(' ') : '';
+      const blob = semAcentos([q.enunciado, q.contexto, opcoes, q.categoria, q.tema, q.numero, q.fase].join(' '));
       return blob.includes(termo);
     });
   }
@@ -290,7 +331,7 @@ function renderTudo(termo){
           <div class="categoria-row" onclick="this.parentElement.classList.toggle('open')">
             <span class="categoria-nome">${nome}</span>
             <span class="categoria-meta">
-              <span class="categoria-count">${questoes.length} questão${questoes.length===1?'':'ões'}</span>
+              <span class="categoria-count">${questoes.length} ${questoes.length===1?'questão':'questões'}</span>
               <span class="toggle-icon">+</span>
             </span>
           </div>
@@ -305,7 +346,7 @@ function renderTudo(termo){
           <span class="swatch"></span>
           <h2>${tema}</h2>
         </div>
-        <p class="tema-sub">${total} questão${total===1?'':'ões'} catalogada${total===1?'':'s'} em ${categorias.length} categorias</p>
+        <p class="tema-sub">${total} ${total===1?'questão':'questões'} catalogada${total===1?'':'s'} em ${categorias.length} ${categorias.length===1?'categoria':'categorias'}</p>
         ${linhasCategorias}
       </section>
     `;
@@ -322,12 +363,24 @@ function renderQuestao(q){
   let corpoHtml = '';
   if (q.tipo === 'escolha_multipla' && q.opcoes){
     const letras = ['A','B','C','D'];
-    const opcoesHtml = letras.filter(l => q.opcoes[l]).map(l =>
-      `<li class="opcao" data-letra="${l}"><span class="letra">${l}</span><span>${q.opcoes[l]}</span></li>`
-    ).join('');
+    const resp = RESPOSTAS[q.id];
+    const opcoesHtml = letras.filter(l => q.opcoes[l]).map(l => {
+      let cls = 'opcao';
+      if (resp && l === q.resposta_certa) cls += ' is-correct';
+      if (resp && l === resp.escolhida && !resp.certa) cls += ' is-wrong';
+      return `<li class="${cls}" data-letra="${l}" onclick="escolherOpcao(this, '${q.id}')"><span class="letra">${l}</span><span>${q.opcoes[l]}</span></li>`;
+    }).join('');
+    const feedback = resp
+      ? (resp.certa
+          ? `<p class="feedback ok">✓ Certo! Resposta ${q.resposta_certa}.</p>`
+          : resp.escolhida === '—'
+            ? `<p class="feedback ko">A resposta certa é ${q.resposta_certa}.</p>`
+            : `<p class="feedback ko">✗ Escolheste ${resp.escolhida}. A resposta certa é ${q.resposta_certa}.</p>`)
+      : '';
     corpoHtml = `
-      <ul class="opcoes-lista">${opcoesHtml}</ul>
-      <button class="reveal-btn" onclick="revelarResposta(this, '${q.id}', '${q.resposta_certa}')">ver resposta certa</button>
+      <ul class="opcoes-lista${resp ? ' answered' : ''}">${opcoesHtml}</ul>
+      <div class="feedback-slot">${feedback}</div>
+      ${resp ? '' : `<button class="reveal-btn" onclick="revelarResposta(this, '${q.id}', '${q.resposta_certa}')">não sei — ver resposta</button>`}
     `;
   } else {
     const labelTipo = {
@@ -335,21 +388,23 @@ function renderQuestao(q){
       'resposta_aberta': 'resposta aberta / texto estruturado',
       'associacao': 'associação'
     }[q.tipo] || q.tipo;
+    const revelada = REVELADAS.has(q.id);
     corpoHtml = `
       <span class="categoria-meta-tipo">${labelTipo}</span>
-      <button class="reveal-btn" onclick="revelarResposta(this, '${q.id}', null)">ver resolução</button>
+      <button class="reveal-btn${revelada ? ' revealed' : ''}" ${revelada ? 'disabled' : ''} onclick="revelarResposta(this, '${q.id}', null)">${revelada ? 'resolução revelada' : 'ver resolução'}</button>
     `;
   }
 
-  const respostaTexto = q.resposta_certa ? (q.tipo === 'escolha_multipla' ? '' : q.resposta_certa) : '';
+  const respostaTexto = q.tipo === 'escolha_multipla' ? '' : (q.resposta_certa || 'Resolução ainda não disponível — consulta os critérios de correção.');
+  const mostrar = REVELADAS.has(q.id) ? ' show' : '';
 
   return `
-    <div class="questao-item">
+    <div class="questao-item" data-id="${q.id}">
       <div class="questao-ref"><b>${q.ano}</b> · ${q.fase} · item ${q.numero}</div>
       ${contextoHtml}
       <p class="questao-enunciado">${q.enunciado}</p>
       ${corpoHtml}
-      ${respostaTexto ? `<div class="resposta-texto" id="resp-${q.id}"><b>Resolução:</b> ${respostaTexto}</div>` : `<div class="resposta-texto" id="resp-${q.id}"></div>`}
+      ${respostaTexto ? `<div class="resposta-texto${mostrar}" id="resp-${q.id}"><b>Resolução:</b> ${respostaTexto}</div>` : ''}
       <div class="questao-links">
         <a href="${q.pdf_enunciado}" target="_blank">enunciado completo ↗</a>
         <a href="${q.pdf_criterios}" target="_blank">critérios de correção ↗</a>
@@ -358,17 +413,29 @@ function renderQuestao(q){
   `;
 }
 
+function redesenharItem(el, qId){
+  const q = QUESTOES.find(x => x.id === qId);
+  if (q) el.closest('.questao-item').outerHTML = renderQuestao(q);
+}
+
+function escolherOpcao(li, qId){
+  if (RESPOSTAS[qId]) return; // já respondida
+  const q = QUESTOES.find(x => x.id === qId);
+  const letra = li.dataset.letra;
+  RESPOSTAS[qId] = { escolhida: letra, certa: letra === q.resposta_certa };
+  redesenharItem(li, qId);
+  atualizarPlacar();
+}
+
 function revelarResposta(btn, qId, letraCerta){
-  const item = btn.closest('.questao-item');
   if (letraCerta){
-    const opcaoCerta = item.querySelector(`.opcao[data-letra="${letraCerta}"]`);
-    if (opcaoCerta) opcaoCerta.classList.add('is-correct');
+    // "não sei": conta como respondida, mas errada
+    if (!RESPOSTAS[qId]) RESPOSTAS[qId] = { escolhida: '—', certa: false };
+    atualizarPlacar();
+  } else {
+    REVELADAS.add(qId);
   }
-  const respDiv = document.getElementById('resp-' + qId);
-  if (respDiv) respDiv.classList.add('show');
-  btn.textContent = letraCerta ? `resposta certa: ${letraCerta}` : 'resolução revelada';
-  btn.classList.add('revealed');
-  btn.disabled = true;
+  redesenharItem(btn, qId);
 }
 
 document.getElementById('search').addEventListener('input', (e) => {
