@@ -1,12 +1,29 @@
 [
   {
+    "id": "2024-f1-1-1",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "1.1",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "Medalhas de Tóquio 2021, feitas de material reciclado: ouro (556 g; 98,8% Ag e 1,2% Au), prata (550 g; 100% Ag), bronze (450 g; 95,0% Cu e 5,0% Zn).",
+    "enunciado": "Complete: a interação responsável pela formação de ligações químicas é de natureza a) ___. Genericamente, uma interação deste tipo b) ___. Nas medalhas, a ligação química ocorre c) ___ e é designada ligação d) ___. Opções — a) 1. eletromagnética, 2. gravítica, 3. nuclear; b) 1. apenas pode ser atrativa, 2. apenas pode ser repulsiva, 3. pode ser atrativa ou repulsiva; c) 1. por partilha localizada de eletrões, 2. entre catiões e aniões, 3. entre catiões e eletrões livres; d) 1. covalente, 2. metálica, 3. iónica.",
+    "tipo": "associacao",
+    "resposta_certa": "a) – 1 (eletromagnética); b) – 3 (pode ser atrativa ou repulsiva); c) – 3 (entre catiões e eletrões livres); d) – 2 (metálica).",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f1-fig1.webp"
+    ]
+  },
+  {
     "id": "2024-f1-1-2",
     "ano": 2024,
     "fase": "1ª Fase",
     "numero": "1.2",
     "tema": "Química",
-    "categoria": "Ligação Química e Tabela Periódica",
-    "contexto": "As medalhas dos Jogos Olímpicos de Tóquio 2021 foram produzidas a partir de material reciclado de equipamentos eletrónicos. A medalha de ouro tem massa 556 g, com 1,2% de Au e 98,8% de Ag.",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Medalhas de Tóquio 2021, feitas de material reciclado: ouro (556 g; 98,8% Ag e 1,2% Au), prata (550 g; 100% Ag), bronze (450 g; 95,0% Cu e 5,0% Zn).",
     "enunciado": "Na medalha de ouro, o número de átomos de prata, quando comparado com o número de átomos de ouro, é, aproximadamente,",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -17,6 +34,37 @@
     },
     "resposta_certa": "D",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f1-fig1.webp"
+    ]
+  },
+  {
+    "id": "2024-f1-1-3",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "1.3",
+    "tema": "Química",
+    "categoria": "Estrutura Atómica",
+    "contexto": "Medalhas de Tóquio 2021, feitas de material reciclado: ouro (556 g; 98,8% Ag e 1,2% Au), prata (550 g; 100% Ag), bronze (450 g; 95,0% Cu e 5,0% Zn). O cobre tem dois isótopos naturais, cobre-63 e cobre-65. A massa isotópica relativa do cobre-63 é 62,93 e existem 4,653 mol deste isótopo na medalha de bronze.",
+    "enunciado": "Determine a percentagem, em massa, do isótopo cobre-63 no cobre da medalha.",
+    "tipo": "calculo",
+    "resposta_certa": "m(cobre-63) = 4,653 × 62,93 = 292,8 g. Massa de cobre na medalha = 0,950 × 450 = 427,5 g. Percentagem = 292,8 / 427,5 × 100 ≈ 68,5%.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+  },
+  {
+    "id": "2024-f1-2-1",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "2.1",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Pirometalurgia: fundir 1,40 kg de prata sólida, inicialmente a 25,0 °C, em 600 s. Prata: capacidade térmica mássica (sólido) 235 J kg⁻¹ K⁻¹; ponto de fusão 961,8 °C; variação de entalpia mássica de fusão 105 kJ/kg.",
+    "enunciado": "Determine, em unidades SI, a potência mínima do forno.",
+    "tipo": "calculo",
+    "resposta_certa": "Aquecer até ao ponto de fusão: 1,40 × 235 × (961,8 − 25,0) = 3,082×10⁵ J. Fundir: 1,40 × 105×10³ = 1,470×10⁵ J. P = (3,082×10⁵ + 1,470×10⁵) / 600 ≈ 759 W.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
   {
@@ -26,7 +74,7 @@
     "numero": "2.2.1",
     "tema": "Química",
     "categoria": "Oxidação-Redução",
-    "contexto": "A água régia é uma mistura de ácido nítrico e ácido clorídrico que permite extrair o ouro de equipamentos eletrónicos: Au(s) + HNO3(aq) + 4 HCl(aq) → 2 H2O(l) + NO(g) + HAuCl4(aq)",
+    "contexto": "A água régia (HNO3 + HCl) extrai o ouro de equipamentos eletrónicos: Au(s) + HNO3(aq) + 4 HCl(aq) → 2 H2O(l) + NO(g) + HAuCl4(aq).",
     "enunciado": "Nesta reação, o ouro é ___, e o HNO3 é o agente ___.",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -40,13 +88,27 @@
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
   {
+    "id": "2024-f1-2-2-2",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "2.2.2",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Au(s) + HNO3(aq) + 4 HCl(aq) → 2 H2O(l) + NO(g) + HAuCl4(aq). Solução de HCl com ρ = 1,19 g/cm³ e 37% (em massa) de HCl (M = 36,46 g/mol); HNO3 em excesso.",
+    "enunciado": "Determine o volume mínimo da solução de HCl para a extração completa de 60,0 g de ouro.",
+    "tipo": "calculo",
+    "resposta_certa": "n(Au) = 60,0 / 196,97 = 0,3046 mol ⇒ n(HCl) = 4 × 0,3046 = 1,22 mol ⇒ m(HCl) = 44,4 g ⇒ m(solução) = 44,4 / 0,37 = 120 g ⇒ V = 120 / 1,19 ≈ 1,0×10² cm³.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+  },
+  {
     "id": "2024-f1-2-2-3",
     "ano": 2024,
     "fase": "1ª Fase",
     "numero": "2.2.3",
     "tema": "Química",
     "categoria": "Estrutura Atómica",
-    "contexto": "O ouro pode originar um ião positivo, representado simbolicamente por ¹⁹⁷₇₉Au³⁺.",
+    "contexto": "O ouro pode originar o ião ¹⁹⁷₇₉Au³⁺.",
     "enunciado": "Este ião contém",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -66,7 +128,7 @@
     "numero": "3.1",
     "tema": "Mecânica",
     "categoria": "Cinemática e Movimento Circular",
-    "contexto": "Pista de atletismo onde dois atletas, A e B, realizam uma corrida de treino para uma prova de 400 metros planos. Considere o troço curvilíneo da pista em que os atletas se mantêm lado a lado, descrevendo arcos de circunferência de raios diferentes com movimento circular uniforme.",
+    "contexto": "Dois atletas, A e B, fazem um treino de 400 m numa pista de atletismo (modelo da partícula material). Num troço curvo, os atletas mantêm-se lado a lado, descrevendo arcos de circunferência de raios diferentes com movimento circular uniforme.",
     "enunciado": "Nesse troço, a intensidade da resultante das forças que atuam em cada um dos atletas é",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -77,7 +139,10 @@
     },
     "resposta_certa": "D",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f1-fig2.webp"
+    ]
   },
   {
     "id": "2024-f1-3-2",
@@ -86,12 +151,15 @@
     "numero": "3.2",
     "tema": "Mecânica",
     "categoria": "Cinemática e Movimento Circular",
-    "contexto": "Quando o atleta B entra na reta da meta, a 84 m desta, o atleta A encontra-se 10 m à sua frente. Os módulos das velocidades dos dois atletas são 6,5 m/s; o atleta A mantém MRU e o atleta B move-se com aceleração constante de 0,10 m/s².",
-    "enunciado": "Justifique que o atleta A vence a corrida (resposta de construção, com equações do movimento e cálculos).",
+    "contexto": "Dois atletas, A e B, fazem um treino de 400 m numa pista de atletismo (modelo da partícula material). Quando B entra na reta da meta, a 84 m desta, A está 10 m à sua frente; ambos têm 6,5 m/s. Até à meta, A mantém movimento retilíneo uniforme e B acelera com aceleração constante de módulo 0,10 m/s² (referencial Ox com origem em B).",
+    "enunciado": "Justifique que o atleta A vence a corrida (comece por apresentar as equações do movimento dos dois atletas).",
     "tipo": "resposta_aberta",
+    "resposta_certa": "xA = 10 + 6,5t e xB = 6,5t + 0,05t² (SI). A chega à meta (x = 84 m) em t ≈ 11,4 s e B em t ≈ 11,8 s, por isso A vence (em alternativa: quando A chega à meta, B está em x ≈ 80,6 m).",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
-    "resposta_certa": "Equações do movimento: A (MRU) x = 6,5t, tem de percorrer 74 m; B (MRUA) x = 6,5t + 0,05t², tem de percorrer 84 m. A chega à meta em ≈ 11,4 s e B em ≈ 11,8 s, logo o atleta A vence."
+    "imagens": [
+      "img/2024-f1-fig2.webp"
+    ]
   },
   {
     "id": "2024-f1-4-1",
@@ -100,7 +168,7 @@
     "numero": "4.1",
     "tema": "Química",
     "categoria": "Ligação Química e Tabela Periódica",
-    "contexto": "Modelo tridimensional da molécula de ácido lático, CH3CH(OH)COOH, na qual todas as ligações são covalentes, simples ou duplas.",
+    "contexto": "Ácido lático, CH3CH(OH)COOH, formado no esforço muscular intenso. Modelo tridimensional da molécula (todas as ligações covalentes, simples ou duplas).",
     "enunciado": "Comparada com a ligação C–O, a ligação C=O apresenta",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -111,7 +179,10 @@
     },
     "resposta_certa": "D",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f1-fig3.webp"
+    ]
   },
   {
     "id": "2024-f1-4-2",
@@ -120,8 +191,8 @@
     "numero": "4.2",
     "tema": "Química",
     "categoria": "Ácido-Base e pH",
-    "contexto": "A produção de ácido lático pode provocar uma descida de pH muscular.",
-    "enunciado": "Quando, a uma determinada temperatura, o pH diminui em 0,5, a concentração de H3O+(aq)",
+    "contexto": "A produção de ácido lático pode provocar uma descida do pH muscular.",
+    "enunciado": "Quando, a uma determinada temperatura, o pH diminui em 0,5, a concentração de H3O⁺(aq)",
     "tipo": "escolha_multipla",
     "opcoes": {
       "A": "aumenta, aproximadamente, para o triplo.",
@@ -140,10 +211,10 @@
     "numero": "4.3",
     "tema": "Química",
     "categoria": "Ácido-Base e pH",
-    "contexto": "Ácido lático monoprótico que se ioniza parcialmente em água (Ka = 1,38×10⁻⁴ a 25°C). Um rótulo manuscrito indica «ácido lático (aq), pH 2,65». Titulação de 50,00 mL com NaOH 0,100 mol/dm³, gastando-se 11,20 mL até ao ponto de equivalência.",
-    "enunciado": "Determine o pH da solução de ácido lático, a 25°C, mostrando que o valor apresentado no rótulo está incorreto.",
+    "contexto": "Ácido lático, CH3CH(OH)COOH, formado no esforço muscular intenso. Ácido monoprótico fraco: CH3CH(OH)COOH(aq) + H2O(l) ⇌ CH3CH(OH)COO⁻(aq) + H3O⁺(aq); Ka = 1,38×10⁻⁴ a 25 °C. Um frasco diz «pH 2,65». Titulou-se uma amostra de 50,00 mL com NaOH 1,00×10⁻² mol/dm³, gastando 11,20 mL até ao ponto de equivalência.",
+    "enunciado": "Determine o pH da solução de ácido lático, a 25 °C, mostrando que o valor do rótulo está incorreto.",
     "tipo": "calculo",
-    "resposta_certa": "pH = 3,31 (concentração da solução: 2,24×10⁻² mol/dm³; [H3O+] no equilíbrio: 4,9×10⁻⁴ mol/dm³)",
+    "resposta_certa": "c(ácido) = 1,00×10⁻² × 11,20 / 50,00 = 2,24×10⁻³ mol/dm³. Ka = x² / (c − x) = 1,38×10⁻⁴ ⇒ x = [H3O⁺] = 4,91×10⁻⁴ mol/dm³ ⇒ pH = 3,31 (e não 2,65).",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
@@ -154,72 +225,10 @@
     "numero": "4.4",
     "tema": "Química",
     "categoria": "Estrutura Atómica",
-    "contexto": "Átomos no estado fundamental: (a) Carbono, (b) Oxigénio, (c) Hidrogénio.",
+    "contexto": "Átomos no estado fundamental: (a) carbono, (b) oxigénio, (c) hidrogénio.",
     "enunciado": "Associe cada átomo à afirmação correspondente: (1) Possui três orbitais totalmente preenchidas. (2) Tem quatro eletrões de valência. (3) Tende a formar iões dipositivos estáveis. (4) Adquire configuração de gás nobre ao ganhar um eletrão. (5) Apresenta todos os eletrões de valência emparelhados.",
     "tipo": "associacao",
-    "resposta_certa": "Carbono–2, Oxigénio–1, Hidrogénio–4",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
-  },
-  {
-    "id": "2024-f1-1-1",
-    "ano": 2024,
-    "fase": "1ª Fase",
-    "numero": "1.1",
-    "tema": "Química",
-    "categoria": "Ligação Química e Tabela Periódica",
-    "contexto": "As medalhas dos JO de Tóquio 2021 foram produzidas a partir de material reciclado de equipamentos eletrónicos, contendo ligas metálicas.",
-    "enunciado": "A formação de uma ligação química entre dois átomos resulta da interação ___ entre as duas espécies, sendo a ligação que se estabelece nas medalhas do tipo ___.",
-    "tipo": "escolha_multipla",
-    "opcoes": {
-      "A": "predominantemente eletrostática ... metálica",
-      "B": "predominantemente gravítica ... covalente",
-      "C": "predominantemente eletrostática ... covalente",
-      "D": "predominantemente gravítica ... metálica"
-    },
-    "resposta_certa": "A",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
-  },
-  {
-    "id": "2024-f1-1-3",
-    "ano": 2024,
-    "fase": "1ª Fase",
-    "numero": "1.3",
-    "tema": "Química",
-    "categoria": "Estrutura Atómica",
-    "contexto": "O cobre da medalha de bronze é constituído por dois isótopos naturais, cobre-63 e cobre-65, sendo a massa atómica relativa do cobre 63,55.",
-    "enunciado": "Determine a percentagem, em massa, do isótopo cobre-63 numa amostra de cobre natural.",
-    "tipo": "calculo",
-    "resposta_certa": "≈ 72,5% (a partir do sistema de equações com as massas isotópicas relativas 62,93 e 64,93)",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
-  },
-  {
-    "id": "2024-f1-2-1",
-    "ano": 2024,
-    "fase": "1ª Fase",
-    "numero": "2.1",
-    "tema": "Química",
-    "categoria": "Energia, Calor e Reações",
-    "contexto": "Extração de metais por pirometalurgia: fusão de 1,40 kg de prata sólida em 600 s, a partir de 25,0°C. Dados: capacidade térmica mássica da prata, ponto de fusão 962°C, entalpia mássica de fusão.",
-    "enunciado": "Determine a potência mínima do forno necessária para fundir a amostra de prata nas condições descritas.",
-    "tipo": "calculo",
-    "resposta_certa": "Aquecer a prata de 25,0 °C até 961,8 °C (E = m·c·ΔT) + fundir toda a amostra (E = m·ΔH fusão); a soma a dividir por 600 s dá a potência mínima do forno: P ≈ 759 W.",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
-  },
-  {
-    "id": "2024-f1-2-2-2",
-    "ano": 2024,
-    "fase": "1ª Fase",
-    "numero": "2.2.2",
-    "tema": "Química",
-    "categoria": "Estequiometria e Quantidade de Matéria",
-    "contexto": "Au(s) + HNO3(aq) + 4 HCl(aq) → 2 H2O(l) + NO(g) + HAuCl4(aq). Solução de HCl com concentração 11,8 mol/dm³.",
-    "enunciado": "Determine o volume mínimo de solução de HCl necessário para extrair 60,0 g de ouro.",
-    "tipo": "calculo",
-    "resposta_certa": "≈ 103 cm³ (a partir de n(Au) = 60,0/196,97 mol e proporção estequiométrica 1:4)",
+    "resposta_certa": "(a) – (2); (b) – (1); (c) – (4).",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
@@ -230,7 +239,7 @@
     "numero": "5",
     "tema": "Ondas e Sinais",
     "categoria": "Radiação e Espectro Eletromagnético",
-    "contexto": "Imagem termográfica que revela um aumento da temperatura da região medial do joelho de um atleta (termografia para diagnóstico de lesões).",
+    "contexto": "Em medicina desportiva, as termografias (imagens com gradientes térmicos corporais) ajudam a diagnosticar lesões, que causam um aumento localizado da temperatura.",
     "enunciado": "Na termografia, regista-se a intensidade",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -250,14 +259,14 @@
     "numero": "6.1",
     "tema": "Eletricidade",
     "categoria": "Circuitos Elétricos e Corrente",
-    "contexto": "O desfibrilhador automático externo (DAE) reverte a paragem cardíaca através de uma descarga elétrica. Uma descarga transfere energia E a um paciente com resistência elétrica R, submetido a uma diferença de potencial U.",
+    "contexto": "Um desfibrilhador (DAE) aplica uma descarga que transfere uma energia E a um tórax de resistência R, sujeito a uma diferença de potencial U.",
     "enunciado": "A duração dessa descarga elétrica pode ser calculada por",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "(E·R)/U²",
-      "B": "(U²)/(E·R)",
-      "C": "E/(U²·R)",
-      "D": "(E·U²)/R"
+      "A": "(E × R) / U²",
+      "B": "U² / (E × R)",
+      "C": "E / (U² × R)",
+      "D": "(U² × R) / E"
     },
     "resposta_certa": "A",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
@@ -270,7 +279,7 @@
     "numero": "6.2",
     "tema": "Eletricidade",
     "categoria": "Circuitos Elétricos e Corrente",
-    "contexto": "Desfibrilhador automático externo, com descarga elétrica aplicada através de fios de cobre.",
+    "contexto": "Um desfibrilhador (DAE) aplica uma descarga que transfere uma energia E a um tórax de resistência R, sujeito a uma diferença de potencial U.",
     "enunciado": "A corrente elétrica que circula nos fios de cobre do desfibrilhador consiste no movimento de",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -284,14 +293,31 @@
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
   {
+    "id": "2024-f1-7-1",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "7.1",
+    "tema": "Mecânica",
+    "categoria": "Forças e Leis de Newton",
+    "contexto": "Um atleta de 70 kg faz pequenos saltos verticais: parte do repouso (t0), perde o contacto com o solo (t1), atinge a altura máxima (t2) e volta ao solo (t3). Resistência do ar desprezável; de t0 a t1 decorrem 0,20 s e de t1 a t2 decorrem 0,15 s.",
+    "enunciado": "Determine a intensidade da força de reação que, em média, o solo exerce no atleta entre t0 e t1.",
+    "tipo": "calculo",
+    "resposta_certa": "Velocidade em t1: v = g × 0,15 = 1,47 m/s. Aceleração média de t0 a t1: 1,47 / 0,20 = 7,35 m/s². N − P = m·a ⇒ N = 70 × (9,8 + 7,35) ≈ 1,2×10³ N.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f1-fig5.webp"
+    ]
+  },
+  {
     "id": "2024-f1-7-2",
     "ano": 2024,
     "fase": "1ª Fase",
     "numero": "7.2",
     "tema": "Mecânica",
     "categoria": "Trabalho, Energia e Conservação",
-    "contexto": "Um atleta de 70 kg efetua pequenos saltos verticais (resistência do ar desprezável). Movimento ascendente, do instante em que perde contacto com o solo até atingir a altura máxima.",
-    "enunciado": "Qual dos esboços de gráfico representa o trabalho realizado pela força gravítica, WFg, em função do deslocamento, d, durante o movimento ascendente?",
+    "contexto": "Um atleta de 70 kg faz pequenos saltos verticais: parte do repouso (t0), perde o contacto com o solo (t1), atinge a altura máxima (t2) e volta ao solo (t3). Resistência do ar desprezável; de t0 a t1 decorrem 0,20 s e de t1 a t2 decorrem 0,15 s.",
+    "enunciado": "Qual dos esboços de gráfico representa o trabalho realizado pela força gravítica, W(Fg), em função do deslocamento, d, durante o movimento ascendente do atleta?",
     "tipo": "escolha_multipla",
     "opcoes": {
       "A": "Opção (A) da figura",
@@ -302,6 +328,9 @@
     "resposta_certa": "C",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f1-fig5.webp"
+    ],
     "opcoes_img": "img/2024-f1-7-2-opcoes.webp"
   },
   {
@@ -310,8 +339,8 @@
     "fase": "1ª Fase",
     "numero": "7.3",
     "tema": "Mecânica",
-    "categoria": "Gravitação Universal",
-    "contexto": "Um astronauta realiza um salto vertical na Lua, com a mesma velocidade inicial com que um atleta salta na Terra. A aceleração gravítica na Lua é, aproximadamente, 1/6 da aceleração gravítica na Terra.",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Um astronauta salta na vertical na Lua, abandonando o solo com a mesma velocidade com que um atleta o faria na Terra. A aceleração gravítica na Lua é cerca de 1/6 da terrestre.",
     "enunciado": "Por comparação com o salto do atleta na Terra, na Lua, o astronauta salta",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -325,13 +354,27 @@
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
   {
+    "id": "2024-f1-8-1",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "8.1",
+    "tema": "Ondas e Sinais",
+    "categoria": "Som e Ondas Mecânicas",
+    "contexto": "Planear uma experiência para medir a velocidade do som no ar com um apito, uma lanterna, uma fita métrica e um cronómetro; dois alunos, A e B, ficam bem afastados numa zona plana e sem obstáculos.",
+    "enunciado": "Descreva um procedimento experimental que permita aos dois alunos obterem o módulo da velocidade de propagação do som no ar (considere apenas um ensaio).",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Medem a distância que os separa com a fita métrica. Um aluno liga a lanterna e, ao mesmo tempo, apita. O outro inicia o cronómetro quando vê a luz e para-o quando ouve o apito; v = distância / tempo medido.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+  },
+  {
     "id": "2024-f1-8-2",
     "ano": 2024,
     "fase": "1ª Fase",
     "numero": "8.2",
     "tema": "Ondas e Sinais",
     "categoria": "Som e Ondas Mecânicas",
-    "contexto": "Experiência para determinar a velocidade de propagação do som no ar.",
+    "contexto": "Planear uma experiência para medir a velocidade do som no ar com um apito, uma lanterna, uma fita métrica e um cronómetro; dois alunos, A e B, ficam bem afastados numa zona plana e sem obstáculos.",
     "enunciado": "No ar, o som é uma onda",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -345,14 +388,28 @@
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
   },
   {
+    "id": "2024-f1-9-1",
+    "ano": 2024,
+    "fase": "1ª Fase",
+    "numero": "9.1",
+    "tema": "Química",
+    "categoria": "Equilíbrio Químico",
+    "contexto": "Fe³⁺(aq) (amarelo) + SCN⁻(aq) (incolor) ⇌ [FeSCN]²⁺(aq) (vermelho), a uma temperatura T. Arrefecendo a solução, a cor vermelha intensifica-se.",
+    "enunciado": "Conclua, justificando, se a variação de entalpia da reação de formação do ião [FeSCN]²⁺ é positiva ou negativa.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Ao arrefecer, a cor vermelha intensifica-se: o sistema evolui no sentido da formação de [FeSCN]²⁺ (sentido direto). Pelo princípio de Le Châtelier, uma diminuição de temperatura favorece a reação exotérmica. Logo, a formação de [FeSCN]²⁺ é exotérmica e ΔH é negativa.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+  },
+  {
     "id": "2024-f1-9-2",
     "ano": 2024,
     "fase": "1ª Fase",
     "numero": "9.2",
     "tema": "Química",
     "categoria": "Equilíbrio Químico",
-    "contexto": "Equilíbrio Fe³⁺(aq) + SCN⁻(aq) ⇌ [FeSCN]²⁺(aq). Mantendo a temperatura constante, adicionaram-se gotas de uma solução de Fe(NO3)3 ou de NaOH, observando uma diminuição da intensidade da cor vermelha.",
-    "enunciado": "Na solução preparada inicialmente no gobelé, encontram-se presentes ___. A diminuição da intensidade da cor vermelha deve-se à adição da solução aquosa de ___.",
+    "contexto": "Fe³⁺(aq) (amarelo) + SCN⁻(aq) (incolor) ⇌ [FeSCN]²⁺(aq) (vermelho), a uma temperatura T. Havia também soluções de Fe(NO3)3 e de NaOH (os iões OH⁻ formam com o Fe³⁺ o sal pouco solúvel Fe(OH)3). A temperatura constante, juntaram-se gotas de uma delas e a cor vermelha diminuiu.",
+    "enunciado": "Na solução preparada inicialmente encontram-se presentes ___. A diminuição da intensidade da cor vermelha deve-se à adição da solução aquosa de ___.",
     "tipo": "escolha_multipla",
     "opcoes": {
       "A": "os iões Fe³⁺, SCN⁻ e [FeSCN]²⁺ ... Fe(NO3)3",
@@ -371,16 +428,16 @@
     "numero": "1.1",
     "tema": "Ondas e Sinais",
     "categoria": "Radiação e Espectro Eletromagnético",
-    "contexto": "O Telescópio Espacial James Webb (JWST) deteta radiação infravermelha, ao contrário do Hubble, que deteta principalmente radiação visível.",
-    "enunciado": "Comparativamente às radiações detetadas pelo Hubble, as radiações detetadas pelo JWST têm",
+    "contexto": "Telescópio Espacial James Webb (JWST): espelho principal, escudo solar e painéis fotovoltaicos. O JWST opera sobretudo no infravermelho; o Hubble opera no visível.",
+    "enunciado": "Comparativamente às radiações detetadas pelo Hubble, o JWST pode detetar radiações de",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "maior comprimento de onda e maior energia por fotão.",
-      "B": "maior comprimento de onda e menor energia por fotão.",
-      "C": "menor comprimento de onda e maior energia por fotão.",
-      "D": "menor comprimento de onda e menor energia por fotão."
+      "A": "menor comprimento de onda e maior energia por fotão.",
+      "B": "menor comprimento de onda e menor energia por fotão.",
+      "C": "maior comprimento de onda e maior energia por fotão.",
+      "D": "maior comprimento de onda e menor energia por fotão."
     },
-    "resposta_certa": "B",
+    "resposta_certa": "D",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -389,18 +446,12 @@
     "ano": 2024,
     "fase": "2ª Fase",
     "numero": "1.2",
-    "tema": "Eletricidade",
-    "categoria": "Indução Eletromagnética",
-    "contexto": "O escudo solar do JWST impede a luz do Sol, da Terra e da Lua de atingir os equipamentos sensíveis do telescópio.",
-    "enunciado": "Complete: a energia é transferida do Sol para o escudo solar do JWST através de ___, sendo o mecanismo dominante no espaço (vácuo) a ___.",
-    "tipo": "escolha_multipla",
-    "opcoes": {
-      "A": "radiação ... condução",
-      "B": "radiação ... radiação",
-      "C": "convecção ... convecção",
-      "D": "condução ... radiação"
-    },
-    "resposta_certa": "B",
+    "tema": "Ondas e Sinais",
+    "categoria": "Radiação e Espectro Eletromagnético",
+    "contexto": "Telescópio Espacial James Webb (JWST): espelho principal, escudo solar e painéis fotovoltaicos. O escudo solar impede que a luz do Sol, da Terra e da Lua atinja alguns equipamentos.",
+    "enunciado": "Complete: a função do escudo solar é a) ___ a energia transferida do Sol, da Terra e da Lua por b) ___. O JWST já identificou hidrocarbonetos saturados, como c) ___, e substâncias de moléculas apolares, como d) ___. Opções — a) 1. refratar, 2. refletir, 3. difratar; b) 1. radiação, 2. condução, 3. convecção; c) 1. C2H2, 2. C2H4, 3. C2H6; d) 1. CH4, 2. NH3, 3. H2O.",
+    "tipo": "associacao",
+    "resposta_certa": "a) – 2 (refletir); b) – 1 (radiação); c) – 3 (C2H6); d) – 1 (CH4).",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -410,17 +461,17 @@
     "fase": "2ª Fase",
     "numero": "1.3",
     "tema": "Eletricidade",
-    "categoria": "Indução Eletromagnética",
-    "contexto": "Os painéis fotovoltaicos do JWST geram potência elétrica que varia com o ângulo de incidência da radiação solar.",
-    "enunciado": "Qual a expressão que relaciona corretamente a potência gerada com o ângulo de incidência?",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Telescópio Espacial James Webb (JWST): espelho principal, escudo solar e painéis fotovoltaicos. Os painéis fotovoltaicos produzem energia elétrica; U é a diferença de potencial aos terminais do painel e I a corrente que o atravessa.",
+    "enunciado": "A potência gerada aumenta com ___ do ângulo entre os raios solares incidentes e a normal ao plano do painel e é calculada pela expressão ___.",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "P = P0·cos θ",
-      "B": "P = P0·sen θ",
-      "C": "P = P0/cos θ",
-      "D": "P = P0·cos²θ"
+      "A": "a diminuição ... U × I²",
+      "B": "a diminuição ... U × I",
+      "C": "o aumento ... U × I²",
+      "D": "o aumento ... U × I"
     },
-    "resposta_certa": "A",
+    "resposta_certa": "B",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -445,14 +496,14 @@
     "numero": "1.4.2",
     "tema": "Química",
     "categoria": "Oxidação-Redução",
-    "contexto": "Reação do alumínio com o dioxigénio do ar: 4 Al(s) + 3 O2(g) → 2 Al2O3(s)",
-    "enunciado": "Nesta reação, o alumínio é",
+    "contexto": "Na Terra, o alumínio dos espelhos é protegido por um vidro que evita a sua reação com o O2 do ar: 4 Al(s) + 3 O2(g) → 2 Al2O3(s).",
+    "enunciado": "Nesta reação, o alumínio é o",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "oxidado, e o seu número de oxidação aumenta.",
-      "B": "reduzido, e o seu número de oxidação diminui.",
-      "C": "oxidado, e o seu número de oxidação diminui.",
-      "D": "reduzido, e o seu número de oxidação aumenta."
+      "A": "redutor, e o seu número de oxidação aumenta.",
+      "B": "redutor, e o seu número de oxidação diminui.",
+      "C": "oxidante, e o seu número de oxidação aumenta.",
+      "D": "oxidante, e o seu número de oxidação diminui."
     },
     "resposta_certa": "A",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
@@ -465,7 +516,7 @@
     "numero": "2.1",
     "tema": "Mecânica",
     "categoria": "Gravitação Universal",
-    "contexto": "Movimento de translação da Terra em torno do Sol, considerado circular uniforme (diagramas fora de escala).",
+    "contexto": "Representação (fora de escala) do movimento do JWST em torno do Sol, numa região exterior à órbita da Terra, acompanhando a Terra no seu movimento de translação; a Terra e o JWST descrevem órbitas circulares (modelo da partícula material).",
     "enunciado": "Qual dos diagramas pode representar a resultante das forças, F_R, que atuam na Terra e a aceleração, a, da Terra durante o seu movimento em torno do Sol?",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -477,7 +528,10 @@
     "resposta_certa": "A",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
-    "opcoes_img": "img/2024-f2-2-1-opcoes.webp"
+    "opcoes_img": "img/2024-f2-2-1-opcoes.webp",
+    "imagens": [
+      "img/2024-f2-fig2.webp"
+    ]
   },
   {
     "id": "2024-f2-2-2",
@@ -486,7 +540,7 @@
     "numero": "2.2",
     "tema": "Mecânica",
     "categoria": "Gravitação Universal",
-    "contexto": "O JWST orbita o Sol numa região exterior à órbita da Terra. Massa do JWST = 6200 kg; força gravítica exercida pelo Sol no JWST = 36,03 N; distâncias Sol-Terra e Sol-JWST dadas.",
+    "contexto": "Representação (fora de escala) do movimento do JWST em torno do Sol, numa região exterior à órbita da Terra, acompanhando a Terra no seu movimento de translação; a Terra e o JWST descrevem órbitas circulares (modelo da partícula material). Massa do JWST = 6200 kg; massa da Terra = 5,97×10²⁴ kg; força gravítica do Sol no JWST = 36,03 N; distância Sol–Terra = 1,496×10¹¹ m; distância JWST–Terra = 1,50×10⁹ m.",
     "enunciado": "Determine o período de translação do JWST, em dias, considerando o efeito conjunto das forças gravíticas do Sol e da Terra.",
     "tipo": "calculo",
     "resposta_certa": "Força gravítica Terra–JWST = 1,097 N; resultante das forças gravíticas no JWST = 36,03 + 1,097 = 37,13 N (força centrípeta); daí obtém-se v e T = 2πr/v ≈ 365 dias (igual ao da Terra — o JWST acompanha a Terra no ponto L2).",
@@ -503,18 +557,18 @@
     "numero": "3.1",
     "tema": "Eletricidade",
     "categoria": "Indução Eletromagnética",
-    "contexto": "Sistema de ignição de um automóvel: bobina de 20 000 espiras, cada uma com área 1,25×10⁻³ m². Quando o sistema é ativado, o módulo do campo magnético varia 1,0 T em 1 ms, com o campo perpendicular ao plano das espiras.",
-    "enunciado": "O módulo da força eletromotriz induzida aos terminais da bobina é ___ e seria maior se o número de espiras ___.",
+    "contexto": "Sistema de ignição de um automóvel: bobina com 20 000 espiras, cada uma de área 1,25×10⁻³ m². Quando acionado, o módulo do campo magnético varia 1,0 T durante um milissegundo, com o campo sempre perpendicular ao plano das espiras.",
+    "enunciado": "O módulo da força eletromotriz induzida nos terminais da bobina é",
     "tipo": "escolha_multipla",
-    "resposta_certa": "C",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V2.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
     "opcoes": {
-      "A": "2,5×10⁴ V ... diminuísse",
-      "B": "2,5×10¹ V ... diminuísse",
-      "C": "2,5×10⁴ V ... aumentasse",
-      "D": "2,5×10¹ V ... aumentasse"
-    }
+      "A": "2,5×10⁴ V e aumentaria se o número de espiras diminuísse.",
+      "B": "2,5×10⁴ V e aumentaria se o número de espiras aumentasse.",
+      "C": "2,5×10¹ V e aumentaria se o número de espiras diminuísse.",
+      "D": "2,5×10¹ V e aumentaria se o número de espiras aumentasse."
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
   {
     "id": "2024-f2-3-2",
@@ -523,18 +577,21 @@
     "numero": "3.2",
     "tema": "Eletricidade",
     "categoria": "Circuitos Elétricos e Corrente",
-    "contexto": "Bateria de chumbo-ácido com seis células iguais em série. Desligada, a tensão aos terminais é 12,00 V (2,00 V por célula). Com o automóvel em funcionamento, a bateria fornece 40,0 A com uma tensão aos terminais de 9,00 V.",
-    "enunciado": "A resistência interna de cada célula da bateria é",
+    "contexto": "Bateria de chumbo-ácido com seis células idênticas em série. Desligada: 12,00 V aos terminais (2,00 V por célula). Com o automóvel a funcionar, a bateria gera 40,0 A e a diferença de potencial aos terminais é 9,00 V.",
+    "enunciado": "Qual é a resistência interna da célula 1?",
     "tipo": "escolha_multipla",
-    "resposta_certa": "A",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V2.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
     "opcoes": {
-      "A": "1,25×10⁻² Ω",
-      "B": "3,75×10⁻² Ω",
-      "C": "6,00×10⁻² Ω",
-      "D": "7,50×10⁻² Ω"
-    }
+      "A": "7,50×10⁻² Ω",
+      "B": "6,00×10⁻² Ω",
+      "C": "3,75×10⁻² Ω",
+      "D": "1,25×10⁻² Ω"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-fig3.webp"
+    ]
   },
   {
     "id": "2024-f2-3-3",
@@ -557,7 +614,7 @@
     "numero": "4.1",
     "tema": "Mecânica",
     "categoria": "Trabalho, Energia e Conservação",
-    "contexto": "Automóvel de 1000 kg, parado num semáforo, acelera durante os primeiros 6,0 s segundo o gráfico v(t) fornecido. 90% da energia fornecida pelo motor transforma-se em energia cinética.",
+    "contexto": "Um automóvel de 1000 kg, parado num semáforo, arranca no instante em que é ultrapassado por uma mota de 150 kg que se move no mesmo sentido com velocidade constante de 10 m/s. Trajetória retilínea e horizontal; gráfico v(t) do automóvel: sobe linearmente de 0 a 12 m/s em 6,0 s e depois mantém-se constante.",
     "enunciado": "Determine a energia fornecida ao automóvel nos primeiros 6,0 segundos.",
     "tipo": "calculo",
     "resposta_certa": "Variação da energia cinética: ΔEc = 7,20×10⁴ J; como só 90% se converte em Ec, energia fornecida = 7,20×10⁴ / 0,90 = 8,0×10⁴ J.",
@@ -574,7 +631,7 @@
     "numero": "4.2",
     "tema": "Mecânica",
     "categoria": "Cinemática e Movimento Circular",
-    "contexto": "O automóvel é ultrapassado por uma mota de 150 kg com velocidade constante de 10 m/s, partindo do mesmo ponto e instante.",
+    "contexto": "Um automóvel de 1000 kg, parado num semáforo, arranca no instante em que é ultrapassado por uma mota de 150 kg que se move no mesmo sentido com velocidade constante de 10 m/s. Trajetória retilínea e horizontal; gráfico v(t) do automóvel: sobe linearmente de 0 a 12 m/s em 6,0 s e depois mantém-se constante.",
     "enunciado": "Determine a distância percorrida pelos dois veículos até se encontrarem novamente.",
     "tipo": "calculo",
     "resposta_certa": "Nos primeiros 6,0 s o automóvel percorre 36,0 m; igualando as equações de posição (mota em MRU, automóvel em MRUA) os veículos voltam a encontrar-se em t = 18,0 s; distância percorrida por ambos ≈ 1,8×10² m.",
@@ -591,7 +648,7 @@
     "numero": "4.3",
     "tema": "Mecânica",
     "categoria": "Cinemática e Movimento Circular",
-    "contexto": "Um automóvel de 1000 kg, parado num semáforo, arranca no instante em que é ultrapassado por uma mota de 150 kg que se move com velocidade constante de 10 m/s. O gráfico mostra o módulo da velocidade do automóvel em função do tempo.",
+    "contexto": "Um automóvel de 1000 kg, parado num semáforo, arranca no instante em que é ultrapassado por uma mota de 150 kg que se move no mesmo sentido com velocidade constante de 10 m/s. Trajetória retilínea e horizontal; gráfico v(t) do automóvel: sobe linearmente de 0 a 12 m/s em 6,0 s e depois mantém-se constante.",
     "enunciado": "O instante em que o automóvel e a mota apresentam igual velocidade ocorre",
     "tipo": "escolha_multipla",
     "opcoes": {
@@ -635,10 +692,16 @@
     "numero": "5.1.1",
     "tema": "Química",
     "categoria": "Estrutura Atómica",
-    "contexto": "Os óxidos de nitrogénio, provenientes da combustão automóvel, contribuem para a poluição.",
-    "enunciado": "Defina energia de ionização e identifique o ião formado quando o átomo de nitrogénio perde o eletrão mais energético.",
-    "tipo": "resposta_aberta",
-    "resposta_certa": "Energia mínima para remover um eletrão de um átomo isolado, no estado gasoso e fundamental; forma-se o ião N⁺",
+    "contexto": "Os óxidos de nitrogénio, sobretudo da combustão nos motores e nas centrais térmicas, contribuem para a formação de várias espécies químicas com impacto ambiental.",
+    "enunciado": "A energia de ionização do nitrogénio (isolado, em fase gasosa) é a energia mínima necessária para que, a partir de uma mole de átomos no estado fundamental, se forme uma mole de iões",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "N⁺, tendo cada ião dois eletrões desemparelhados.",
+      "B": "N⁻, tendo cada ião dois eletrões desemparelhados.",
+      "C": "N⁺, que não têm eletrões desemparelhados.",
+      "D": "N⁻, que não têm eletrões desemparelhados."
+    },
+    "resposta_certa": "A",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -649,16 +712,16 @@
     "numero": "5.1.2",
     "tema": "Química",
     "categoria": "Estrutura Atómica",
-    "contexto": "Átomos de nitrogénio (Z=7) e oxigénio (Z=8), no mesmo período da tabela periódica.",
-    "enunciado": "Comparando o nitrogénio com o oxigénio, a carga nuclear e o raio atómico são, respetivamente,",
+    "contexto": "Os óxidos de nitrogénio, sobretudo da combustão nos motores e nas centrais térmicas, contribuem para a formação de várias espécies químicas com impacto ambiental.",
+    "enunciado": "Comparando o átomo de nitrogénio com o de oxigénio, ambos no estado fundamental, verifica-se que a carga nuclear do átomo de nitrogénio é",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "menor e maior.",
-      "B": "menor e menor.",
-      "C": "maior e maior.",
-      "D": "maior e menor."
+      "A": "maior e que o seu raio atómico é maior.",
+      "B": "menor e que o seu raio atómico é menor.",
+      "C": "maior e que o seu raio atómico é menor.",
+      "D": "menor e que o seu raio atómico é maior."
     },
-    "resposta_certa": "A",
+    "resposta_certa": "D",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -668,11 +731,11 @@
     "fase": "2ª Fase",
     "numero": "5.2",
     "tema": "Química",
-    "categoria": "Estrutura Atómica",
-    "contexto": "O NO formado na combustão automóvel pode destruir o ozono estratosférico: NO + O3 → NO2 + O2; o NO2 decompõe-se predominantemente na estratosfera.",
-    "enunciado": "Escreva as equações químicas do processo descrito e explique por que a decomposição do NO2 ocorre predominantemente na estratosfera.",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Os óxidos de nitrogénio, sobretudo da combustão nos motores e nas centrais térmicas, contribuem para a formação de várias espécies químicas com impacto ambiental. O NO dos escapes oxida-se na troposfera a NO2; na estratosfera, o NO2 decompõe-se por ação da radiação UV nos radicais NO e O; o NO pode reagir com o ozono (O3), originando NO2 e O2.",
+    "enunciado": "Proponha uma comunicação que inclua: as três equações químicas; a razão de a decomposição do NO2 ocorrer sobretudo na estratosfera; e a razão de uma única molécula de NO destruir várias moléculas de ozono.",
     "tipo": "resposta_aberta",
-    "resposta_certa": "NO2 → NO + O (decomposição fotoquímica); a estratosfera recebe radiação UV de maior energia, que a troposfera não recebe (absorvida pelo ozono)",
+    "resposta_certa": "2 NO + O2 → 2 NO2; NO2 → NO + O (por ação da radiação UV); NO + O3 → NO2 + O2. Só na estratosfera a radiação UV tem energia suficiente para a fotodissociação do NO2. As duas últimas reações formam um ciclo: o NO destrói O3 e é regenerado, por isso uma só molécula de NO destrói muitas moléculas de ozono.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -683,8 +746,8 @@
     "numero": "5.3.1",
     "tema": "Química",
     "categoria": "Ácido-Base e pH",
-    "contexto": "Duas soluções aquosas de mesma concentração: uma de HNO3 (ácido forte) e outra de HNO2 (ácido fraco), com valores de pH medidos.",
-    "enunciado": "Determine a constante de acidez, Ka, do HNO2 a partir dos valores de pH das duas soluções.",
+    "contexto": "HNO3 (ácido forte) e HNO2 (ácido fraco): uma solução de HNO3 com pH 1,00 e outra de HNO2 com pH 2,16, com a mesma concentração e à mesma temperatura.",
+    "enunciado": "Determine a constante de acidez, Ka, do HNO2 à temperatura considerada.",
     "tipo": "calculo",
     "resposta_certa": "Ácido forte ⇒ c(HNO3) = [H3O+] = 1,000×10⁻¹ mol/dm³ (é também a concentração da solução de HNO2). [HNO2] no equilíbrio = 9,308×10⁻² mol/dm³. Ka = [H3O+]²/[HNO2] = 5,14×10⁻⁴.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
@@ -697,16 +760,16 @@
     "numero": "5.3.2",
     "tema": "Química",
     "categoria": "Ácido-Base e pH",
-    "contexto": "Titulação de soluções de HNO3 e de HNO2, de igual concentração e volume, com a mesma solução titulante de NaOH.",
-    "enunciado": "Compare os volumes de titulante gastos e o pH no ponto de equivalência, nas titulações dos dois ácidos.",
+    "contexto": "HNO3 (ácido forte) e HNO2 (ácido fraco): uma solução de HNO3 com pH 1,00 e outra de HNO2 com pH 2,16, com a mesma concentração e à mesma temperatura. Volumes iguais das duas soluções foram titulados com NaOH (base forte), a 25 °C, até ao ponto de equivalência.",
+    "enunciado": "O volume de titulante gasto para titular o HNO2 é ___ ao gasto para titular o HNO3, e o pH no ponto de equivalência da titulação do HNO2 é ___ a 7.",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "Volumes iguais; pH no ponto de equivalência igual nos dois casos.",
-      "B": "Volumes iguais; pH no ponto de equivalência da titulação do HNO2 é superior a 7.",
-      "C": "Volumes diferentes; pH igual nos dois casos.",
-      "D": "Volumes diferentes; pH no ponto de equivalência da titulação do HNO2 é inferior a 7."
+      "A": "inferior ... superior",
+      "B": "inferior ... inferior",
+      "C": "igual ... superior",
+      "D": "igual ... inferior"
     },
-    "resposta_certa": "B",
+    "resposta_certa": "C",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -717,16 +780,33 @@
     "numero": "6.1",
     "tema": "Química",
     "categoria": "Química Orgânica e Síntese",
-    "contexto": "Síntese do ácido acetilsalicílico a partir do ácido salicílico, C7H6O3, e anidrido acético.",
-    "enunciado": "Identifique os grupos funcionais presentes na molécula de ácido salicílico.",
+    "contexto": "Síntese do ácido acetilsalicílico, C9H8O4 (M = 180,17 g/mol): ácido salicílico, C7H6O3 (M = 138,13 g/mol) + anidrido acético, C4H6O3 (M = 102,10 g/mol; ρ = 1,08 g/cm³) → ácido acetilsalicílico + ácido acético (catalisada por ácido sulfúrico).",
+    "enunciado": "Os grupos funcionais presentes no ácido salicílico são",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "Ácido carboxílico e álcool.",
-      "B": "Ácido carboxílico e fenol.",
-      "C": "Éster e fenol.",
-      "D": "Éster e álcool."
+      "A": "carboxilo e hidroxilo.",
+      "B": "carboxilo e amina.",
+      "C": "carbonilo e hidroxilo.",
+      "D": "carbonilo e amina."
     },
-    "resposta_certa": "B",
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-reacao.webp"
+    ]
+  },
+  {
+    "id": "2024-f2-6-2",
+    "ano": 2024,
+    "fase": "2ª Fase",
+    "numero": "6.2",
+    "tema": "Química",
+    "categoria": "Trabalho Laboratorial e Erros",
+    "contexto": "Síntese do ácido acetilsalicílico, C9H8O4 (M = 180,17 g/mol): ácido salicílico, C7H6O3 (M = 138,13 g/mol) + anidrido acético, C4H6O3 (M = 102,10 g/mol; ρ = 1,08 g/cm³) → ácido acetilsalicílico + ácido acético (catalisada por ácido sulfúrico).",
+    "enunciado": "Ordene as ações para reconstituir parte do procedimento que permite determinar o rendimento da síntese: A. Juntar o anidrido acético ao ácido salicílico. B. Medir a massa dos cristais de ácido acetilsalicílico. C. Secar os cristais. D. Adicionar o catalisador e agitar. E. Filtrar a vácuo os cristais obtidos.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "A, D, E, C, B.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },
@@ -737,18 +817,21 @@
     "numero": "6.3",
     "tema": "Química",
     "categoria": "Química Orgânica e Síntese",
-    "contexto": "Síntese: ácido salicílico, C7H6O3 (M = 138,13 g/mol) + anidrido acético, C4H6O3 (M = 102,10 g/mol) → ácido acetilsalicílico, C9H8O4 (M = 180,17 g/mol) + ácido acético.",
-    "enunciado": "A percentagem, em massa, dos átomos dos reagentes que são incorporados no ácido acetilsalicílico é, aproximadamente,",
+    "contexto": "Síntese do ácido acetilsalicílico, C9H8O4 (M = 180,17 g/mol): ácido salicílico, C7H6O3 (M = 138,13 g/mol) + anidrido acético, C4H6O3 (M = 102,10 g/mol; ρ = 1,08 g/cm³) → ácido acetilsalicílico + ácido acético (catalisada por ácido sulfúrico).",
+    "enunciado": "Na reação de síntese, qual é, aproximadamente, a percentagem, em massa, dos átomos dos reagentes incorporados no ácido acetilsalicílico?",
     "tipo": "escolha_multipla",
-    "resposta_certa": "D",
-    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V2.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
     "opcoes": {
       "A": "32%",
-      "B": "49%",
-      "C": "57%",
-      "D": "75%"
-    }
+      "B": "75%",
+      "C": "49%",
+      "D": "57%"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-reacao.webp"
+    ]
   },
   {
     "id": "2024-f2-6-4",
@@ -757,10 +840,10 @@
     "numero": "6.4",
     "tema": "Química",
     "categoria": "Química Orgânica e Síntese",
-    "contexto": "5,00 cm³ de anidrido acético (massa volúmica e massa molar dadas) e 2,02 g de ácido salicílico reagiram, obtendo-se 1,83 g de produto.",
+    "contexto": "Síntese do ácido acetilsalicílico, C9H8O4 (M = 180,17 g/mol): ácido salicílico, C7H6O3 (M = 138,13 g/mol) + anidrido acético, C4H6O3 (M = 102,10 g/mol; ρ = 1,08 g/cm³) → ácido acetilsalicílico + ácido acético (catalisada por ácido sulfúrico). Juntaram-se 5,00 cm³ de anidrido acético a 2,02 g de ácido salicílico e obtiveram-se 1,83 g de ácido acetilsalicílico.",
     "enunciado": "Determine o rendimento da síntese.",
     "tipo": "calculo",
-    "resposta_certa": "≈ 79% (massa obtida / massa teórica × 100, identificando primeiro o reagente limitante)",
+    "resposta_certa": "n(ácido salicílico) = 2,02 / 138,13 = 1,462×10⁻² mol; n(anidrido) = 5,00 × 1,08 / 102,10 = 5,289×10⁻² mol ⇒ o ácido salicílico é o reagente limitante. Massa teórica = 1,462×10⁻² × 180,17 = 2,634 g. Rendimento = 1,83 / 2,634 × 100 ≈ 69,5%.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
   },

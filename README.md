@@ -16,11 +16,11 @@ Cada questão de **escolha múltipla** mostra as 4 opções (A-D) e é clicável
 ## Estado atual
 Cada **alínea** do exame é uma entrada própria (ex: "4.1", "4.2" e "4.3" são três questões separadas, cada uma com o seu tema e categoria).
 
-Cobertura: **7 provas, 161 itens** — 2024 (1ª fase, 2ª fase, época especial), 2023 (1ª e 2ª fase) e 2022 (1ª e 2ª fase).
+Cobertura: **7 provas, 165 itens** — 2024 (1ª fase, 2ª fase, época especial), 2023 (1ª e 2ª fase) e 2022 (1ª e 2ª fase).
 - As opções A-D e as chaves vêm dos enunciados e critérios de classificação oficiais do IAVE (Versão 1, salvo indicação em contrário).
 - Nos itens de cálculo e resposta aberta, a resolução segue as etapas e os valores dos critérios.
 - **Figuras e gráficos** (pasta `img/`, formato WebP, ~500 KB no total) recortados dos enunciados originais: 50 itens mostram a figura do enunciado e 11 itens de escolha múltipla mostram as opções (A)-(D) como imagem, tal como no exame. Clicar numa figura abre-a em tamanho real.
-- Ainda sem figuras: a época especial de 2024 (o PDF não está disponível no espelho usado).
+- Ainda sem figuras nem revisão: a época especial de 2024 (o PDF não está disponível no espelho usado).
 
 ## Testar no PC
 Abrir o `index.html` com duplo clique **não funciona** (o browser bloqueia o `fetch('questoes.json')` em `file://`). Usa um servidor local, por exemplo:
@@ -70,9 +70,9 @@ Regras importantes:
 - **Eletricidade**: Campo Elétrico · Campo Magnético · Circuitos Elétricos e Corrente · Indução Eletromagnética
 - **Química**: Ácido-Base e pH · Energia, Calor e Reações · Equilíbrio Químico · Estequiometria e Quantidade de Matéria · Estrutura Atómica · Ligação Química e Tabela Periódica · Oxidação-Redução · Química Orgânica e Síntese · Solubilidade · Trabalho Laboratorial e Erros
 
-Nota: os itens de escolha múltipla da 2ª fase de 2024 3.1, 3.2 e 6.3 usam as opções e a chave da **Versão 2** do enunciado (o link aponta para essa versão). Nos restantes, a letra certa corresponde à versão indicada em `pdf_enunciado`.
+Nota: em todos os itens de escolha múltipla, a letra certa corresponde à **Versão 1** do enunciado.
 
 ## Próximos passos sugeridos
 1. Juntar as épocas especiais de 2023 e 2022.
 2. Continuar com os exames de 2021 e 2020 (e potencialmente 2015–2019). Os PDFs estão também em examesnacionais.com.pt (`/exames-nacionais/11ano/AAAA-Nfase/Fisica-Quimica-A.pdf` e `...-Criterios.pdf`), útil quando o site do IAVE não abre.
-3. Rever os itens de 2024 (vieram de uma versão anterior, com texto e ordem das opções por vezes adaptados) contra os enunciados originais, como foi feito para 2022 e 2023.
+3. Rever a época especial de 2024 contra o enunciado original (a 1ª e a 2ª fase de 2024 já foram revistas).
