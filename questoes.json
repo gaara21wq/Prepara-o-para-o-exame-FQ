@@ -294,15 +294,15 @@
     "enunciado": "Qual dos esboços de gráfico representa o trabalho realizado pela força gravítica, WFg, em função do deslocamento, d, durante o movimento ascendente?",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "reta crescente a partir da origem",
-      "B": "reta decrescente a partir de zero",
-      "C": "reta decrescente, começando em zero e tornando-se negativa",
-      "D": "reta crescente, começando em zero e tornando-se positiva"
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
     },
     "resposta_certa": "C",
-    "nota": "As opções originais são esboços gráficos (não texto) — descrição aproximada.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/06/EX-FQA715-F1-2024-V1_net-3.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F1-2024-CC-VD_net.pdf",
+    "opcoes_img": "img/2024-f1-7-2-opcoes.webp"
   },
   {
     "id": "2024-f1-7-3",
@@ -465,19 +465,19 @@
     "numero": "2.1",
     "tema": "Mecânica",
     "categoria": "Gravitação Universal",
-    "contexto": "Movimento de translação da Terra em torno do Sol, considerado circular uniforme.",
-    "enunciado": "Qual diagrama representa corretamente a resultante das forças e a aceleração da Terra no seu movimento em torno do Sol?",
+    "contexto": "Movimento de translação da Terra em torno do Sol, considerado circular uniforme (diagramas fora de escala).",
+    "enunciado": "Qual dos diagramas pode representar a resultante das forças, F_R, que atuam na Terra e a aceleração, a, da Terra durante o seu movimento em torno do Sol?",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "ambas dirigidas para o Sol",
-      "B": "ambas tangentes à trajetória",
-      "C": "resultante para o Sol, aceleração tangente",
-      "D": "ambas afastadas do Sol"
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
     },
     "resposta_certa": "A",
-    "nota": "Opções originais são diagramas vetoriais — descrição aproximada do conteúdo.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "opcoes_img": "img/2024-f2-2-1-opcoes.webp"
   },
   {
     "id": "2024-f2-2-2",
@@ -491,7 +491,10 @@
     "tipo": "calculo",
     "resposta_certa": "Força gravítica Terra–JWST = 1,097 N; resultante das forças gravíticas no JWST = 36,03 + 1,097 = 37,13 N (força centrípeta); daí obtém-se v e T = 2πr/v ≈ 365 dias (igual ao da Terra — o JWST acompanha a Terra no ponto L2).",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-fig2.webp"
+    ]
   },
   {
     "id": "2024-f2-3-1",
@@ -559,7 +562,10 @@
     "tipo": "calculo",
     "resposta_certa": "Variação da energia cinética: ΔEc = 7,20×10⁴ J; como só 90% se converte em Ec, energia fornecida = 7,20×10⁴ / 0,90 = 8,0×10⁴ J.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-fig4.webp"
+    ]
   },
   {
     "id": "2024-f2-4-2",
@@ -573,7 +579,10 @@
     "tipo": "calculo",
     "resposta_certa": "Nos primeiros 6,0 s o automóvel percorre 36,0 m; igualando as equações de posição (mota em MRU, automóvel em MRUA) os veículos voltam a encontrar-se em t = 18,0 s; distância percorrida por ambos ≈ 1,8×10² m.",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-fig4.webp"
+    ]
   },
   {
     "id": "2024-f2-4-3",
@@ -582,19 +591,21 @@
     "numero": "4.3",
     "tema": "Mecânica",
     "categoria": "Cinemática e Movimento Circular",
-    "contexto": "Comparação entre a mota (velocidade constante 10 m/s) e o automóvel (acelerando a partir do repouso).",
-    "enunciado": "Em que instante os dois veículos apresentam igual velocidade e igual energia cinética?",
+    "contexto": "Um automóvel de 1000 kg, parado num semáforo, arranca no instante em que é ultrapassado por uma mota de 150 kg que se move com velocidade constante de 10 m/s. O gráfico mostra o módulo da velocidade do automóvel em função do tempo.",
+    "enunciado": "O instante em que o automóvel e a mota apresentam igual velocidade ocorre",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "Nunca apresentam igual velocidade e igual energia cinética simultaneamente.",
-      "B": "No mesmo instante em que têm igual velocidade.",
-      "C": "Em instantes diferentes.",
-      "D": "Apenas no instante inicial."
+      "A": "antes dos 6,0 s, tendo os dois veículos a mesma energia cinética.",
+      "B": "após os 6,0 s, tendo os dois veículos a mesma energia cinética.",
+      "C": "antes dos 6,0 s, tendo os dois veículos diferente energia cinética.",
+      "D": "após os 6,0 s, tendo os dois veículos diferente energia cinética."
     },
-    "resposta_certa": "A",
-    "nota": "Justificação: massas diferentes implicam que, mesmo com igual velocidade, a energia cinética é diferente.",
+    "resposta_certa": "C",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "imagens": [
+      "img/2024-f2-fig4.webp"
+    ]
   },
   {
     "id": "2024-f2-4-4",
@@ -603,19 +614,19 @@
     "numero": "4.4",
     "tema": "Mecânica",
     "categoria": "Cinemática e Movimento Circular",
-    "contexto": "Um ponto X situado na periferia de uma roda de raio 30 cm do automóvel, que parte do repouso e acelera.",
-    "enunciado": "Qual o gráfico h(t) (altura do ponto X ao solo, em função do tempo) que representa corretamente o movimento?",
+    "contexto": "Um ponto X está na periferia de uma roda do automóvel, de raio 30 cm, que contacta com o solo sem deslizar, quando o automóvel se desloca com velocidade constante de módulo 12 m/s.",
+    "enunciado": "Qual é o gráfico que pode representar a altura, h, do ponto X em relação ao solo, em função do tempo, t?",
     "tipo": "escolha_multipla",
     "opcoes": {
-      "A": "oscilação sinusoidal de período crescente",
-      "B": "oscilação sinusoidal de período decrescente",
-      "C": "reta crescente",
-      "D": "função constante"
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
     },
-    "resposta_certa": "B",
-    "nota": "Opções originais são esboços de gráfico — descrição aproximada.",
+    "resposta_certa": "C",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
-    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf"
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
+    "opcoes_img": "img/2024-f2-4-4-opcoes.webp"
   },
   {
     "id": "2024-f2-5-1-1",
@@ -1159,5 +1170,1853 @@
     "resposta_certa": "A",
     "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/08/EX-FQA715-EE-2024_net.pdf",
     "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/08/EX-FQA715-EE-2024-CC_net.pdf"
+  },
+  {
+    "id": "2023-f1-1-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "1.1",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "Uma baleia, ao morrer, deposita no fundo do oceano, em média, o equivalente a 33 toneladas de CO2.",
+    "enunciado": "Em qual das opções está representado um modelo tridimensional da molécula de CO2?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "opcoes_img": "img/2023-f1-1-1-opcoes.webp"
+  },
+  {
+    "id": "2023-f1-1-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "1.2",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Uma baleia, ao morrer, deposita no fundo do oceano, em média, o equivalente a 33 toneladas de CO2.",
+    "enunciado": "Qual das expressões permite calcular o volume ocupado por 33 toneladas de CO2 (M = 44,01 g/mol), em condições PTN?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "(44,01 × 22,4) / (33 × 10⁶) dm³",
+      "B": "(33 × 10⁶ × 22,4) / 44,01 dm³",
+      "C": "(44,01 × 33 × 10⁶) / 22,4 dm³",
+      "D": "22,4 / (44,01 × 33 × 10⁶) dm³"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-2-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "2.1",
+    "tema": "Ondas e Sinais",
+    "categoria": "Som e Ondas Mecânicas",
+    "contexto": "Uma baleia vocaliza a 52 Hz, frequência maior do que a das restantes baleias, que se movimentam nas mesmas águas e à mesma profundidade.",
+    "enunciado": "Comparativamente ao som emitido pelas outras baleias, o som de 52 Hz",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "é mais grave.",
+      "B": "se propaga com maior velocidade.",
+      "C": "apresenta igual período.",
+      "D": "tem menor comprimento de onda."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-2-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "2.2",
+    "tema": "Ondas e Sinais",
+    "categoria": "Som e Ondas Mecânicas",
+    "contexto": "O som produzido junto ao saco distal de um cachalote percorre o saco de espermacete (comprimento d) até ao saco frontal, é refletido e volta a percorrer d; parte sai para a água formando um pulso (p1, p2, p3, …). Num registo de hidrofone, os pulsos consecutivos estão separados por 5,00 ms. Velocidade do som no saco de espermacete: 1400 m/s.",
+    "enunciado": "Determine o comprimento do saco de espermacete, d.",
+    "tipo": "calculo",
+    "resposta_certa": "O intervalo entre dois pulsos consecutivos é 5,00×10⁻³ s, tempo em que o som percorre 2d: d = 1400 × 5,00×10⁻³ / 2 = 3,5 m.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig1.webp",
+      "img/2023-f1-fig2.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-3-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "3.1",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "O aço é formado essencialmente por Fe e C. Adicionando Cr obtém-se uma liga resistente à corrosão atmosférica: em contacto com o O2 forma-se uma película sólida, não porosa e impermeável, sobretudo de Cr2O3, que se autorrepara quando danificada.",
+    "enunciado": "Numa liga de ferro, carbono e cromo, são metais",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Fe e C, que pertencem a diferentes períodos da tabela periódica.",
+      "B": "Fe e C, que pertencem a diferentes grupos da tabela periódica.",
+      "C": "Fe e Cr, que pertencem ao mesmo período da tabela periódica.",
+      "D": "Fe e Cr, que pertencem ao mesmo grupo da tabela periódica."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-3-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "3.2",
+    "tema": "Química",
+    "categoria": "Oxidação-Redução",
+    "contexto": "O aço é formado essencialmente por Fe e C. Adicionando Cr obtém-se uma liga resistente à corrosão atmosférica: em contacto com o O2 forma-se uma película sólida, não porosa e impermeável, sobretudo de Cr2O3, que se autorrepara quando danificada.",
+    "enunciado": "Explique a resistência à corrosão atmosférica deste aço: a razão pela qual a película o torna resistente e o processo de autorreparação, comparando o poder redutor do Fe com o do Cr.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "A película de Cr2O3 dificulta o contacto do O2 com os metais da liga, evitando a sua oxidação. O Cr tem maior poder redutor do que o Fe, por isso oxida-se preferencialmente, formando de novo a película quando esta é danificada.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig3.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-3-3",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "3.3",
+    "tema": "Química",
+    "categoria": "Estrutura Atómica",
+    "contexto": "",
+    "enunciado": "No estado fundamental, o átomo de oxigénio, comparativamente ao de carbono, apresenta um número de energias de remoção eletrónica",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "igual e um maior número de orbitais de valência totalmente preenchidas.",
+      "B": "igual e um menor número de orbitais de valência totalmente preenchidas.",
+      "C": "diferente e um maior número de orbitais de valência totalmente preenchidas.",
+      "D": "diferente e um menor número de orbitais de valência totalmente preenchidas."
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-4",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "4",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Um objeto sólido é introduzido num recipiente isolado, cheio de água a temperatura inferior, até ao equilíbrio térmico. Repete-se com um segundo objeto de igual massa (mesma temperatura inicial e mesma massa de água, sem mudanças de estado). No gráfico θ(t), a temperatura de equilíbrio é mais alta na experiência com o objeto 2.",
+    "enunciado": "Conclua, justificando, qual dos dois objetos (1 ou 2) tem maior capacidade térmica mássica.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Em cada experiência, a energia cedida pelo objeto é igual à absorvida pela água. Como a temperatura de equilíbrio é maior na experiência 2, a água recebeu mais energia do objeto 2. Para a mesma massa e temperatura inicial, o objeto 2 cedeu mais energia com menor variação de temperatura, logo tem maior capacidade térmica mássica.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig4.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-5-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.1",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Prédio com três lanços de escadas de 2,80 m cada e elevador com cabina de 300 kg. Uma pessoa de 75 kg sobe do rés do chão ao 3.º andar. Pessoa e pessoa + cabina são redutíveis ao centro de massa; o solo é o nível de referência da energia potencial gravítica.",
+    "enunciado": "Qual é a razão entre as variações de energia potencial gravítica do conjunto pessoa + cabina + Terra (elevador) e do conjunto pessoa + Terra (escadas), do rés do chão ao 3.º andar?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "1",
+      "B": "0,2",
+      "C": "4",
+      "D": "5"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig5.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-5-2-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.2.1",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "O elevador demora 10,0 s do rés do chão ao 3.º andar (8,40 m): acelera durante o 1.º segundo, mantém a velocidade máxima durante 8,0 s e trava dos 9,0 s aos 10,0 s até parar, com aceleração de módulo constante no 1.º e no último segundo.",
+    "enunciado": "Determine o módulo da velocidade máxima que o elevador atinge.",
+    "tipo": "calculo",
+    "resposta_certa": "Δy = 0,5·v (1.º s) + 8,0·v (MRU) + 0,5·v (último s) = 9,0·v. Como Δy = 3 × 2,80 = 8,40 m: v = 8,40 / 9,0 ≈ 0,93 m/s.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig5.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-5-2-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.2.2",
+    "tema": "Mecânica",
+    "categoria": "Forças e Leis de Newton",
+    "contexto": "O elevador demora 10,0 s do rés do chão ao 3.º andar (8,40 m): acelera durante o 1.º segundo, mantém a velocidade máxima durante 8,0 s e trava dos 9,0 s aos 10,0 s até parar, com aceleração de módulo constante no 1.º e no último segundo.",
+    "enunciado": "Qual das opções corresponde ao esboço do gráfico da intensidade da força N que o elevador exerce sobre a pessoa, em função do tempo?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "opcoes_img": "img/2023-f1-5-2-2-opcoes.webp"
+  },
+  {
+    "id": "2023-f1-5-3",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.3",
+    "tema": "Ondas e Sinais",
+    "categoria": "Reflexão e Refração da Luz",
+    "contexto": "No elevador, um espelho plano faz 80° com a base. Dois raios (1 e 2) refletem-se no espelho e atingem os olhos de uma pessoa; o raio refletido (1) é paralelo ao solo.",
+    "enunciado": "O ângulo de incidência do raio que dá origem ao raio refletido (1) é de",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "40° e é maior do que o ângulo de incidência do raio (2).",
+      "B": "10° e é maior do que o ângulo de incidência do raio (2).",
+      "C": "10° e é menor do que o ângulo de incidência do raio (2).",
+      "D": "40° e é menor do que o ângulo de incidência do raio (2)."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig6.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-5-4-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.4.1",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Uma pessoa desce as escadas com uma lanterna a pilhas ligada.",
+    "enunciado": "No circuito elétrico da lanterna, o sentido real da corrente elétrica é do polo",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "positivo para o polo negativo da pilha, e a corrente é alternada.",
+      "B": "positivo para o polo negativo da pilha, e a corrente é contínua.",
+      "C": "negativo para o polo positivo da pilha, e a corrente é alternada.",
+      "D": "negativo para o polo positivo da pilha, e a corrente é contínua."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-5-4-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.4.2",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "É dado o gráfico U(I) (curva característica) da pilha da lanterna, com I entre 0 e 1,80 A e U entre 2,5 e 6,0 V.",
+    "enunciado": "Qual das opções pode representar as características desta pilha (ε e r)?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "ε = 5,5 V; r = 1,3 Ω",
+      "B": "ε = 5,5 V; r = 2,3 Ω",
+      "C": "ε = 5,0 V; r = 1,3 Ω",
+      "D": "ε = 5,0 V; r = 2,3 Ω"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f1-fig7.webp"
+    ]
+  },
+  {
+    "id": "2023-f1-5-5",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "5.5",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Uma bola de ténis é abandonada de uma altura h, com trajetória retilínea e resistência do ar desprezável; em cada ressalto, 50% da energia cinética é dissipada no impacto com o solo.",
+    "enunciado": "Qual das expressões permite calcular a altura máxima atingida pela bola após o segundo ressalto?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "h/2",
+      "B": "√h",
+      "C": "h/4",
+      "D": "√(h/2)"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-6-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "6.1",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "Processo de Ostwald (HNO3, M = 63,02 g/mol; NH3, M = 17,04 g/mol): I) 4 NH3 + 5 O2 → 4 NO + 6 H2O; II) 2 NO + O2 → 2 NO2; III) 3 NO2 + H2O → 2 HNO3 + NO.",
+    "enunciado": "Complete: a molécula de NH3 tem a) ___ eletrões de valência, sendo b) ___ o número de eletrões não-ligantes, o que lhe confere uma geometria c) ___. Opções — a): 1. dez, 2. oito, 3. seis; b): 1. dois, 2. quatro, 3. zero; c): 1. tetraédrica, 2. piramidal trigonal, 3. triangular plana.",
+    "tipo": "associacao",
+    "resposta_certa": "a) – 2 (oito); b) – 1 (dois); c) – 2 (piramidal trigonal).",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-6-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "6.2",
+    "tema": "Química",
+    "categoria": "Oxidação-Redução",
+    "contexto": "Processo de Ostwald (HNO3, M = 63,02 g/mol; NH3, M = 17,04 g/mol): I) 4 NH3 + 5 O2 → 4 NO + 6 H2O; II) 2 NO + O2 → 2 NO2; III) 3 NO2 + H2O → 2 HNO3 + NO.",
+    "enunciado": "Os números de oxidação do nitrogénio nos compostos NH3 e HNO3 são, respetivamente,",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "3 e 5.",
+      "B": "3 e 4.",
+      "C": "−3 e 5.",
+      "D": "−3 e 4."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-6-3",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "6.3",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Processo de Ostwald (HNO3, M = 63,02 g/mol; NH3, M = 17,04 g/mol): I) 4 NH3 + 5 O2 → 4 NO + 6 H2O; II) 2 NO + O2 → 2 NO2; III) 3 NO2 + H2O → 2 HNO3 + NO. Nas etapas I e II a conversão é completa; a etapa III tem rendimento de 75%.",
+    "enunciado": "Determine a massa de NH3, em kg, necessária para produzir 1200 toneladas de HNO3.",
+    "tipo": "calculo",
+    "resposta_certa": "n(HNO3) a 100% de rendimento = (1200×10⁶ / 63,02) / 0,75 = 2,54×10⁷ mol; n(NO2) na etapa III = 3/2 × 2,54×10⁷ = 3,81×10⁷ mol = n(NO) = n(NH3); m(NH3) = 3,81×10⁷ × 17,04 g ≈ 6,5×10⁵ kg.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-6-4",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "6.4",
+    "tema": "Química",
+    "categoria": "Química Orgânica e Síntese",
+    "contexto": "Processo de Ostwald (HNO3, M = 63,02 g/mol; NH3, M = 17,04 g/mol): I) 4 NH3 + 5 O2 → 4 NO + 6 H2O; II) 2 NO + O2 → 2 NO2; III) 3 NO2 + H2O → 2 HNO3 + NO.",
+    "enunciado": "De acordo com os princípios da química verde, seria vantajoso reutilizar o NO resultante da",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "etapa III na etapa I.",
+      "B": "etapa III na etapa II.",
+      "C": "etapa I na etapa II.",
+      "D": "etapa I na etapa III."
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-7-1",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "7.1",
+    "tema": "Química",
+    "categoria": "Trabalho Laboratorial e Erros",
+    "contexto": "Titulação, a 25 °C, de 10,00 mL de HNO3(aq) diluído com NaOH(aq) 0,100 mol/dm³: HNO3 + NaOH → NaNO3 + H2O. Volume de base gasto até ao ponto de equivalência: 13,80 mL.",
+    "enunciado": "A medição do volume gasto de NaOH foi realizada recorrendo a uma ___, tendo sido registada uma incerteza de leitura de ___.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "bureta ... 0,05 mL",
+      "B": "bureta ... 0,5 mL",
+      "C": "pipeta volumétrica ... 0,05 mL",
+      "D": "pipeta volumétrica ... 0,5 mL"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-7-2",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "7.2",
+    "tema": "Química",
+    "categoria": "Ácido-Base e pH",
+    "contexto": "Titulação, a 25 °C, de 10,00 mL de HNO3(aq) diluído com NaOH(aq) 0,100 mol/dm³: HNO3 + NaOH → NaNO3 + H2O. Volume de base gasto até ao ponto de equivalência: 13,80 mL.",
+    "enunciado": "Selecione a opção que apresenta o esboço do gráfico que representa a curva da titulação, a 25 °C.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf",
+    "opcoes_img": "img/2023-f1-7-2-opcoes.webp"
+  },
+  {
+    "id": "2023-f1-7-3",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "7.3",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Titulação, a 25 °C, de 10,00 mL de HNO3(aq) diluído com NaOH(aq) 0,100 mol/dm³: HNO3 + NaOH → NaNO3 + H2O. Volume de base gasto até ao ponto de equivalência: 13,80 mL. A solução diluída foi preparada a partir de HNO3 concentrado (ρ = 1,260 g/cm³; 35% em massa).",
+    "enunciado": "Determine a razão entre as concentrações das duas soluções de HNO3, a concentrada e a diluída.",
+    "tipo": "calculo",
+    "resposta_certa": "Concentrada: 1260 g/dm³ × 0,35 / 63,02 = 7,00 mol/dm³. Diluída: 0,100 × 13,80 / 10,00 = 0,138 mol/dm³. Razão = 7,00 / 0,138 ≈ 51.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-8",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "8",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Na Antártida, um meteorito de 12 kg, a 3100 °C, enterra-se a 10 km/s num bloco de gelo a 0 °C. Toda a energia cinética é usada para fundir gelo; c(meteorito) = 830 J kg⁻¹ K⁻¹; ΔH fusão do gelo = 3,34×10⁵ J/kg; no final tudo fica a 0 °C.",
+    "enunciado": "Determine a massa de gelo que se funde.",
+    "tipo": "calculo",
+    "resposta_certa": "Calor cedido pelo meteorito ao arrefecer até 0 °C: 12 × 830 × 3100 = 3,1×10⁷ J. Energia cinética: ½ × 12 × (1,0×10⁴)² = 6,0×10⁸ J. Massa de gelo fundida = (6,0×10⁸ + 3,1×10⁷) / 3,34×10⁵ ≈ 2×10³ kg.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f1-9",
+    "ano": 2023,
+    "fase": "1ª Fase",
+    "numero": "9",
+    "tema": "Mecânica",
+    "categoria": "Gravitação Universal",
+    "contexto": "Banda desenhada: uma nave dá a volta completa a um pequeno planeta (esférico, densidade uniforme) e a volta tem 50 km. À superfície, um martelo e uma pena largados a 1,60 m do solo demoram ambos 1,7 s a cair.",
+    "enunciado": "Determine, a partir destes dados, a massa do planeta.",
+    "tipo": "calculo",
+    "resposta_certa": "g = 2h/t² = 2 × 1,60 / 1,7² ≈ 1,11 m/s². Raio: 2πr = 50 km ⇒ r ≈ 7,96×10³ m. M = g·r²/G ≈ 1,1×10¹⁸ kg.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/06/EX-FQA715-F1-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F1-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-1-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "1.1",
+    "tema": "Química",
+    "categoria": "Solubilidade",
+    "contexto": "«Papel salgado»: um papel era impregnado com uma solução de NaCl (M = 58,44 g/mol) e outra de AgNO3 (M = 169,88 g/mol). Num gráfico de solubilidade (g de sal por 100 mL de água) entre 0 e 40 °C, a do AgNO3 é muito maior do que a do NaCl e aumenta com a temperatura (cerca de 250 g/100 mL a 24 °C); a do NaCl é quase constante.",
+    "enunciado": "O sal mais solúvel em água, no intervalo de temperaturas considerado no gráfico, é o",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "NaCl, e a sua solubilidade aumenta com o aumento da temperatura.",
+      "B": "NaCl, e a sua solubilidade não é afetada pela temperatura.",
+      "C": "AgNO3, e a sua solubilidade aumenta com o aumento da temperatura.",
+      "D": "AgNO3, e a sua solubilidade não é afetada pela temperatura."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig1.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-1-2-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "1.2.1",
+    "tema": "Química",
+    "categoria": "Solubilidade",
+    "contexto": "«Papel salgado»: um papel era impregnado com uma solução de NaCl (M = 58,44 g/mol) e outra de AgNO3 (M = 169,88 g/mol). Num gráfico de solubilidade (g de sal por 100 mL de água) entre 0 e 40 °C, a do AgNO3 é muito maior do que a do NaCl e aumenta com a temperatura (cerca de 250 g/100 mL a 24 °C); a do NaCl é quase constante. A 24 °C prepararam-se: 12,0 g de AgNO3 em 100 mL de água e 5,0 g de NaCl em 100 mL de água (volume da solução = volume do solvente).",
+    "enunciado": "Qual é a massa de AgNO3 que ainda seria possível adicionar à solução inicialmente preparada desse sal, para obter uma solução saturada, a 24 °C?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "245 g",
+      "B": "238 g",
+      "C": "250 g",
+      "D": "210 g"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig1.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-1-2-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "1.2.2",
+    "tema": "Química",
+    "categoria": "Solubilidade",
+    "contexto": "«Papel salgado»: um papel era impregnado com uma solução de NaCl (M = 58,44 g/mol) e outra de AgNO3 (M = 169,88 g/mol). Num gráfico de solubilidade (g de sal por 100 mL de água) entre 0 e 40 °C, a do AgNO3 é muito maior do que a do NaCl e aumenta com a temperatura (cerca de 250 g/100 mL a 24 °C); a do NaCl é quase constante. A 24 °C prepararam-se: 12,0 g de AgNO3 em 100 mL de água e 5,0 g de NaCl em 100 mL de água (volume da solução = volume do solvente). Equilíbrio: AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq); Ks(AgCl) = 1,6×10⁻¹⁰ a 24 °C.",
+    "enunciado": "Verifique que ocorreu formação de precipitado de AgCl(s) quando se juntaram as duas soluções preparadas.",
+    "tipo": "calculo",
+    "resposta_certa": "Após juntar as soluções (200 mL): [Ag⁺] = (12,0/169,88)/0,200 = 0,353 mol/dm³ e [Cl⁻] = (5,0/58,44)/0,200 = 0,428 mol/dm³. Q = 0,353 × 0,428 ≈ 0,15. Como Q > Ks, há formação de precipitado.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig1.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-2-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "2.1",
+    "tema": "Ondas e Sinais",
+    "categoria": "Radiação e Espectro Eletromagnético",
+    "contexto": "Para estudar o efeito das radiações visíveis na reação fotoquímica do AgCl (sal branco que escurece com luz suficientemente energética), prepararam-se cinco tubos com AgCl(s): A sem revestimento; B vermelho transparente; C verde transparente; D azul transparente; E opaco prateado. Após a exposição à luz visível, removeram-se os revestimentos: só os tubos B e E não escureceram.",
+    "enunciado": "Conclui-se que as amostras de AgCl escurecem quando expostas a ___ das radiações da luz visível e que, no tubo E, sendo a luz visível ___ pelo revestimento, a amostra não escurece.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "algumas ... refletida",
+      "B": "algumas ... transmitida",
+      "C": "qualquer uma ... refletida",
+      "D": "qualquer uma ... transmitida"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig2.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-2-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "2.2",
+    "tema": "Ondas e Sinais",
+    "categoria": "Radiação e Espectro Eletromagnético",
+    "contexto": "Para estudar o efeito das radiações visíveis na reação fotoquímica do AgCl (sal branco que escurece com luz suficientemente energética), prepararam-se cinco tubos com AgCl(s): A sem revestimento; B vermelho transparente; C verde transparente; D azul transparente; E opaco prateado. Após a exposição à luz visível, removeram-se os revestimentos: só os tubos B e E não escureceram.",
+    "enunciado": "Qual é a opção em que se apresentam as radiações testadas por ordem crescente de energia?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Azul, vermelha e verde.",
+      "B": "Azul, verde e vermelha.",
+      "C": "Vermelha, verde e azul.",
+      "D": "Vermelha, azul e verde."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig2.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-3-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "3.1",
+    "tema": "Ondas e Sinais",
+    "categoria": "Reflexão e Refração da Luz",
+    "contexto": "Um feixe monocromático, no ar, incide numa face de uma lâmina de vidro de faces paralelas, de largura L = 2,81 cm, com ângulo de incidência α = 32°. Índice de refração do vidro: 1,52.",
+    "enunciado": "Determine a distância que a luz percorre ao atravessar a lâmina de vidro.",
+    "tipo": "calculo",
+    "resposta_certa": "Snell-Descartes: 1,00 × sin 32° = 1,52 × sin αr ⇒ αr ≈ 20,4°. Distância percorrida = L / cos αr = 2,81 / cos 20,4° ≈ 3,0×10⁻² m.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig3.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-3-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "3.2",
+    "tema": "Ondas e Sinais",
+    "categoria": "Reflexão e Refração da Luz",
+    "contexto": "Num gráfico do índice de refração n do vidro BK7 em função do comprimento de onda (300–700 nm), n aumenta quando o comprimento de onda diminui.",
+    "enunciado": "Explique como varia a velocidade de propagação da radiação no vidro BK7 à medida que o comprimento de onda diminui.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Pelo gráfico, a menor comprimento de onda corresponde maior índice de refração. Como n = c/v, o índice de refração e a velocidade de propagação são inversamente proporcionais. Logo, quando o comprimento de onda diminui, a velocidade de propagação no vidro diminui.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig4.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-4",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "4",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Num carrossel em movimento circular uniforme, cinco telemóveis numa direção radial mediram: r = 1,10 / 2,00 / 2,40 / 3,20 / 3,40 m e ac = 0,26 / 0,50 / 0,57 / 0,72 / 0,79 m/s².",
+    "enunciado": "Determine o módulo da velocidade angular a partir da equação da reta de ajuste a um gráfico adequado (identifique as variáveis, apresente a equação da reta e o resultado com 2 algarismos significativos).",
+    "tipo": "calculo",
+    "resposta_certa": "Como ac = ω²·r, faz-se o gráfico de ac (variável dependente) em função de r (variável independente). Reta de ajuste: ac = 0,22 r + 0,03 (SI). O declive é ω² = 0,22 ⇒ ω ≈ 0,47 rad/s.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-5-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "5.1",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Modelo de Bohr do átomo de hidrogénio: órbitas circulares estacionárias, uma para cada nível de energia do eletrão. No estado fundamental, o eletrão move-se numa órbita de raio 5,29×10⁻¹¹ m e dá 1000 voltas em 1,52×10⁻¹³ s (movimento circular uniforme).",
+    "enunciado": "Qual é o módulo da velocidade do eletrão nesta órbita?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "6,96×10⁵ m/s",
+      "B": "1,09×10⁶ m/s",
+      "C": "4,13×10¹⁶ m/s",
+      "D": "2,19×10⁶ m/s"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-5-2-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "5.2.1",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Modelo de Bohr do átomo de hidrogénio: órbitas circulares estacionárias, uma para cada nível de energia do eletrão. Um tubo de descarga com H2 rarefeito é submetido a uma descarga elétrica de alta tensão.",
+    "enunciado": "A diferença de potencial entre os elétrodos nas extremidades do tubo de descarga corresponde à",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "energia transferida para o gás rarefeito por unidade de carga que o atravessa.",
+      "B": "energia transferida para o gás rarefeito por unidade de tempo.",
+      "C": "carga transferida para o gás rarefeito por unidade de energia que é absorvida.",
+      "D": "carga transferida para o gás rarefeito por unidade de tempo."
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-5-2-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "5.2.2",
+    "tema": "Química",
+    "categoria": "Estrutura Atómica",
+    "contexto": "Modelo de Bohr do átomo de hidrogénio: órbitas circulares estacionárias, uma para cada nível de energia do eletrão. São dadas as quatro primeiras riscas do espectro de emissão do hidrogénio no visível, Hα, Hβ, Hγ e Hδ, por ordem decrescente de comprimento de onda.",
+    "enunciado": "Qual é a risca correspondente à transição eletrónica com origem no nível 4?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Hα",
+      "B": "Hβ",
+      "C": "Hγ",
+      "D": "Hδ"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig6.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-6",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "6",
+    "tema": "Química",
+    "categoria": "Equilíbrio Químico",
+    "contexto": "CO(g) + H2O(g) ⇌ CO2(g) + H2(g), ΔH < 0. O sistema está inicialmente em equilíbrio num reservatório fechado; pretende-se maximizar a produção de H2.",
+    "enunciado": "Preveja, justificando, se cada procedimento assegura esse objetivo: diminuir o volume do reservatório (T constante); diminuir a temperatura (V constante).",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Diminuir o volume aumenta a pressão, mas como a quantidade de gases nos reagentes e nos produtos é igual, não altera a quantidade de H2 (não cumpre o objetivo). Como a reação direta é exotérmica, diminuir a temperatura favorece-a (princípio de Le Châtelier), aumentando a quantidade de H2 (cumpre o objetivo).",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-7-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "7.1",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Para valorizar o CO2 das cimenteiras, faz-se reagir com H2: CO2(g) + 4 H2(g) → CH4(g) + 2 H2O(g). Energias de ligação médias (kJ/mol): C–H 414; C=O 799; C–O 354; O–H 460; H–H 436.",
+    "enunciado": "Determine a variação de entalpia da reação.",
+    "tipo": "calculo",
+    "resposta_certa": "Energia absorvida (quebrar 2 C=O e 4 H–H): 2×799 + 4×436 = 3342 kJ. Energia libertada (formar 4 C–H e 4 O–H): 4×414 + 4×460 = 3496 kJ. ΔH = 3342 − 3496 = −154 kJ.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-7-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "7.2",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Para valorizar o CO2 das cimenteiras, faz-se reagir com H2: CO2(g) + 4 H2(g) → CH4(g) + 2 H2O(g). Num teste, reagem 4,40 kg de CO2 (M = 44,01 g/mol) com 4,48×10³ dm³ de H2 (PTN); o rendimento da formação de CH4 é 54%.",
+    "enunciado": "Qual é a quantidade de CH4 produzida?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "27 mol",
+      "B": "50 mol",
+      "C": "54 mol",
+      "D": "108 mol"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-7-3",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "7.3",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "Para valorizar o CO2 das cimenteiras, faz-se reagir com H2: CO2(g) + 4 H2(g) → CH4(g) + 2 H2O(g).",
+    "enunciado": "Associe as moléculas às geometrias. Coluna I: (a) CO2, (b) CH4, (c) H2O. Coluna II: (1) piramidal trigonal, (2) linear, (3) tetraédrica, (4) triangular plana, (5) angular.",
+    "tipo": "associacao",
+    "resposta_certa": "(a) – (2) linear; (b) – (3) tetraédrica; (c) – (5) angular.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-8-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "8.1",
+    "tema": "Eletricidade",
+    "categoria": "Campo Elétrico",
+    "contexto": "Precipitador eletrostático numa chaminé: as partículas dos gases passam por uma grelha carregada negativamente, ficam com carga negativa e são atraídas por placas carregadas positivamente.",
+    "enunciado": "Qual das opções pode representar as linhas de campo elétrico que se geram no dispositivo?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig7.webp"
+    ],
+    "opcoes_img": "img/2023-f2-8-1-opcoes.webp"
+  },
+  {
+    "id": "2023-f2-8-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "8.2",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Precipitador eletrostático numa chaminé: as partículas dos gases passam por uma grelha carregada negativamente, ficam com carga negativa e são atraídas por placas carregadas positivamente. Numa amostra de 1 m³ de gases obtém-se, por filtração, 5,00×10⁻⁵ g de material particulado (PM); massa média de uma partícula: 2,62×10⁻²⁰ g.",
+    "enunciado": "Qual é a quantidade de PM, em unidades SI, na amostra considerada?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "5,24×10⁻⁶",
+      "B": "3,15×10⁸",
+      "C": "1,91×10¹⁵",
+      "D": "3,17×10⁻⁹"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-8-3",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "8.3",
+    "tema": "Química",
+    "categoria": "Ácido-Base e pH",
+    "contexto": "O carvão tem 3,5% (em massa) de enxofre. Queima-se 1,0 t de carvão; todo o S se espalha como SO2 numa área circular de 1,0 km de raio, onde a chuva forma uma «toalha» de água de 10 mm. Reações: S(s) + O2(g) → SO2(g); 2 SO2(g) + O2(g) + 6 H2O(l) → 2 SO4²⁻(aq) + 4 H3O⁺(aq).",
+    "enunciado": "Determine o pH da água da chuva nesta área, após a queima de 1,0 tonelada de carvão.",
+    "tipo": "calculo",
+    "resposta_certa": "n(S) = 35 kg / 32,07 g/mol ≈ 1,09×10³ mol. Volume de água = π × (1000 m)² × 0,010 m = 3,14×10⁴ m³ = 3,14×10⁷ dm³. Pela estequiometria, n(H3O⁺) = 2 n(S) ⇒ [H3O⁺] = 2,18×10³ / 3,14×10⁷ ≈ 6,94×10⁻⁵ mol/dm³. pH ≈ 4,2.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-9-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "9.1",
+    "tema": "Mecânica",
+    "categoria": "Forças e Leis de Newton",
+    "contexto": "Uma esquiadora (e) desce uma encosta inclinada 20° (de A para B); quando passa em A, um trenó (t) parte do repouso numa encosta oposta inclinada 40° (de D para C). Ambos percorrem 50,0 m nas encostas; m(esquiadora) = 3 m(trenó); sem atrito nem resistência do ar; BC (horizontal) é o nível de referência da Ep.",
+    "enunciado": "Qual das opções pode representar a relação entre o módulo da aceleração da esquiadora (ae) e do trenó (at), e entre o módulo da variação de energia potencial gravítica do sistema esquiadora + Terra (ΔEp,e) e do sistema trenó + Terra (ΔEp,t), nos deslocamentos AB e DC?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "|ae| > |at| e |ΔEp,e| > |ΔEp,t|",
+      "B": "|ae| > |at| e |ΔEp,e| < |ΔEp,t|",
+      "C": "|ae| < |at| e |ΔEp,e| > |ΔEp,t|",
+      "D": "|ae| < |at| e |ΔEp,e| < |ΔEp,t|"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig8.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-9-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "9.2",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Uma esquiadora (e) desce uma encosta inclinada 20° (de A para B); quando passa em A, um trenó (t) parte do repouso numa encosta oposta inclinada 40° (de D para C). Ambos percorrem 50,0 m nas encostas; m(esquiadora) = 3 m(trenó); sem atrito nem resistência do ar; BC (horizontal) é o nível de referência da Ep.",
+    "enunciado": "Qual das opções corresponde ao esboço do gráfico da energia cinética, Ec, da esquiadora e do trenó, em função da distância d percorrida nas encostas (AB e DC)?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig8.webp"
+    ],
+    "opcoes_img": "img/2023-f2-9-2-opcoes.webp"
+  },
+  {
+    "id": "2023-f2-9-3",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "9.3",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Uma esquiadora (e) desce uma encosta inclinada 20° (de A para B); quando passa em A, um trenó (t) parte do repouso numa encosta oposta inclinada 40° (de D para C). Ambos percorrem 50,0 m nas encostas; m(esquiadora) = 3 m(trenó); sem atrito nem resistência do ar; BC (horizontal) é o nível de referência da Ep. Já no plano horizontal, a esquiadora cruza-se com o trenó, deslocando-se ambos com velocidades de igual módulo.",
+    "enunciado": "Determine o módulo da velocidade da esquiadora no instante em que o trenó se desprende.",
+    "tipo": "calculo",
+    "resposta_certa": "Trenó: h = 50,0 × sin 40° ≈ 32,1 m ⇒ vC = √(2gh) ≈ 25,1 m/s. Esquiadora: chega a B com 25,1 m/s, descendo h = 50,0 × sin 20° ≈ 17,1 m; vA² = vB² − 2gh ⇒ vA ≈ 17 m/s.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig8.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-10-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "10.1",
+    "tema": "Química",
+    "categoria": "Trabalho Laboratorial e Erros",
+    "contexto": "Uma amostra de água líquida é aquecida numa placa elétrica, num copo de precipitação.",
+    "enunciado": "Minimizam-se as perdas de massa e de energia para o exterior se o copo de precipitação estiver",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "destapado e o seu diâmetro for igual ao da placa elétrica.",
+      "B": "tapado e o seu diâmetro for igual ao da placa elétrica.",
+      "C": "destapado e o seu diâmetro for inferior ao da placa elétrica.",
+      "D": "tapado e o seu diâmetro for inferior ao da placa elétrica."
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf"
+  },
+  {
+    "id": "2023-f2-10-2-1",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "10.2.1",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Uma amostra de água de massa m é aquecida numa placa de potência P constante (rendimento 100%), desde gelo até à vaporização completa, a pressão constante. No gráfico θ(t): de 0 a t1 o gelo aquece de θ1 até θ2 (fusão); de t1 a t2 dá-se a fusão; de t2 a t3 a água líquida aquece de θ2 até θ3 (ebulição); de t3 a t4 dá-se a vaporização (patamar mais longo do que o da fusão).",
+    "enunciado": "Qual das expressões permite calcular a capacidade térmica mássica do gelo? (Despreze as perdas de massa.)",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "P·(θ2 − θ1) / (m · t1)",
+      "B": "P · t1 / [m · (θ2 − θ1)]",
+      "C": "P·(θ3 − θ2) / [m · (t3 − t2)]",
+      "D": "P · (t3 − t2) / [m · (θ3 − θ2)]"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig9.webp"
+    ]
+  },
+  {
+    "id": "2023-f2-10-2-2",
+    "ano": 2023,
+    "fase": "2ª Fase",
+    "numero": "10.2.2",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Uma amostra de água de massa m é aquecida numa placa de potência P constante (rendimento 100%), desde gelo até à vaporização completa, a pressão constante. No gráfico θ(t): de 0 a t1 o gelo aquece de θ1 até θ2 (fusão); de t1 a t2 dá-se a fusão; de t2 a t3 a água líquida aquece de θ2 até θ3 (ebulição); de t3 a t4 dá-se a vaporização (patamar mais longo do que o da fusão).",
+    "enunciado": "Complete: durante as mudanças de fase, a temperatura da água a) ___ e a sua energia interna b) ___. A energia necessária para a vaporização completa foi c) ___ à necessária para a fusão completa. Opções — a) e b): 1. aumentou, 2. manteve-se constante, 3. diminuiu; c): 1. superior, 2. igual, 3. inferior.",
+    "tipo": "associacao",
+    "resposta_certa": "a) – 2 (manteve-se constante); b) – 1 (aumentou); c) – 1 (superior).",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2023/07/EX-FQA715-F2-2023-CC-VD_net.pdf",
+    "imagens": [
+      "img/2023-f2-fig9.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-1-1-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "1.1.1",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Missão Mars 2020: um pequeno helicóptero de 1,8 kg, com duas hélices de 1,2 m de diâmetro a 2400 rotações por minuto. A aceleração gravítica em Marte é cerca de 1/3 da terrestre. No primeiro voo, o helicóptero (modelo da partícula material) fez uma trajetória vertical: subiu até cerca de 3,0 m de altitude, manteve essa altitude durante algum tempo e voltou a descer até ao solo (gráfico y(t) entre 0 e t4).",
+    "enunciado": "O gráfico da altitude em função do tempo permite concluir que,",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "entre 0 e t1, o helicóptero se afastou do ponto de partida.",
+      "B": "entre t1 e t2, o movimento do helicóptero foi uniformemente acelerado.",
+      "C": "entre t2 e t3, o helicóptero descreveu uma trajetória retilínea.",
+      "D": "entre 0 e t4, ocorreu uma inversão no sentido do movimento do helicóptero."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig1.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-1-1-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "1.1.2",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Missão Mars 2020: um pequeno helicóptero de 1,8 kg, com duas hélices de 1,2 m de diâmetro a 2400 rotações por minuto. A aceleração gravítica em Marte é cerca de 1/3 da terrestre. No primeiro voo, o helicóptero (modelo da partícula material) fez uma trajetória vertical: subiu até cerca de 3,0 m de altitude, manteve essa altitude durante algum tempo e voltou a descer até ao solo (gráfico y(t) entre 0 e t4).",
+    "enunciado": "Em Marte, o trabalho realizado pela força gravítica que atua no helicóptero, no deslocamento entre a posição inicial e a altitude máxima, é",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "54 J.",
+      "B": "18 J.",
+      "C": "−18 J.",
+      "D": "−54 J."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig1.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-1-1-3",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "1.1.3",
+    "tema": "Mecânica",
+    "categoria": "Forças e Leis de Newton",
+    "contexto": "Missão Mars 2020: um pequeno helicóptero de 1,8 kg, com duas hélices de 1,2 m de diâmetro a 2400 rotações por minuto. A aceleração gravítica em Marte é cerca de 1/3 da terrestre. No primeiro voo, o helicóptero (modelo da partícula material) fez uma trajetória vertical: subiu até cerca de 3,0 m de altitude, manteve essa altitude durante algum tempo e voltou a descer até ao solo (gráfico y(t) entre 0 e t4).",
+    "enunciado": "Numa parte do percurso o helicóptero move-se com velocidade constante. Qual das opções pode representar, na mesma escala, a força de sustentação Fs e a força gravítica Fg?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig1.webp"
+    ],
+    "opcoes_img": "img/2022-f1-1-1-3-opcoes.webp"
+  },
+  {
+    "id": "2022-f1-1-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "1.2",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Missão Mars 2020: um pequeno helicóptero de 1,8 kg, com duas hélices de 1,2 m de diâmetro a 2400 rotações por minuto. A aceleração gravítica em Marte é cerca de 1/3 da terrestre.",
+    "enunciado": "Qual das expressões permite calcular, em m/s, o módulo da velocidade de um ponto na extremidade de uma hélice?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "(2π × 0,6 × 60) / 2400",
+      "B": "(2π × 1,2 × 60) / 2400",
+      "C": "(2π × 0,6 × 2400) / 60",
+      "D": "(2π × 1,2 × 2400) / 60"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-1-3",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "1.3",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "A sonda (1050 kg) entra na atmosfera de Marte e passa em A a 16 500 km/h, numa trajetória retilínea que faz 80° com a vertical. Atuam a força gravítica, uma força perpendicular à trajetória e a força de arrasto. Entre A e B a sonda perde 55% da energia cinética inicial e a força de arrasto é, em média, 30 vezes a força gravítica (g em Marte ≈ g/3).",
+    "enunciado": "Determine a distância percorrida, d, entre A e B.",
+    "tipo": "calculo",
+    "resposta_certa": "W(Fg) + W(F) + W(Fa) = ΔEc, com W(F) = 0. ΔEc = −0,55 × ½ × 1050 × (4583 m/s)² ≈ −6,07×10⁹ J. W(Fg) = m·g(Marte)·d·cos 80° ≈ 608·d J; W(Fa) = −30·m·g(Marte)·d. Resolvendo: d ≈ 5,8×10⁴ m.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig2.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-2-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "2.1",
+    "tema": "Química",
+    "categoria": "Oxidação-Redução",
+    "contexto": "O módulo MOXIE produz O2 a partir do CO2 da atmosfera de Marte, segundo as semirreações: (1) CO2 + 2 e⁻ → CO + O²⁻; (2) 2 O²⁻ → 4 e⁻ + O2.",
+    "enunciado": "Na semirreação (1), a variação do número de oxidação do carbono é",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "+2, sendo o CO2 a espécie oxidante.",
+      "B": "−2, sendo o CO2 a espécie oxidante.",
+      "C": "+2, sendo o CO2 a espécie redutora.",
+      "D": "−2, sendo o CO2 a espécie redutora."
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-2-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "2.2",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "O módulo MOXIE produz O2 a partir do CO2 da atmosfera de Marte, segundo as semirreações: (1) CO2 + 2 e⁻ → CO + O²⁻; (2) 2 O²⁻ → 4 e⁻ + O2. Cada módulo retira, por hora, 16,70 g de CO2; a transformação de CO2 em O2 tem rendimento de 50%. Um dia em Marte ≈ um dia terrestre.",
+    "enunciado": "Calcule o número de módulos MOXIE necessários para produzir 1000 kg de O2 em 365 dias.",
+    "tipo": "calculo",
+    "resposta_certa": "Por hora: n(CO2) = 16,70/44,01 = 0,3795 mol ⇒ a 100%, n(O2) = 0,190 mol (2 CO2 → 1 O2); a 50%, 0,0950 mol = 3,04 g de O2 por hora. Num ano: 3,04 × 24 × 365 ≈ 26,6 kg por módulo. 1000 / 26,6 ≈ 37,6 ⇒ 38 módulos.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-3-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "3.1",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "O metano, CH4, já foi detetado em Marte.",
+    "enunciado": "A molécula de CH4 apresenta geometria",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "piramidal trigonal e é polar.",
+      "B": "tetraédrica e é polar.",
+      "C": "piramidal trigonal e é apolar.",
+      "D": "tetraédrica e é apolar."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-3-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "3.2",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Na Terra, o carbono tem dois isótopos estáveis, ¹²C e ¹³C; a fração molar de ¹³C no carbono é 0,0108. M(CH4) = 16,05 g/mol.",
+    "enunciado": "Calcule o número de átomos de carbono-13 numa amostra de 1000 g de CH4 terrestre.",
+    "tipo": "calculo",
+    "resposta_certa": "n(C) = 1000/16,05 = 62,31 mol; n(¹³C) = 62,31 × 0,0108 = 0,6729 mol; N = 0,6729 × 6,02×10²³ ≈ 4,05×10²³ átomos.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-3-3",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "3.3",
+    "tema": "Química",
+    "categoria": "Estrutura Atómica",
+    "contexto": "",
+    "enunciado": "Num átomo de carbono, no estado fundamental, existem",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "quatro eletrões de valência distribuídos por duas orbitais.",
+      "B": "quatro eletrões de valência distribuídos por três orbitais.",
+      "C": "dois eletrões de valência distribuídos por duas orbitais.",
+      "D": "dois eletrões de valência distribuídos por uma orbital."
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-3-4",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "3.4",
+    "tema": "Química",
+    "categoria": "Química Orgânica e Síntese",
+    "contexto": "A figura representa a fórmula de estrutura da molécula de uma substância presente no solo marciano.",
+    "enunciado": "Esta substância pertence à família",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "dos aldeídos.",
+      "B": "das aminas.",
+      "C": "das cetonas.",
+      "D": "dos álcoois."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig3.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-4-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "4.1",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Um navio transporta CH4 (M = 16,05 g/mol) liquefeito: um tanque cheio contém 1,17×10⁵ kg; massa volúmica do CH4 líquido = 0,4241 g/cm³.",
+    "enunciado": "Calcule a massa máxima de CH4 que seria possível transportar num tanque, se esta substância estivesse no estado gasoso, em condições PTN.",
+    "tipo": "calculo",
+    "resposta_certa": "Volume do tanque = 1,17×10⁸ g / 0,4241 g/cm³ = 2,759×10⁸ cm³ = 2,759×10⁵ dm³. Em PTN: n = 2,759×10⁵ / 22,4 = 1,23×10⁴ mol ⇒ m = 1,23×10⁴ × 16,05 ≈ 1,98×10⁵ g.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-4-2-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "4.2.1",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Um navio transporta CH4 (M = 16,05 g/mol) liquefeito: um tanque cheio contém 1,17×10⁵ kg; massa volúmica do CH4 líquido = 0,4241 g/cm³. Combustão: CH4(g) + 2 O2(g) → CO2(g) + 2 H2O(g), ΔH = −890 kJ.",
+    "enunciado": "Na reação completa do CH4 de um tanque cheio, são",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "libertados 6,49×10¹² J de energia.",
+      "B": "libertados 8,90×10⁵ J de energia.",
+      "C": "consumidos 8,90×10⁵ J de energia.",
+      "D": "consumidos 6,49×10¹² J de energia."
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-4-2-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "4.2.2",
+    "tema": "Química",
+    "categoria": "Ácido-Base e pH",
+    "contexto": "O CO2 reage com a água da chuva originando ácido carbónico. Primeira ionização: H2CO3(aq) + H2O(l) ⇌ HCO3⁻(aq) + H3O⁺(aq).",
+    "enunciado": "Quais são as duas espécies que resultam da segunda ionização do ácido carbónico em água?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "CO2 e OH⁻",
+      "B": "H3O⁺ e CO2",
+      "C": "CO3²⁻ e OH⁻",
+      "D": "H3O⁺ e CO3²⁻"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-5-1-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "5.1.1",
+    "tema": "Química",
+    "categoria": "Equilíbrio Químico",
+    "contexto": "Um vulcão liberta SO2, que reage com o O2 do ar: 2 SO2(g) + O2(g) ⇌ 2 SO3(g) (sistema fechado). O rendimento (% de conversão em SO3) no equilíbrio, a 1 atm, diminui quando a temperatura aumenta de 400 °C para 1000 °C.",
+    "enunciado": "A reação, no sentido direto, é ___, e a constante de equilíbrio a 800 °C é ___ à constante de equilíbrio a 400 °C.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "exotérmica ... inferior",
+      "B": "endotérmica ... inferior",
+      "C": "exotérmica ... superior",
+      "D": "endotérmica ... superior"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig4.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-5-1-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "5.1.2",
+    "tema": "Química",
+    "categoria": "Equilíbrio Químico",
+    "contexto": "Um vulcão liberta SO2, que reage com o O2 do ar: 2 SO2(g) + O2(g) ⇌ 2 SO3(g) (sistema fechado).",
+    "enunciado": "Preveja, de acordo com o princípio de Le Châtelier, o que aconteceria ao rendimento de formação de SO3 se, a temperatura constante, a pressão aumentasse.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "O aumento de pressão favorece a reação que origina menor quantidade de moléculas gasosas (3 → 2), ou seja, a reação direta. Por isso, o rendimento da formação de SO3 aumenta.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-5-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "5.2",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Calcular a energia para vaporizar 59 400 m³ de água líquida à pressão normal. Massa volúmica da água 1,00 g/cm³; temperatura inicial 18,0 °C; c(água) = 4,18×10³ J kg⁻¹ °C⁻¹; entalpia de vaporização 2,26×10³ kJ/kg.",
+    "enunciado": "Calcule a energia, em unidades SI, necessária para vaporizar a água.",
+    "tipo": "calculo",
+    "resposta_certa": "m = 5,94×10⁷ kg. Aquecer de 18 °C a 100 °C: 5,94×10⁷ × 4,18×10³ × 82 = 2,036×10¹³ J. Vaporizar: 5,94×10⁷ × 2,26×10⁶ = 1,342×10¹⁴ J. Total ≈ 1,55×10¹⁴ J.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-5-3",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "5.3",
+    "tema": "Química",
+    "categoria": "Solubilidade",
+    "contexto": "Fe(OH)2(s) ⇌ Fe²⁺(aq) + 2 OH⁻(aq); Ks = 4,10×10⁻¹⁵, à temperatura T.",
+    "enunciado": "A solubilidade do hidróxido de ferro(II), em água, a essa temperatura, é",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "1,27×10⁻⁵ mol/dm³",
+      "B": "6,40×10⁻⁸ mol/dm³",
+      "C": "1,01×10⁻⁵ mol/dm³",
+      "D": "3,20×10⁻⁸ mol/dm³"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-5-4",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "5.4",
+    "tema": "Ondas e Sinais",
+    "categoria": "Som e Ondas Mecânicas",
+    "contexto": "O epicentro de um sismo está a 3220 km de uma estação; as ondas S chegam 4,8 minutos depois das ondas P. As ondas P propagam-se a 8,0 km/s (propagação retilínea, velocidades constantes).",
+    "enunciado": "Qual é a velocidade de propagação das ondas S?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "7,9 km/s",
+      "B": "3,2 km/s",
+      "C": "4,7 km/s",
+      "D": "11,2 km/s"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf"
+  },
+  {
+    "id": "2022-f1-6-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "6.1",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Um rapaz deixa cair verticalmente uma pedra num algar (cavidade vertical sobre água). O som da pedra a bater na água ouve-se 3,0 s depois de a largar. Velocidade do som no ar: 340 m/s; resistência do ar desprezável.",
+    "enunciado": "Mostre que, para a distância percorrida h, a razão entre o tempo de queda da pedra (tq) e o tempo de propagação do som (ts) é 24.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "tq + ts = 3,0 s. Queda (MRUA): h = 5·tq²; som (MRU): h = 340·ts. Igualando: 5·tq² = 340·ts. Resolvendo com tq + ts = 3,0 s: tq ≈ 2,88 s e ts ≈ 0,12 s, logo tq/ts ≈ 24.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig5.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-6-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "6.2",
+    "tema": "Ondas e Sinais",
+    "categoria": "Som e Ondas Mecânicas",
+    "contexto": "A queda da pedra origina uma onda circular na água (diâmetro do algar D = 3,0 m). A frente de onda demora 3,0 s a chegar à margem.",
+    "enunciado": "A onda que se propaga na água tem",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "uma frequência de 3,3 Hz.",
+      "B": "um comprimento de onda de 0,6 m.",
+      "C": "uma frequência de 1,7 Hz.",
+      "D": "um comprimento de onda de 1,0 m."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig6.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-7-1",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "7.1",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Para determinar as características de uma pilha, montou-se um circuito com a pilha, uma resistência variável, um interruptor, um voltímetro e um amperímetro. No esquema, o aparelho X está ligado aos terminais da pilha e o aparelho Y está no ramo do circuito.",
+    "enunciado": "O voltímetro é o aparelho de medida representado por",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "X e está instalado em paralelo com a pilha.",
+      "B": "X e está instalado em série com a pilha.",
+      "C": "Y e está instalado em paralelo com a pilha.",
+      "D": "Y e está instalado em série com a pilha."
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig7.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-7-2",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "7.2",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Para determinar as características de uma pilha, montou-se um circuito com a pilha, uma resistência variável, um interruptor, um voltímetro e um amperímetro.",
+    "enunciado": "A força eletromotriz da pilha pode ser determinada antes da montagem do circuito, através de uma única medição direta. Descreva esse procedimento e explique o seu fundamento.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Liga-se o voltímetro diretamente aos terminais da pilha. Como a resistência interna do voltímetro é muito elevada (comparada com a da pilha), a corrente é praticamente nula, e então U ≈ ε.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig7.webp"
+    ]
+  },
+  {
+    "id": "2022-f1-7-3",
+    "ano": 2022,
+    "fase": "1ª Fase",
+    "numero": "7.3",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Para determinar as características de uma pilha, montou-se um circuito com a pilha, uma resistência variável, um interruptor, um voltímetro e um amperímetro. Medições: U/V = 8,41; 8,05; 7,58; 6,01; 6,31; 5,70 e I/A = 0,10; 0,21; 0,32; 0,38; 0,61; 0,74. Um dos pares não acompanha a tendência linear e é eliminado.",
+    "enunciado": "Apresente as características da pilha, com dois algarismos significativos (identifique o par eliminado e a equação da reta de ajuste U(I)).",
+    "tipo": "calculo",
+    "resposta_certa": "Elimina-se o 4.º ensaio (6,01 V; 0,38 A). Reta de ajuste aos outros cinco: U ≈ −4,3·I + 8,9 (SI). Logo ε = 8,9 V e r = 4,3 Ω.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/06/EX-FQA715-F1-2022-V1_net.pdf",
+    "pdf_criterios": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F1-2022-CC-VD_net.pdf",
+    "imagens": [
+      "img/2022-f1-fig7.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-1-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "1.1",
+    "tema": "Eletricidade",
+    "categoria": "Campo Magnético",
+    "contexto": "O Sol emite luz e também o vento solar (protões, eletrões, iões de hélio), que interage com o campo magnético terrestre, deformando-o. Uma figura mostra as linhas de campo magnético terrestre deformadas e quatro pontos, P1 a P4.",
+    "enunciado": "O módulo do campo magnético é maior",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "em P1 do que em P4.",
+      "B": "em P3 do que em P2.",
+      "C": "em P2 do que em P4.",
+      "D": "em P1 do que em P2."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig1.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-1-2-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "1.2.1",
+    "tema": "Química",
+    "categoria": "Ligação Química e Tabela Periódica",
+    "contexto": "O Sol emite luz e também o vento solar (protões, eletrões, iões de hélio), que interage com o campo magnético terrestre, deformando-o. As auroras mais comuns são verdes, devido sobretudo ao oxigénio atómico.",
+    "enunciado": "Na alta atmosfera encontra-se oxigénio atómico, mas raramente nitrogénio atómico, porque a ligação covalente na molécula de N2 é ___ e tem energia de ligação ___ do que a ligação na molécula de O2.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "dupla ... menor",
+      "B": "dupla ... maior",
+      "C": "tripla ... menor",
+      "D": "tripla ... maior"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-1-2-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "1.2.2",
+    "tema": "Química",
+    "categoria": "Estrutura Atómica",
+    "contexto": "O Sol emite luz e também o vento solar (protões, eletrões, iões de hélio), que interage com o campo magnético terrestre, deformando-o. As auroras mais comuns são verdes, devido sobretudo ao oxigénio atómico.",
+    "enunciado": "A cor observada nas auroras mais comuns deve-se à ___ de radiação, associada a transições eletrónicas para níveis de energia ___ do átomo de oxigénio.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "emissão ... inferiores",
+      "B": "emissão ... superiores",
+      "C": "absorção ... inferiores",
+      "D": "absorção ... superiores"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-1-3-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "1.3.1",
+    "tema": "Mecânica",
+    "categoria": "Gravitação Universal",
+    "contexto": "O satélite SOHO observa o Sol e tem painéis fotovoltaicos. O SOHO orbita o Sol em movimento circular uniforme com o mesmo período da Terra; a sua distância ao Sol é 99 vezes a distância à Terra (d = distância Terra–Sol).",
+    "enunciado": "Qual dos diagramas pode representar as acelerações centrípetas, na mesma escala, no SOHO e na Terra?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "opcoes_img": "img/2022-f2-1-3-1-opcoes.webp"
+  },
+  {
+    "id": "2022-f2-1-3-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "1.3.2",
+    "tema": "Ondas e Sinais",
+    "categoria": "Radiação e Espectro Eletromagnético",
+    "contexto": "O satélite SOHO observa o Sol e tem painéis fotovoltaicos. Potência média da radiação solar por unidade de área na órbita: 1370 W/m²; rendimento dos painéis: 20%; potência útil: 1500 W.",
+    "enunciado": "Qual das expressões permite calcular a área total de painéis fotovoltaicos no SOHO?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "(1500 × 0,20) / 1370 m²",
+      "B": "1500 / (1370 × 0,20) m²",
+      "C": "(1370 × 0,20) / 1500 m²",
+      "D": "1370 / (1500 × 0,20) m²"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-2-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "2.1",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Uma rapariga, presa a uma corda, parte do repouso em A e oscila até C (A e C à mesma altura, 3,0 m acima da água), passando por B, o ponto mais baixo, 1,2 m abaixo de A. Em C larga a corda e cai verticalmente até à água (ponto D). Resistência do ar desprezável; a superfície da água é o nível de referência da Ep.",
+    "enunciado": "No movimento da rapariga entre os pontos A e B,",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "a variação da energia cinética da rapariga é nula.",
+      "B": "apenas atuam, no CM da rapariga, forças conservativas.",
+      "C": "apenas atuam, no CM da rapariga, forças não conservativas.",
+      "D": "a variação da energia mecânica do sistema rapariga + Terra é nula."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig2.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-2-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "2.2",
+    "tema": "Mecânica",
+    "categoria": "Trabalho, Energia e Conservação",
+    "contexto": "Uma rapariga, presa a uma corda, parte do repouso em A e oscila até C (A e C à mesma altura, 3,0 m acima da água), passando por B, o ponto mais baixo, 1,2 m abaixo de A. Em C larga a corda e cai verticalmente até à água (ponto D). Resistência do ar desprezável; a superfície da água é o nível de referência da Ep.",
+    "enunciado": "Mostre que a razão entre o módulo da velocidade da rapariga em D e em B, vD/vB, é 1,6.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Conservação da energia mecânica de A (ou C) até D: m·g·3,0 = ½·m·vD². De A até B: m·g·3,0 = ½·m·vB² + m·g·1,8. Logo vD² = 2g·3,0 e vB² = 2g·1,2, e vD/vB = √(3,0/1,2) ≈ 1,6.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig2.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-3-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "3.1",
+    "tema": "Química",
+    "categoria": "Trabalho Laboratorial e Erros",
+    "contexto": "Atividade: medir volumes de água com uma bureta graduada e as massas respetivas com uma balança, num gobelé (massa do gobelé vazio e seco: 68,82 g), a temperatura constante. A figura mostra parte da bureta, graduada em cm³, com o nível da água no início e no fim de um ensaio.",
+    "enunciado": "A incerteza da leitura é ___, e o volume de água escoada no ensaio é ___.",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "0,05 cm³ ... 1,15 cm³",
+      "B": "0,05 cm³ ... 0,85 cm³",
+      "C": "0,10 cm³ ... 1,15 cm³",
+      "D": "0,10 cm³ ... 0,85 cm³"
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig3.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-3-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "3.2",
+    "tema": "Química",
+    "categoria": "Trabalho Laboratorial e Erros",
+    "contexto": "Atividade: medir volumes de água com uma bureta graduada e as massas respetivas com uma balança, num gobelé (massa do gobelé vazio e seco: 68,82 g), a temperatura constante. Registos (V/cm³; m/g): 17,30; 15,69 — 32,83; 33,54 — 50,25; 49,85 — 69,71; 67,13 — 84,04; 82,24.",
+    "enunciado": "Calcule a massa de água correspondente a 61,0 cm³ (apresente a reta de ajuste m(V) e o resultado com 3 algarismos significativos).",
+    "tipo": "calculo",
+    "resposta_certa": "Reta de ajuste: m = 0,9769·V + 0,03637 (m em g, V em cm³). Para V = 61,0 cm³: m ≈ 59,6 g.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-3-3",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "3.3",
+    "tema": "Química",
+    "categoria": "Trabalho Laboratorial e Erros",
+    "contexto": "Atividade: medir volumes de água com uma bureta graduada e as massas respetivas com uma balança, num gobelé (massa do gobelé vazio e seco: 68,82 g), a temperatura constante. Outro grupo obteve um gráfico m(V) linear, mas com ordenada na origem de cerca de 70 g.",
+    "enunciado": "Identifique o erro sistemático cometido pelos alunos e justifique com base na análise do gráfico.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "A ordenada na origem é cerca de 70 g, ou seja, a um volume de 0 cm³ não corresponde massa 0 g. Os alunos não subtraíram a massa do gobelé vazio (68,82 g) à massa do gobelé com água.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig4.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-4-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "4.1",
+    "tema": "Química",
+    "categoria": "Energia, Calor e Reações",
+    "contexto": "Para estudar o aquecimento de uma amostra de água, montou-se um circuito com uma pilha, um interruptor e uma resistência de imersão, R, com um voltímetro e um amperímetro.",
+    "enunciado": "Qual das opções pode representar o processo responsável pelo aquecimento da água nesta experiência?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "Opção (A) da figura",
+      "B": "Opção (B) da figura",
+      "C": "Opção (C) da figura",
+      "D": "Opção (D) da figura"
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig5.webp"
+    ],
+    "opcoes_img": "img/2022-f2-4-1-opcoes.webp"
+  },
+  {
+    "id": "2022-f2-4-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "4.2",
+    "tema": "Eletricidade",
+    "categoria": "Circuitos Elétricos e Corrente",
+    "contexto": "Uma amostra de água é aquecida durante 10 minutos com uma resistência de imersão: U = 8,17 V nos seus terminais e I = 700 mA (valores constantes).",
+    "enunciado": "Qual a energia dissipada pela resistência, por efeito Joule, durante este ensaio?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "4,9 kJ",
+      "B": "3,4 kJ",
+      "C": "1,7 kJ",
+      "D": "5,7 kJ"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig5.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-5-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "5.1",
+    "tema": "Química",
+    "categoria": "Equilíbrio Químico",
+    "contexto": "N2O4(g) ⇌ 2 NO2(g), ΔH = +58,5 kJ. A 25 °C, Kc = 4,63×10⁻³. Num reator de 7,50 dm³ introduzem-se 3,0 mol de N2O4 a 25 °C.",
+    "enunciado": "Calcule a fração molar do NO2 quando o sistema atinge o equilíbrio, a 25 °C.",
+    "tipo": "calculo",
+    "resposta_certa": "Kc = (2x/7,50)² / ((3,0 − x)/7,50) = 4,63×10⁻³ ⇒ x ≈ 0,157 mol. No equilíbrio: n(NO2) = 0,314 mol; n(N2O4) = 2,84 mol. Fração molar de NO2 = 0,314 / 3,157 ≈ 0,10.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-5-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "5.2",
+    "tema": "Química",
+    "categoria": "Equilíbrio Químico",
+    "contexto": "N2O4(g) ⇌ 2 NO2(g), ΔH = +58,5 kJ. A 25 °C, Kc = 4,63×10⁻³. Noutro reator, introduziu-se NO2 à temperatura T; no equilíbrio, [NO2] = 2 mol/dm³ e [N2O4] = 1 mol/dm³ (lido no gráfico).",
+    "enunciado": "Conclua, justificando, se a temperatura T é maior, menor ou igual a 25 °C.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Kc(T) = 2²/1 = 4, muito maior do que Kc(25 °C) = 4,63×10⁻³. Como a reação direta é endotérmica (ΔH > 0), Kc aumenta com a temperatura; logo T > 25 °C.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig6.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-5-3",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "5.3",
+    "tema": "Química",
+    "categoria": "Oxidação-Redução",
+    "contexto": "Cu(s) + 4 HNO3(aq) → Cu(NO3)2(aq) + 2 NO2(g) + 2 H2O(l).",
+    "enunciado": "O número de oxidação do nitrogénio na molécula de HNO3 é",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "+5, e esta é a espécie oxidante.",
+      "B": "+6, e esta é a espécie oxidante.",
+      "C": "+5, e esta é a espécie redutora.",
+      "D": "+6, e esta é a espécie redutora."
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-5-4-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "5.4.1",
+    "tema": "Química",
+    "categoria": "Ácido-Base e pH",
+    "contexto": "Solução concentrada de HNO3 (M = 63,02 g/mol; ácido forte): 68% em massa e massa volúmica 1,41 g/cm³.",
+    "enunciado": "Calcule o volume de solução concentrada necessário para preparar 250 cm³ de uma solução diluída de HNO3 com pH 0,30.",
+    "tipo": "calculo",
+    "resposta_certa": "Diluída: [H3O⁺] = 10^(−0,30) = 0,501 mol/dm³ = c(HNO3). Concentrada: 1410 g/dm³ × 0,68 / 63,02 = 15,2 mol/dm³. V = 0,501 × 250 / 15,2 ≈ 8,2 cm³.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-5-4-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "5.4.2",
+    "tema": "Química",
+    "categoria": "Ácido-Base e pH",
+    "contexto": "O ácido nítrico ioniza-se em água.",
+    "enunciado": "Qual é o par ácido-base conjugado resultante da ionização do ácido nítrico em água?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "HNO3 / H2O",
+      "B": "HNO3 / NO3⁻",
+      "C": "H2O / NO3⁻",
+      "D": "H3O⁺ / NO3⁻"
+    },
+    "resposta_certa": "B",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-6-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "6.1",
+    "tema": "Mecânica",
+    "categoria": "Forças e Leis de Newton",
+    "contexto": "Um avião a jato aterra num porta-aviões a 65 m/s. Um cabo de retenção reduz a velocidade em 91,5%, mas parte aos 3,5 s; aos 7,8 s o avião para na secção inclinada da pista. Gráfico da resultante das forças: de 0 a 3,5 s aumenta linearmente (desaceleração pelo cabo); de 3,5 s a 5,5 s é nula; de 5,5 s a 7,8 s é constante e igual a 0,24·m·g. Sem atrito nem resistência do ar.",
+    "enunciado": "O gráfico da resultante das forças permite concluir que o avião apresenta, entre",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "0 s e 3,5 s, movimento uniformemente retardado e, entre 3,5 s e 5,5 s, movimento uniforme.",
+      "B": "0 s e 3,5 s, movimento uniformemente retardado e, entre 5,5 s e 7,8 s, movimento uniforme.",
+      "C": "3,5 s e 5,5 s, velocidade constante e, entre 5,5 s e 7,8 s, aceleração de módulo constante.",
+      "D": "3,5 s e 5,5 s, aceleração de módulo constante e, entre 5,5 s e 7,8 s, velocidade constante."
+    },
+    "resposta_certa": "C",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig7.webp",
+      "img/2022-f2-fig8.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-6-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "6.2",
+    "tema": "Mecânica",
+    "categoria": "Cinemática e Movimento Circular",
+    "contexto": "Um avião a jato aterra num porta-aviões a 65 m/s. Um cabo de retenção reduz a velocidade em 91,5%, mas parte aos 3,5 s; aos 7,8 s o avião para na secção inclinada da pista. Gráfico da resultante das forças: de 0 a 3,5 s aumenta linearmente (desaceleração pelo cabo); de 3,5 s a 5,5 s é nula; de 5,5 s a 7,8 s é constante e igual a 0,24·m·g. Sem atrito nem resistência do ar. Na secção horizontal da pista o avião percorre 169 m.",
+    "enunciado": "No intervalo ]0,0; 3,5[ s, o avião percorre que percentagem do percurso horizontal?",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "73%",
+      "B": "82%",
+      "C": "89%",
+      "D": "93%"
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig7.webp",
+      "img/2022-f2-fig8.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-6-3",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "6.3",
+    "tema": "Mecânica",
+    "categoria": "Forças e Leis de Newton",
+    "contexto": "Um avião a jato aterra num porta-aviões a 65 m/s. Um cabo de retenção reduz a velocidade em 91,5%, mas parte aos 3,5 s; aos 7,8 s o avião para na secção inclinada da pista. Gráfico da resultante das forças: de 0 a 3,5 s aumenta linearmente (desaceleração pelo cabo); de 3,5 s a 5,5 s é nula; de 5,5 s a 7,8 s é constante e igual a 0,24·m·g. Sem atrito nem resistência do ar.",
+    "enunciado": "Entre 5,5 s e 7,8 s, o avião sobe uma pista retilínea com inclinação α. Calcule α a partir dos valores do gráfico.",
+    "tipo": "calculo",
+    "resposta_certa": "Na rampa, sem atrito, a resultante é a componente do peso paralela à pista: m·g·sin α = 0,24·m·g ⇒ sin α = 0,24 ⇒ α ≈ 14°.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig7.webp",
+      "img/2022-f2-fig8.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-7-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "7.1",
+    "tema": "Química",
+    "categoria": "Estequiometria e Quantidade de Matéria",
+    "contexto": "Obtenção de titânio: TiX4(g) + 2 Mg(l) → Ti(s) + 2 MgX2(l) (X é um elemento não metálico). Fazem-se reagir 1,85×10⁵ mol de TiX4 com 1,72×10³ kg de Mg e obtêm-se 1,21×10³ kg de Ti.",
+    "enunciado": "Determine o rendimento da reação.",
+    "tipo": "calculo",
+    "resposta_certa": "n(Mg) = 1,72×10⁶ g / 24,31 = 7,08×10⁴ mol; para isso só são precisos 3,54×10⁴ mol de TiX4, logo o Mg é o reagente limitante. n(Ti) previsto = 3,538×10⁴ mol; obtido = 1,21×10⁶ / 47,87 = 2,53×10⁴ mol. Rendimento ≈ 71,4%.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf"
+  },
+  {
+    "id": "2022-f2-7-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "7.2",
+    "tema": "Química",
+    "categoria": "Estrutura Atómica",
+    "contexto": "Obtenção de titânio: TiX4(g) + 2 Mg(l) → Ti(s) + 2 MgX2(l) (X é um elemento não metálico). O espectro fotoeletrónico (PES) do elemento X tem picos a 273; 26,8; 20,8; 2,44 e 1,25 MJ/mol, com 2, 2, 6, 2 e 5 eletrões, respetivamente.",
+    "enunciado": "Pode concluir-se que a primeira energia de ionização deste elemento é",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "273 MJ/mol e o elemento é o flúor.",
+      "B": "1,25 MJ/mol e o elemento é o flúor.",
+      "C": "273 MJ/mol e o elemento é o cloro.",
+      "D": "1,25 MJ/mol e o elemento é o cloro."
+    },
+    "resposta_certa": "D",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig9.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-8-1",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "8.1",
+    "tema": "Ondas e Sinais",
+    "categoria": "Reflexão e Refração da Luz",
+    "contexto": "Um feixe laser, no ar, reflete-se num espelho e entra num pentaprisma de vidro (n = 1,52) perpendicularmente a uma face; no interior, a luz incide com o mesmo ângulo α em duas faces, refletindo-se.",
+    "enunciado": "Quando o feixe de luz passa do ar para o pentaprisma,",
+    "tipo": "escolha_multipla",
+    "opcoes": {
+      "A": "mantém-se a frequência, mas o módulo da velocidade de propagação diminui.",
+      "B": "diminui a frequência, mas o módulo da velocidade de propagação mantém-se.",
+      "C": "diminui a frequência e diminui o módulo da velocidade de propagação.",
+      "D": "mantém-se a frequência e mantém-se o módulo da velocidade de propagação."
+    },
+    "resposta_certa": "A",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig10.webp"
+    ]
+  },
+  {
+    "id": "2022-f2-8-2",
+    "ano": 2022,
+    "fase": "2ª Fase",
+    "numero": "8.2",
+    "tema": "Ondas e Sinais",
+    "categoria": "Reflexão e Refração da Luz",
+    "contexto": "Um feixe laser, no ar, reflete-se num espelho e entra num pentaprisma de vidro (n = 1,52) perpendicularmente a uma face; no interior, a luz incide com o mesmo ângulo α em duas faces, refletindo-se.",
+    "enunciado": "Demonstre que, nestas condições, não ocorre reflexão total da luz no pentaprisma.",
+    "tipo": "resposta_aberta",
+    "resposta_certa": "Pela geometria do pentaprisma: 4α + 90° = 180° ⇒ α = 22,5°. Ângulo limite: sin α_lim = 1/1,52 ⇒ α_lim ≈ 41°. Como α < α_lim, não há reflexão total.",
+    "pdf_enunciado": "https://iave.pt/wp-content/uploads/2022/07/EX-FQA715-F2-2022-V1.pdf",
+    "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2022-2fase/Fisica-Quimica-A-Criterios.pdf",
+    "imagens": [
+      "img/2022-f2-fig10.webp"
+    ]
   }
 ]

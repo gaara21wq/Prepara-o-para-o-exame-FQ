@@ -3,16 +3,24 @@
 ## Formato
 Inspirado no [mat.absolutamente.net](https://mat.absolutamente.net): índice por **tema** (Mecânica, Ondas e Sinais, Eletricidade, Química), com **categorias/capítulos** dentro de cada tema (ex: "Estrutura Atómica", "Gravitação Universal"). Temas e categorias aparecem **ordenados pela frequência** com que saem em exame — do mais comum para o menos comum.
 
-Cada questão de **escolha múltipla** mostra as 4 opções (A-D) e é clicável: ao escolher uma letra, o site diz logo se está certa (verde) ou errada (vermelho, mostrando a certa). Há também um botão "não sei — ver resposta". No topo aparece um placar com as respostas certas da sessão. Questões de cálculo, resposta aberta ou associação mostram um botão "ver resolução" com a resolução resumida (etapas e valores dos critérios do IAVE).
+Cada questão de **escolha múltipla** mostra as 4 opções (A-D) e é clicável: ao escolher uma letra, o site diz logo se está certa (verde) ou errada (vermelho, mostrando a certa). Há também um botão "não sei — ver resposta" (conta como errada). No topo aparece um placar com as respostas certas. Questões de cálculo, resposta aberta ou associação mostram um botão "ver resolução" com a resolução resumida (etapas e valores dos critérios do IAVE).
 
-A pesquisa ignora acentos ("equilibrio" encontra "equilíbrio") e procura também dentro das opções.
+## Funcionalidades
+- **Progresso guardado** — as respostas de escolha múltipla e as resoluções vistas ficam guardadas no browser (`localStorage`, chave `prepfq-progresso-v1`). Ao reabrir o site, as opções marcadas, o feedback e o placar voltam a aparecer. Cada categoria do índice mostra o progresso (ex: "3/5 certas"; nas categorias sem escolha múltipla, "2/4 vistas"). Se a chave de uma questão for corrigida no `questoes.json`, as respostas guardadas são reavaliadas automaticamente.
+- **Recomeçar** — apaga todo o progresso, com confirmação na própria página.
+- **Pesquisa** — ignora acentos ("equilibrio" encontra "equilíbrio") e procura também dentro das opções.
+- **Filtros** (combinam entre si e com a pesquisa) — ano, fase, tipo (escolha múltipla / cálculo / resposta aberta / associação) e estado (todas / por responder / erradas). As opções de ano, fase e tipo são geradas a partir dos dados, por isso novos exames aparecem sozinhos. O botão **"rever as que errei"** é um atalho para o filtro "erradas".
+- **Exame aleatório** — escolhe 10, 15 ou 20 questões e, opcionalmente, um tema. Só entram questões de escolha múltipla, baralhadas, uma de cada vez com barra de progresso. No fim mostra a nota (certas/total e em escala 0–20) e a lista das erradas, com a resposta certa, um link para a questão no banco e outro para o enunciado em PDF. As respostas do exame também contam para o progresso guardado (fica a tentativa mais recente).
+- Funciona em telemóvel; os textos vindos do JSON são escapados antes de irem para a página (símbolos como ⇌, ², ⁻ aparecem normalmente).
 
-## Estado atual — mudança importante
-Esta versão reestruturou a base de dados: em vez de uma entrada por **questão completa** do exame (que tinha várias alíneas misturadas), agora cada **alínea é uma entrada própria** (ex: "4.1", "4.2", "4.3" são três questões separadas, cada uma com o seu tema e categoria).
+## Estado atual
+Cada **alínea** do exame é uma entrada própria (ex: "4.1", "4.2" e "4.3" são três questões separadas, cada uma com o seu tema e categoria).
 
-Por causa deste trabalho de granularidade ser mais demorado, **esta versão cobre apenas os 3 exames de 2024** (1ª fase, 2ª fase, época especial) — **65 itens no total**, dos quais a maioria são escolha múltipla com opções reais extraídas dos PDFs originais e respostas confirmadas nos critérios de correção do IAVE.
-
-Os exames de 2023 e 2022 (que estavam na versão anterior, agrupados por questão completa) ainda **não foram convertidos** para este novo formato granular — isso é o próximo passo.
+Cobertura: **7 provas, 161 itens** — 2024 (1ª fase, 2ª fase, época especial), 2023 (1ª e 2ª fase) e 2022 (1ª e 2ª fase).
+- As opções A-D e as chaves vêm dos enunciados e critérios de classificação oficiais do IAVE (Versão 1, salvo indicação em contrário).
+- Nos itens de cálculo e resposta aberta, a resolução segue as etapas e os valores dos critérios.
+- **Figuras e gráficos** (pasta `img/`, formato WebP, ~500 KB no total) recortados dos enunciados originais: 50 itens mostram a figura do enunciado e 11 itens de escolha múltipla mostram as opções (A)-(D) como imagem, tal como no exame. Clicar numa figura abre-a em tamanho real.
+- Ainda sem figuras: a época especial de 2024 (o PDF não está disponível no espelho usado).
 
 ## Testar no PC
 Abrir o `index.html` com duplo clique **não funciona** (o browser bloqueia o `fetch('questoes.json')` em `file://`). Usa um servidor local, por exemplo:
@@ -40,9 +48,13 @@ Abrir o `index.html` com duplo clique **não funciona** (o browser bloqueia o `f
   "opcoes": { "A": "...", "B": "...", "C": "...", "D": "..." },
   "resposta_certa": "D",
   "pdf_enunciado": "https://iave.pt/.../enunciado.pdf",
-  "pdf_criterios": "https://iave.pt/.../criterios.pdf"
+  "pdf_criterios": "https://iave.pt/.../criterios.pdf",
+  "imagens": ["img/2023-f1-fig4.webp"],
+  "opcoes_img": "img/2023-f1-7-2-opcoes.webp"
 }
 ```
+
+`imagens` (opcional) — figuras mostradas por baixo do contexto. `opcoes_img` (opcional) — imagem com as opções (A)-(D) quando estas são gráficos/desenhos; nesse caso o texto de cada opção é só "Opção (X) da figura". Só são aceites caminhos do tipo `img/nome.webp`.
 
 Para itens que não são de escolha múltipla, usar `"tipo"` igual a `"calculo"`, `"resposta_aberta"` ou `"associacao"`, omitir `"opcoes"`, e em `"resposta_certa"` colocar um resumo da resolução/resposta esperada (texto livre, não uma letra).
 
@@ -55,12 +67,12 @@ Regras importantes:
 ## Categorias atualmente em uso
 - **Mecânica**: Cinemática e Movimento Circular · Forças e Leis de Newton · Gravitação Universal · Trabalho, Energia e Conservação
 - **Ondas e Sinais**: Radiação e Espectro Eletromagnético · Reflexão e Refração da Luz · Som e Ondas Mecânicas
-- **Eletricidade**: Campo Elétrico · Circuitos Elétricos e Corrente · Indução Eletromagnética
+- **Eletricidade**: Campo Elétrico · Campo Magnético · Circuitos Elétricos e Corrente · Indução Eletromagnética
 - **Química**: Ácido-Base e pH · Energia, Calor e Reações · Equilíbrio Químico · Estequiometria e Quantidade de Matéria · Estrutura Atómica · Ligação Química e Tabela Periódica · Oxidação-Redução · Química Orgânica e Síntese · Solubilidade · Trabalho Laboratorial e Erros
 
-Nota: os itens de escolha múltipla da 2ª fase 3.1, 3.2 e 6.3 usam as opções e a chave da **Versão 2** do enunciado (o link aponta para essa versão). Nos restantes, a letra certa corresponde à versão indicada em `pdf_enunciado`.
+Nota: os itens de escolha múltipla da 2ª fase de 2024 3.1, 3.2 e 6.3 usam as opções e a chave da **Versão 2** do enunciado (o link aponta para essa versão). Nos restantes, a letra certa corresponde à versão indicada em `pdf_enunciado`.
 
 ## Próximos passos sugeridos
-1. Converter os exames de 2023 e 2022 (já processados numa versão anterior, mas em formato agrupado) para o novo formato granular com opções A-D.
-2. Continuar a processar exames de 2021 e 2020 (e potencialmente 2015–2019).
-3. Para os itens de "esboço de gráfico" ou "diagrama" como opções (que no PDF original são imagens, não texto), as opções foram descritas em palavras — vale a pena, no futuro, considerar gerar pequenos SVGs para essas opções específicas, já que a descrição em texto perde alguma fidelidade.
+1. Juntar as épocas especiais de 2023 e 2022.
+2. Continuar com os exames de 2021 e 2020 (e potencialmente 2015–2019). Os PDFs estão também em examesnacionais.com.pt (`/exames-nacionais/11ano/AAAA-Nfase/Fisica-Quimica-A.pdf` e `...-Criterios.pdf`), útil quando o site do IAVE não abre.
+3. Rever os itens de 2024 (vieram de uma versão anterior, com texto e ordem das opções por vezes adaptados) contra os enunciados originais, como foi feito para 2022 e 2023.
