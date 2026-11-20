@@ -1,8 +1,9 @@
 import 'katex/dist/katex.min.css';
 import './style.css';
-import { DISCIPLINAS, carregar } from './dados.js';
+import { DISCIPLINAS, carregar, limparCache } from './dados.js';
 import { esc, rico, imgSegura, urlSegura } from './texto.js';
 import * as progresso from './progresso.js';
+import { supabase } from './supabase.js';
 
 const app = document.getElementById('app');
 const LETRAS = ['A', 'B', 'C', 'D'];
@@ -25,7 +26,11 @@ const href = (...p) => '#/' + p.map(encodeURIComponent).join('/');
 
 function cabecalho(trilho = []) {
   const migalhas = trilho.map(([t, h]) => (h ? `<a href="${h}">${esc(t)}</a>` : `<span>${esc(t)}</span>`)).join('<span class="sep">›</span>');
-  return `<header class="topo"><a class="marca" href="#/">Vinte</a>${trilho.length ? `<nav class="trilho">${migalhas}</nav>` : ''}</header>`;
+  const p = progresso.perfilAtual();
+  const extra = p?.papel === 'explicador' ? `<a class="topo-link" href="#/centro">O meu centro</a>`
+    : p?.papel === 'admin' ? `<a class="topo-link" href="#/admin">Administração</a>` : '';
+  const conta = p ? `${extra}<a class="conta-link" href="#/conta" title="A minha conta">${esc(p.nome_utilizador || p.nome || 'conta')}</a>` : '';
+  return `<header class="topo"><a class="marca" href="#/">Vinte</a>${trilho.length ? `<nav class="trilho">${migalhas}</nav>` : ''}<span class="topo-dir">${conta}</span></header>`;
 }
 
 function barra(r) {
@@ -284,6 +289,282 @@ function desenharResultado(dd, s, trilho) {
   };
 }
 
+// ---------- contas ----------
+const dataPT = d => (d ? d.split('-').reverse().join('/') : '');
+
+function gerarPalavraPasse() {
+  const letras = 'abcdefghjkmnpqrstuvwxyz', nums = '23456789';
+  const r = new Uint32Array(8); crypto.getRandomValues(r);
+  let s = '';
+  for (let i = 0; i < 5; i++) s += letras[r[i] % letras.length];
+  for (let i = 5; i < 8; i++) s += nums[r[i] % nums.length];
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function mensagem(el, texto, ok) { el.className = 'feedback ' + (ok ? 'ok' : 'mal'); el.textContent = texto; }
+
+function vistaEntrar() {
+  app.innerHTML = cabecalho() + `<main class="conteudo estreito">
+    <h1>Entrar</h1>
+    <p class="sub">As contas são criadas pelo teu centro de explicações. Usa o nome de utilizador e a password que o teu explicador te deu.</p>
+    <form id="f" class="form">
+      <label for="u">Nome de utilizador</label>
+      <input id="u" name="u" required autocomplete="username" autocapitalize="none" spellcheck="false">
+      <label for="p">Password</label>
+      <input id="p" name="p" type="password" required autocomplete="current-password">
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+    <p id="msg" role="status"></p>
+    <p class="nota">Esqueceste-te da password? Pede ao teu explicador para te dar uma nova.</p>
+  </main>`;
+  const f = document.getElementById('f');
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const msg = document.getElementById('msg'), btn = f.querySelector('button');
+    btn.disabled = true; msg.className = 'nota'; msg.textContent = 'A entrar…';
+    try {
+      await progresso.entrar(f.u.value, f.p.value);
+    } catch (err) {
+      mensagem(msg, /invalid login|credentials/i.test(err.message) ? 'Utilizador ou password errados.' : 'Não foi possível entrar: ' + err.message, false);
+      btn.disabled = false;
+    }
+  };
+}
+
+function vistaMudarPass() {
+  const p = progresso.perfilAtual();
+  app.innerHTML = cabecalho() + `<main class="conteudo estreito">
+    <h1>Escolhe a tua password</h1>
+    <p class="sub">Olá${p?.nome ? ', ' + esc(p.nome.split(' ')[0]) : ''}! A password que recebeste é provisória. Escolhe uma nova, só tua.</p>
+    <form id="f" class="form">
+      <label for="p1">Nova password (mínimo 8 caracteres)</label>
+      <input id="p1" type="password" minlength="8" maxlength="72" required autocomplete="new-password">
+      <label for="p2">Repete a nova password</label>
+      <input id="p2" type="password" minlength="8" maxlength="72" required autocomplete="new-password">
+      <button class="btn" type="submit">Guardar</button>
+    </form>
+    <p id="msg" role="status"></p>
+  </main>`;
+  const f = document.getElementById('f');
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const msg = document.getElementById('msg'), btn = f.querySelector('button');
+    if (f.p1.value !== f.p2.value) return mensagem(msg, 'As duas passwords não são iguais.', false);
+    btn.disabled = true;
+    try { await progresso.mudarPalavraPasse(f.p1.value); }
+    catch (err) {
+      mensagem(msg, /different from the old|same/i.test(err.message) ? 'Tem de ser diferente da password provisória.' : 'Não foi possível mudar: ' + err.message, false);
+      btn.disabled = false;
+    }
+  };
+}
+
+function vistaSemAcesso() {
+  const p = progresso.perfilAtual();
+  const c = p?.centros;
+  const motivo = !p ? 'Não encontrámos o perfil desta conta.'
+    : !p.ativa ? 'A tua conta está desativada.'
+    : !c ? 'A tua conta não está associada a nenhum centro.'
+    : !c.ativo ? `O acesso do centro «${esc(c.nome)}» está suspenso.`
+    : `A licença do centro «${esc(c.nome)}» terminou a ${dataPT(c.licenca_ate)}.`;
+  app.innerHTML = cabecalho() + `<main class="conteudo estreito">
+    <h1>Sem acesso</h1><p>${motivo}</p><p>Fala com o teu centro de explicações.</p>
+    <div class="acoes"><button class="btn btn-sec" id="sair">Terminar sessão</button></div></main>`;
+  document.getElementById('sair').onclick = () => progresso.sair();
+}
+
+function vistaConta() {
+  const p = progresso.perfilAtual();
+  app.innerHTML = cabecalho([['A minha conta']]) + `<main class="conteudo estreito">
+    <h1>A minha conta</h1>
+    <p><b>${esc(p.nome || '')}</b> · utilizador <b>${esc(p.nome_utilizador || '')}</b>${p.centros ? ` · ${esc(p.centros.nome)}` : ''}</p>
+    ${p.centros && p.papel !== 'admin' ? `<p class="nota">Licença do centro válida até ${dataPT(p.centros.licenca_ate)}.</p>` : ''}
+    <div class="acoes"><button class="btn btn-sec" data-acao="sair">Terminar sessão</button></div>
+    <h2>Mudar a password</h2>
+    <form id="f" class="form">
+      <input id="p1" type="password" minlength="8" maxlength="72" required autocomplete="new-password" placeholder="Nova password (mínimo 8)">
+      <button class="btn btn-sec" type="submit">Mudar password</button>
+    </form>
+    <h2>Apagar progresso</h2>
+    <p class="nota">Apaga todas as tuas respostas. Não dá para desfazer.</p>
+    <div class="acoes"><button class="btn btn-perigo" data-acao="apagar">Apagar o meu progresso</button></div>
+    <p id="msg" role="status"></p>
+  </main>`;
+  const msg = document.getElementById('msg');
+  document.getElementById('f').onsubmit = async e => {
+    e.preventDefault();
+    try { await progresso.mudarPalavraPasse(e.target.p1.value); mensagem(msg, 'Password mudada.', true); e.target.reset(); }
+    catch (err) { mensagem(msg, 'Não foi possível mudar: ' + err.message, false); }
+  };
+  let confirmar = false;
+  app.querySelector('main').onclick = async e => {
+    const b = e.target.closest('[data-acao]');
+    if (!b) return;
+    if (b.dataset.acao === 'sair') { location.hash = '#/'; await progresso.sair(); }
+    if (b.dataset.acao === 'apagar') {
+      if (!confirmar) { confirmar = true; b.textContent = 'Clica outra vez para confirmar'; return; }
+      b.disabled = true;
+      try { await progresso.apagarTudo(); mensagem(msg, 'Progresso apagado.', true); }
+      catch (err) { mensagem(msg, 'Não foi possível apagar: ' + err.message, false); b.disabled = false; }
+    }
+  };
+}
+
+// ---------- painel do explicador ----------
+async function respostasDoCentro() {
+  const linhas = [];
+  for (let de = 0; ; de += 1000) {
+    const { data, error } = await supabase.from('respostas').select('user_id, ultima, atualizado_em').range(de, de + 999);
+    if (error) throw error;
+    linhas.push(...data);
+    if (data.length < 1000) break;
+  }
+  return linhas;
+}
+
+async function vistaCentro() {
+  const eu = progresso.perfilAtual();
+  if (eu?.papel !== 'explicador') return vistaErro('Esta página é só para explicadores.');
+  const c = eu.centros;
+  app.innerHTML = cabecalho([['O meu centro']]) + `<main class="conteudo"><h1>${esc(c.nome)}</h1><p class="sub">A carregar…</p></main>`;
+  const [{ data: alunos, error }, resp] = await Promise.all([
+    supabase.from('perfis').select('id, nome, nome_utilizador, ativa, deve_mudar_palavra_passe, criado_em').eq('papel', 'aluno').order('nome'),
+    respostasDoCentro().catch(() => []),
+  ]);
+  if (error) return vistaErro(error.message);
+  const est = {};
+  for (const r of resp) {
+    const e = est[r.user_id] ||= { n: 0, certas: 0, ultima: '' };
+    e.n++; if (r.ultima) e.certas++;
+    if (r.atualizado_em > e.ultima) e.ultima = r.atualizado_em;
+  }
+  const ativos = alunos.filter(a => a.ativa).length;
+  app.innerHTML = cabecalho([['O meu centro']]) + `<main class="conteudo">
+    <h1>${esc(c.nome)}</h1>
+    <p class="sub">${ativos} de ${c.max_alunos} alunos ativos · licença até ${dataPT(c.licenca_ate)}</p>
+    <section class="painel">
+      <h2>Criar conta de aluno</h2>
+      <form id="novo" class="form form-linha">
+        <input name="nome" required minlength="2" maxlength="80" placeholder="Nome do aluno">
+        <input name="util" required pattern="[a-z0-9][a-z0-9._\\-]{2,39}" placeholder="Nome de utilizador (ex.: ana.silva)" autocapitalize="none" spellcheck="false">
+        <input name="pass" required minlength="8" maxlength="72" placeholder="Password provisória">
+        <button class="btn" type="submit">Criar</button>
+      </form>
+      <p id="msg" role="status"></p>
+    </section>
+    <h2>Alunos</h2>
+    ${alunos.length ? `<div class="tabela-wrap"><table class="tabela"><thead><tr><th>Aluno</th><th>Utilizador</th><th>Respostas</th><th>Certas</th><th>Última atividade</th><th></th></tr></thead><tbody>
+      ${alunos.map(a => {
+        const e = est[a.id] || { n: 0, certas: 0, ultima: '' };
+        return `<tr class="${a.ativa ? '' : 'inativo'}"><td>${esc(a.nome || '')}${a.deve_mudar_palavra_passe ? ' <span class="etiqueta">ainda não entrou</span>' : ''}${a.ativa ? '' : ' <span class="etiqueta">desativado</span>'}</td>
+          <td>${esc(a.nome_utilizador)}</td><td>${e.n}</td><td>${e.n ? pct(e.certas, e.n) + '%' : '—'}</td>
+          <td>${e.ultima ? dataPT(e.ultima.slice(0, 10)) : '—'}</td>
+          <td class="acoes-linha"><button class="btn-mini" data-acao="pass" data-id="${a.id}" data-u="${esc(a.nome_utilizador)}">Nova password</button>
+          <button class="btn-mini" data-acao="estado" data-id="${a.id}" data-ativa="${a.ativa ? 0 : 1}">${a.ativa ? 'Desativar' : 'Ativar'}</button></td></tr>`;
+      }).join('')}</tbody></table></div>` : '<p class="nota">Ainda não há alunos. Cria a primeira conta acima.</p>'}
+  </main>`;
+  const f = document.getElementById('novo'), msg = document.getElementById('msg');
+  f.pass.value = gerarPalavraPasse();
+  f.nome.oninput = () => {
+    if (f.util.dataset.mexido) return;
+    const partes = f.nome.value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 ]/g, '').trim().split(/\s+/);
+    f.util.value = partes.length > 1 ? partes[0] + '.' + partes[partes.length - 1] : (partes[0] || '');
+  };
+  f.util.oninput = () => { f.util.dataset.mexido = '1'; };
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const btn = f.querySelector('button'); btn.disabled = true;
+    const dados = { nome: f.nome.value.trim(), util: f.util.value.trim().toLowerCase(), pass: f.pass.value };
+    try {
+      await progresso.gerirContas({ acao: 'criar_aluno', nome: dados.nome, nome_utilizador: dados.util, palavra_passe: dados.pass });
+      await vistaCentro();
+      mensagem(document.getElementById('msg'), `Conta criada. Dá ao aluno → utilizador: ${dados.util} · password provisória: ${dados.pass} (vai ter de a mudar ao entrar).`, true);
+    } catch (err) { mensagem(msg, err.message, false); btn.disabled = false; }
+  };
+  app.querySelector('.tabela')?.addEventListener('click', async e => {
+    const b = e.target.closest('[data-acao]');
+    if (!b) return;
+    b.disabled = true;
+    try {
+      if (b.dataset.acao === 'estado') {
+        await progresso.gerirContas({ acao: 'definir_estado', user_id: b.dataset.id, ativa: b.dataset.ativa === '1' });
+        await vistaCentro();
+      } else {
+        const nova = gerarPalavraPasse();
+        await progresso.gerirContas({ acao: 'redefinir_palavra_passe', user_id: b.dataset.id, palavra_passe: nova });
+        mensagem(msg, `Nova password provisória de ${b.dataset.u}: ${nova}`, true);
+        b.disabled = false;
+        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } catch (err) { mensagem(msg, err.message, false); b.disabled = false; msg.scrollIntoView({ block: 'center' }); }
+  });
+}
+
+// ---------- administração (Gaara) ----------
+async function vistaAdmin() {
+  const eu = progresso.perfilAtual();
+  if (eu?.papel !== 'admin') return vistaErro('Página reservada ao administrador.');
+  const [{ data: centros, error }, { data: perfis }] = await Promise.all([
+    supabase.from('centros').select('*').order('nome'),
+    supabase.from('perfis').select('id, nome, nome_utilizador, papel, centro_id, ativa'),
+  ]);
+  if (error) return vistaErro(error.message);
+  const por = id => (perfis || []).filter(p => p.centro_id === id);
+  const umAno = new Date(); umAno.setMonth(6, 31);
+  if (umAno < new Date()) umAno.setFullYear(umAno.getFullYear() + 1);
+  app.innerHTML = cabecalho([['Administração']]) + `<main class="conteudo">
+    <h1>Administração</h1>
+    <section class="painel"><h2>Novo centro</h2>
+      <form id="novo-centro" class="form form-linha">
+        <input name="nome" required minlength="2" placeholder="Nome do centro">
+        <input name="max" type="number" min="1" max="2000" required placeholder="Máx. alunos" value="15">
+        <label class="mini">Licença até <input name="ate" type="date" required value="${umAno.toISOString().slice(0, 10)}"></label>
+        <button class="btn" type="submit">Criar centro</button>
+      </form></section>
+    <p id="msg" role="status"></p>
+    ${centros.map(c => {
+      const ps = por(c.id), alunosAtivos = ps.filter(p => p.papel === 'aluno' && p.ativa).length;
+      const expl = ps.filter(p => p.papel === 'explicador');
+      const valida = c.ativo && c.licenca_ate >= new Date().toISOString().slice(0, 10);
+      return `<section class="painel"><h2>${esc(c.nome)} <span class="etiqueta ${valida ? 'ok' : 'mal'}">${valida ? 'ativa' : 'sem acesso'}</span></h2>
+        <p class="sub">${alunosAtivos}/${c.max_alunos} alunos ativos · licença até ${dataPT(c.licenca_ate)} · explicadores: ${expl.map(x => esc(x.nome_utilizador)).join(', ') || 'nenhum'}</p>
+        <form class="form form-linha" data-centro="${c.id}" data-tipo="licenca">
+          <input name="max" type="number" min="1" max="2000" value="${c.max_alunos}" title="Máx. alunos">
+          <input name="ate" type="date" value="${c.licenca_ate}" title="Licença até">
+          <button class="btn btn-sec" type="submit">Guardar licença</button>
+          <button class="btn-mini" type="button" data-acao="ativo" data-ativo="${c.ativo ? 0 : 1}">${c.ativo ? 'Suspender' : 'Reativar'}</button>
+        </form>
+        <form class="form form-linha" data-centro="${c.id}" data-tipo="explicador">
+          <input name="nome" required minlength="2" placeholder="Nome do explicador">
+          <input name="util" required pattern="[a-z0-9][a-z0-9._\\-]{2,39}" placeholder="Utilizador" autocapitalize="none">
+          <input name="pass" required minlength="8" value="${gerarPalavraPasse()}">
+          <button class="btn btn-sec" type="submit">Criar explicador</button>
+        </form></section>`;
+    }).join('')}
+  </main>`;
+  const msg = document.getElementById('msg');
+  const correr = async (corpo, ok) => {
+    try { await progresso.gerirContas(corpo); await vistaAdmin(); mensagem(document.getElementById('msg'), ok, true); }
+    catch (err) { mensagem(msg, err.message, false); msg.scrollIntoView({ block: 'center' }); }
+  };
+  app.querySelector('main').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, t = f.dataset.tipo;
+    if (f.id === 'novo-centro') return correr({ acao: 'criar_centro', nome: f.nome.value, max_alunos: +f.max.value, licenca_ate: f.ate.value }, 'Centro criado.');
+    if (t === 'licenca') return correr({ acao: 'atualizar_centro', centro_id: f.dataset.centro, max_alunos: +f.max.value, licenca_ate: f.ate.value }, 'Licença atualizada.');
+    if (t === 'explicador') {
+      const u = f.util.value.trim().toLowerCase(), pw = f.pass.value;
+      return correr({ acao: 'criar_explicador', centro_id: f.dataset.centro, nome: f.nome.value, nome_utilizador: u, palavra_passe: pw },
+        `Explicador criado → utilizador: ${u} · password provisória: ${pw}`);
+    }
+  });
+  app.querySelector('main').addEventListener('click', e => {
+    const b = e.target.closest('[data-acao="ativo"]');
+    if (b) correr({ acao: 'atualizar_centro', centro_id: b.closest('form').dataset.centro, ativo: b.dataset.ativo === '1' }, 'Estado do centro atualizado.');
+  });
+}
+
+
 function vistaErro(msg) {
   app.innerHTML = cabecalho() + `<main class="conteudo"><h1>Ups</h1><p>${esc(msg)}</p><p><a href="#/">Voltar ao início</a></p></main>`;
 }
@@ -292,9 +573,16 @@ function vistaErro(msg) {
 async function router() {
   const p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
   try {
-    if (p[0] === 'd' && p[1] && p[2] === 's' && p[3]) await vistaPratica(p[1], p[3], p[4]);
+    const eu = progresso.perfilAtual();
+    if (!progresso.contaAtual()) vistaEntrar();
+    else if (!eu || !progresso.licencaAtiva()) vistaSemAcesso();
+    else if (eu.deve_mudar_palavra_passe) vistaMudarPass();
+    else if (p[0] === 'd' && p[1] && p[2] === 's' && p[3]) await vistaPratica(p[1], p[3], p[4]);
     else if (p[0] === 'd' && p[1]) await vistaDisciplina(p[1]);
     else if (p[0] === 'teste' && p[1] && p[2]) await vistaTeste(p[1], p[2]);
+    else if (p[0] === 'conta') vistaConta();
+    else if (p[0] === 'centro') await vistaCentro();
+    else if (p[0] === 'admin') await vistaAdmin();
     else await vistaInicio();
     window.scrollTo(0, 0);
   } catch (e) {
@@ -302,5 +590,13 @@ async function router() {
     vistaErro(e.message || 'Algo correu mal.');
   }
 }
+
 window.addEventListener('hashchange', router);
-router();
+// ao entrar/sair ou mudar a password: limpa a cache e redesenha
+let ultimaConta = null;
+progresso.aoMudar(() => {
+  const id = progresso.contaAtual()?.id || null;
+  if (id !== ultimaConta) { ultimaConta = id; limparCache(); teste = null; pratica.chave = ''; }
+  router();
+});
+progresso.iniciar().finally(router);

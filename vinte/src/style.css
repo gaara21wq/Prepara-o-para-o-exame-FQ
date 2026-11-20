@@ -81,3 +81,32 @@ h2 { font-size: 1.15rem; margin: 1.6rem 0 .6rem; }
   .tema .acoes { grid-column: 1; grid-row: auto; }
   h1 { font-size: 1.35rem; }
 }
+
+.conta-link { font-size: .9rem; font-weight: 600; text-decoration: none; padding: .35rem .8rem; border: 1px solid var(--linha); border-radius: 999px; color: var(--texto); white-space: nowrap; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; }
+.conta-link:hover { border-color: var(--pri); color: var(--pri); }
+.estreito { max-width: 560px; }
+.form { display: grid; gap: .5rem; margin: 1rem 0; }
+.form input { font: inherit; padding: .6rem .8rem; border: 1px solid var(--linha); border-radius: 8px; }
+.form input:focus { outline: 2px solid var(--pri); border-color: transparent; }
+.btn-perigo { background: var(--mal); } .btn-perigo:hover { background: #b83232; }
+
+.topo-dir { margin-left: auto; display: flex; gap: .6rem; align-items: center; }
+.topo-link { font-size: .9rem; font-weight: 600; text-decoration: none; }
+.painel { background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: .2rem 1.2rem 1rem; margin: 1rem 0; }
+.painel h2 { margin-top: .9rem; }
+.form-linha { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.form-linha input { flex: 1 1 160px; min-width: 0; }
+.form-linha input[type=number] { flex: 0 0 110px; }
+.form-linha input[type=date] { flex: 0 0 auto; }
+.mini { font-size: .85rem; color: var(--suave); display: flex; gap: .4rem; align-items: center; }
+.tabela-wrap { overflow-x: auto; }
+.tabela { width: 100%; border-collapse: collapse; background: var(--cartao); border-radius: var(--raio); overflow: hidden; font-size: .92rem; }
+.tabela th, .tabela td { padding: .55rem .7rem; border-bottom: 1px solid var(--linha); text-align: left; vertical-align: middle; }
+.tabela th { background: #f3f5fa; font-weight: 600; }
+.tabela tr.inativo td { color: var(--suave); }
+.acoes-linha { white-space: nowrap; }
+.btn-mini { font: inherit; font-size: .82rem; padding: .3rem .6rem; border-radius: 6px; border: 1px solid var(--linha); background: #fff; cursor: pointer; }
+.btn-mini:hover { border-color: var(--pri); color: var(--pri); }
+.btn-mini:disabled { opacity: .5; }
+.etiqueta { font-size: .72rem; font-weight: 600; padding: .1rem .45rem; border-radius: 999px; background: #eef0f5; color: var(--suave); vertical-align: middle; }
+.etiqueta.ok { background: var(--ok-bg); color: var(--ok); } .etiqueta.mal { background: var(--mal-bg); color: var(--mal); }

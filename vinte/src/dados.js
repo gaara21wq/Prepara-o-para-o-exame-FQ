@@ -1,16 +1,24 @@
-// Carrega e organiza o banco de questões de cada disciplina.
+// Carrega (do Supabase, só com licença ativa) e organiza o banco de questões de cada disciplina.
+import { supabase } from './supabase.js';
+
 export const DISCIPLINAS = {
-  fq:  { id: 'fq',  nome: 'Física e Química A', prova: '715', ficheiro: 'data/fq.json',  cor: 'fq' },
-  mat: { id: 'mat', nome: 'Matemática A',       prova: '635', ficheiro: 'data/mat.json', cor: 'mat' },
+  fq:  { id: 'fq',  nome: 'Física e Química A', prova: '715', cor: 'fq' },
+  mat: { id: 'mat', nome: 'Matemática A',       prova: '635', cor: 'mat' },
 };
 
-const cache = {};
+let cache = {};
+export function limparCache() { cache = {}; }
+
+async function buscar(id) {
+  const { data, error } = await supabase.from('questoes').select('dados').eq('disciplina', id).limit(5000);
+  if (error) throw new Error('Não consegui carregar as perguntas: ' + error.message);
+  return data.map(r => r.dados);
+}
 
 export function carregar(id) {
   if (!DISCIPLINAS[id]) return Promise.reject(new Error('Disciplina desconhecida: ' + id));
   if (!cache[id]) {
-    cache[id] = fetch(DISCIPLINAS[id].ficheiro)
-      .then(r => { if (!r.ok) throw new Error('Não consegui carregar ' + DISCIPLINAS[id].ficheiro); return r.json(); })
+    cache[id] = buscar(id)
       .then(lista => preparar(id, lista))
       .catch(e => { delete cache[id]; throw e; });
   }
