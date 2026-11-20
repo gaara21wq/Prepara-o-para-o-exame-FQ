@@ -16,7 +16,9 @@ Cada questão de **escolha múltipla** mostra as 4 opções (A-D) e é clicável
 ## Estado atual
 Cada **alínea** do exame é uma entrada própria (ex: "4.1", "4.2" e "4.3" são três questões separadas, cada uma com o seu tema e categoria).
 
-Cobertura: **7 provas, 165 itens** — 2024 (1ª fase, 2ª fase, época especial), 2023 (1ª e 2ª fase) e 2022 (1ª e 2ª fase).
+Cobertura: **13 provas, 317 itens** — 2024 (1ª fase, 2ª fase, época especial) e 2023, 2022, 2021, 2020 e 2019 (1ª e 2ª fase).
+
+Cada questão tem `disciplina`, `subtema_cod`, `dominio`, `subtema` e `ano_curricular`, segundo as Aprendizagens Essenciais de FQ A (20 subdomínios, de F10.1 a Q11.5). Nas provas de 2019 e 2020 os itens estão numerados por grupo (ex.: `II.1.3`).
 - As opções A-D e as chaves vêm dos enunciados e critérios de classificação oficiais do IAVE (Versão 1, salvo indicação em contrário).
 - Nos itens de cálculo e resposta aberta, a resolução segue as etapas e os valores dos critérios.
 - **Figuras e gráficos** (pasta `img/`, formato WebP, ~500 KB no total) recortados dos enunciados originais: 50 itens mostram a figura do enunciado e 11 itens de escolha múltipla mostram as opções (A)-(D) como imagem, tal como no exame. Clicar numa figura abre-a em tamanho real.
@@ -76,3 +78,9 @@ Nota: em todos os itens de escolha múltipla, a letra certa corresponde à **Ver
 1. Juntar as épocas especiais de 2023 e 2022.
 2. Continuar com os exames de 2021 e 2020 (e potencialmente 2015–2019). Os PDFs estão também em examesnacionais.com.pt (`/exames-nacionais/11ano/AAAA-Nfase/Fisica-Quimica-A.pdf` e `...-Criterios.pdf`), útil quando o site do IAVE não abre.
 3. Rever a época especial de 2024 contra o enunciado original (a 1ª e a 2ª fase de 2024 já foram revistas).
+## Matemática A (em preparação)
+
+`questoes-mat.json` tem o banco de Matemática A (635), ainda **não ligado ao site**. Tem as provas de 2025 (1.ª e 2.ª fase), 2024 (1.ª e 2.ª fase), 2023 (1.ª e 2.ª fase), 2022 (1.ª e 2.ª fase) e 2021 (1.ª e 2.ª fase), 180 itens.
+- Mesmo esquema das questões de FQ, com `disciplina: "mat"` e ids `mat-ANO-FASE-ITEM`.
+- As fórmulas estão em LaTeX entre `$...$` (contexto, enunciado, opções e resolução), para serem mostradas com **KaTeX** (`katex.renderToString` em cada segmento entre `$`). Todas foram validadas com KaTeX 0.16.
+- Subtemas `M10.1` … `M12.6` (ver `subtema_cod`, `dominio`, `subtema`).
