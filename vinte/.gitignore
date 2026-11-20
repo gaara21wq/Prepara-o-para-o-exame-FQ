@@ -1,0 +1,5 @@
+node_modules
+dist
+# copiados da raiz do projeto por scripts/copiar-dados.mjs
+public/data
+public/img

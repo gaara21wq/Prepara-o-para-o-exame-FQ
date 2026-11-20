@@ -18,7 +18,7 @@ Cada **alínea** do exame é uma entrada própria (ex: "4.1", "4.2" e "4.3" são
 
 Cobertura: **13 provas, 317 itens** — 2024 (1ª fase, 2ª fase, época especial) e 2023, 2022, 2021, 2020 e 2019 (1ª e 2ª fase).
 
-Cada questão tem `disciplina`, `subtema_cod`, `dominio`, `subtema` e `ano_curricular`, segundo as Aprendizagens Essenciais de FQ A (20 subdomínios, de F10.1 a Q11.5). Nas provas de 2019 e 2020 os itens estão numerados por grupo (ex.: `II.1.3`).
+Cada questão tem `disciplina`, `subtema_cod`, `dominio`, `subtema` e `ano_curricular`, segundo as Aprendizagens Essenciais de FQ A (19 subdomínios, de F10.1 a Q11.5, iguais aos do manual de preparação para exame). Nas provas de 2019 e 2020 os itens estão numerados por grupo (ex.: `II.1.3`).
 - As opções A-D e as chaves vêm dos enunciados e critérios de classificação oficiais do IAVE (Versão 1, salvo indicação em contrário).
 - Nos itens de cálculo e resposta aberta, a resolução segue as etapas e os valores dos critérios.
 - **Figuras e gráficos** (pasta `img/`, formato WebP, ~500 KB no total) recortados dos enunciados originais: 50 itens mostram a figura do enunciado e 11 itens de escolha múltipla mostram as opções (A)-(D) como imagem, tal como no exame. Clicar numa figura abre-a em tamanho real.
@@ -83,4 +83,4 @@ Nota: em todos os itens de escolha múltipla, a letra certa corresponde à **Ver
 `questoes-mat.json` tem o banco de Matemática A (635), ainda **não ligado ao site**. Tem as provas de 2025 (1.ª e 2.ª fase), 2024 (1.ª e 2.ª fase), 2023 (1.ª e 2.ª fase), 2022 (1.ª e 2.ª fase) e 2021 (1.ª e 2.ª fase), 180 itens.
 - Mesmo esquema das questões de FQ, com `disciplina: "mat"` e ids `mat-ANO-FASE-ITEM`.
 - As fórmulas estão em LaTeX entre `$...$` (contexto, enunciado, opções e resolução), para serem mostradas com **KaTeX** (`katex.renderToString` em cada segmento entre `$`). Todas foram validadas com KaTeX 0.16.
-- Subtemas `M10.1` … `M12.6` (ver `subtema_cod`, `dominio`, `subtema`).
+- Classificação pelas Unidades e Temas do livro de preparação para exame: `M1` (Cálculo algébrico) … `M8.2` (Estatística — amostra bivariada), em `subtema_cod`, `dominio` e `subtema`. O código das Aprendizagens Essenciais por ano fica em `ae_cod`.

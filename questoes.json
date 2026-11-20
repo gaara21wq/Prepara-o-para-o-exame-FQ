@@ -556,10 +556,10 @@
   "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-V1-1.pdf",
   "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/07/EX-FQA715-F2-2024-CC-VD_net.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2024-f2-1-2",
@@ -723,7 +723,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2024-f2-3-2",
@@ -842,7 +842,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2024-f2-4-4",
@@ -1299,10 +1299,10 @@
   "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/08/EX-FQA715-EE-2024_net.pdf",
   "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/08/EX-FQA715-EE-2024-CC_net.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2024-ee-4-3",
@@ -1409,7 +1409,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2024-ee-7-1",
@@ -1594,10 +1594,10 @@
   "pdf_enunciado": "https://iave.pt/wp-content/uploads/2024/08/EX-FQA715-EE-2024_net.pdf",
   "pdf_criterios": "https://iave.pt/wp-content/uploads/2024/08/EX-FQA715-EE-2024-CC_net.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2023-f1-1-1",
@@ -1840,7 +1840,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2023-f1-5-2-2",
@@ -1891,10 +1891,10 @@
    "img/2023-f1-fig6.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2023-f1-5-4-1",
@@ -2321,10 +2321,10 @@
    "img/2023-f2-fig3.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2023-f2-3-2",
@@ -2343,10 +2343,10 @@
    "img/2023-f2-fig4.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2023-f2-4",
@@ -2554,7 +2554,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2023-f2-8-2",
@@ -2780,7 +2780,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2022-f1-1-1-2",
@@ -3360,7 +3360,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2022-f2-1-2-1",
@@ -3805,7 +3805,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2022-f2-6-3",
@@ -3900,10 +3900,10 @@
    "img/2022-f2-fig10.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2022-f2-8-2",
@@ -3922,10 +3922,10 @@
    "img/2022-f2-fig10.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2021-f1-1-1",
@@ -4027,10 +4027,10 @@
   "pdf_enunciado": "https://iave.pt/wp-content/uploads/2021/07/EX-FQA715-F1-2021-V1_net.pdf",
   "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2021-1fase/Fisica-Quimica-A-Criterios.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2021-f1-3-2",
@@ -4071,10 +4071,10 @@
   "pdf_enunciado": "https://iave.pt/wp-content/uploads/2021/07/EX-FQA715-F1-2021-V1_net.pdf",
   "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2021-1fase/Fisica-Quimica-A-Criterios.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2021-f1-5-1",
@@ -4373,7 +4373,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2021-f1-9-2",
@@ -4790,10 +4790,10 @@
    "img/2021-f2-fig2.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2021-f2-5-2",
@@ -4812,10 +4812,10 @@
    "img/2021-f2-fig2.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2021-f2-6-1",
@@ -5335,7 +5335,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2020-f1-III-1-2",
@@ -5364,7 +5364,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2020-f1-III-2",
@@ -5386,10 +5386,10 @@
   "pdf_enunciado": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2020-1fase/Fisica-Quimica-A.pdf",
   "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2020-1fase/Fisica-Quimica-A-Criterios.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2020-f1-III-3",
@@ -5983,7 +5983,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2020-f2-II-4-2",
@@ -6031,7 +6031,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2020-f2-III-2",
@@ -6802,7 +6802,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2019-f1-VI-3-3",
@@ -6887,7 +6887,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2019-f1-VI-3-6",
@@ -7242,7 +7242,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2019-f2-III-3-2",
@@ -7271,7 +7271,7 @@
   "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Eletromagnetismo"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2019-f2-IV-1-1",
@@ -7296,10 +7296,10 @@
    "img/2019-f2-fig4.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2019-f2-IV-1-2",
@@ -7324,10 +7324,10 @@
    "img/2019-f2-fig4.webp"
   ],
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2019-f2-IV-2",
@@ -7349,10 +7349,10 @@
   "pdf_enunciado": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2019-2fase/Fisica-Quimica-A.pdf",
   "pdf_criterios": "https://www.examesnacionais.com.pt/exames-nacionais/11ano/2019-2fase/Fisica-Quimica-A-Criterios.pdf",
   "disciplina": "fq",
-  "subtema_cod": "F11.6",
+  "subtema_cod": "F11.5",
   "ano_curricular": 11,
   "dominio": "Ondas e eletromagnetismo",
-  "subtema": "Ondas eletromagnéticas"
+  "subtema": "Eletromagnetismo e ondas eletromagnéticas"
  },
  {
   "id": "2019-f2-V-1-1",
@@ -7381,7 +7381,7 @@
   "subtema_cod": "F11.1",
   "ano_curricular": 11,
   "dominio": "Mecânica",
-  "subtema": "Tempo, posição e velocidade"
+  "subtema": "Tempo, posição, velocidade e aceleração"
  },
  {
   "id": "2019-f2-V-1-2",
