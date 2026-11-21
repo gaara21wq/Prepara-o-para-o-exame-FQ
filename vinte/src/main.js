@@ -1,3 +1,4 @@
+import { vistaApresentacao, vistaPrivacidade, vistaTermos } from './publico.js';
 import 'katex/dist/katex.min.css';
 import './style.css';
 import { DISCIPLINAS, carregar, limparCache } from './dados.js';
@@ -427,7 +428,7 @@ function desenharResultado(topo) {
     <p class="sub">${teste.certas} de ${n} certas.</p>
     ${cot ? `<p class="nota">Nota calculada com as cotações oficiais: ${cot.pontos} de ${cot.max} pontos. Itens obrigatórios: ${cot.ob[0]}/${cot.ob[1]} pontos${cot.op[2] ? `; dos ${cot.op[3]} itens opcionais contam os ${cot.op[2]} melhores: ${cot.op[0]}/${cot.op[1]} pontos` : ''}. Nas respostas abertas, conta a tua autoavaliação (certo vale a cotação toda, errado vale zero).</p>` : ''}
     ${teste.entregue ? '<p class="feedback ok">Trabalho entregue ao teu explicador.</p>' : ''}
-    ${teste.erroEntrega ? `<p class="feedback mal">Não foi possível entregar: ${esc(teste.erroEntrega)}</p>` : ''}
+    ${teste.erroEntrega ? (progresso.eDemo() ? '<p class="feedback ok">Na conta real, este trabalho ficava entregue ao explicador (na demonstração não é guardado).</p>' : `<p class="feedback mal">Não foi possível entregar: ${esc(teste.erroEntrega)}</p>`) : ''}
     <div class="acoes">${teste.repetir ? `<button class="btn" data-acao="repetir">${esc(teste.textoRepetir || 'Novo teste')}</button>` : ''}
       <a class="btn btn-sec" href="${teste.voltar[1]}">${esc(teste.voltar[0])}</a></div>
     <h2>Correção</h2>
@@ -459,6 +460,7 @@ function vistaEntrar() {
     </form>
     <p id="msg" role="status"></p>
     <p class="nota">Esqueceste-te da password? Pede ao teu explicador para te dar uma nova.</p>
+    <p class="nota">És de um centro de explicações? <a href="#/apresentacao">Conhece o Vinte e experimenta a demonstração</a>.</p>
   </main>`;
   const f = document.getElementById('f');
   f.onsubmit = async e => {
@@ -523,18 +525,18 @@ function vistaConta() {
     <p><b>${esc(p.nome || '')}</b> · utilizador <b>${esc(p.nome_utilizador || '')}</b>${p.centros ? ` · ${esc(p.centros.nome)}` : ''}</p>
     ${p.centros && p.papel !== 'admin' ? `<p class="nota">Licença do centro válida até ${dataPT(p.centros.licenca_ate)}.</p>` : ''}
     <div class="acoes"><button class="btn btn-sec" data-acao="sair">Terminar sessão</button></div>
-    <h2>Mudar a password</h2>
+    ${progresso.eDemo() ? '<p class="nota">Conta de demonstração: a password e o progresso não podem ser alterados.</p>' : `<h2>Mudar a password</h2>
     <form id="f" class="form">
       <input id="p1" type="password" minlength="8" maxlength="72" required autocomplete="new-password" placeholder="Nova password (mínimo 8)">
       <button class="btn btn-sec" type="submit">Mudar password</button>
     </form>
     <h2>Apagar progresso</h2>
     <p class="nota">Apaga todas as tuas respostas. Não dá para desfazer.</p>
-    <div class="acoes"><button class="btn btn-perigo" data-acao="apagar">Apagar o meu progresso</button></div>
+    <div class="acoes"><button class="btn btn-perigo" data-acao="apagar">Apagar o meu progresso</button></div>`}
     <p id="msg" role="status"></p>
   </main>`;
   const msg = document.getElementById('msg');
-  document.getElementById('f').onsubmit = async e => {
+  if (document.getElementById('f')) document.getElementById('f').onsubmit = async e => {
     e.preventDefault();
     try { await progresso.mudarPalavraPasse(e.target.p1.value); mensagem(msg, 'Password mudada.', true); e.target.reset(); }
     catch (err) { mensagem(msg, 'Não foi possível mudar: ' + err.message, false); }
@@ -623,7 +625,10 @@ async function router() {
   const p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
   try {
     const eu = progresso.perfilAtual();
-    if (!progresso.contaAtual()) vistaEntrar();
+    if (p[0] === 'apresentacao') vistaApresentacao();
+    else if (p[0] === 'privacidade') vistaPrivacidade();
+    else if (p[0] === 'termos') vistaTermos();
+    else if (!progresso.contaAtual()) (p[0] === 'entrar' ? vistaEntrar() : vistaApresentacao());
     else if (!eu || !progresso.licencaAtiva()) vistaSemAcesso();
     else if (eu.deve_mudar_palavra_passe) vistaMudarPass();
     else if (p[0] === 'd' && p[1] && p[2] === 's' && p[3]) await vistaPratica(p[1], p[3], p[4]);

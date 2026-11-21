@@ -47,6 +47,10 @@ async function quemChama(req: Request) {
     .eq("id", data.user.id).maybeSingle();
   if (e2) { console.error("perfil:", e2); throw new Erro(500, "Não foi possível ler o perfil."); }
   if (!p || !p.ativa) throw new Erro(403, "Conta inativa.");
+  if (p.centro_id) {
+    const { data: c } = await admin.from("centros").select("demo").eq("id", p.centro_id).maybeSingle();
+    if (c?.demo) throw new Erro(403, "Esta é uma conta de demonstração: pode ver tudo, mas não pode criar nem alterar contas.");
+  }
   return p as { id: string; papel: string; centro_id: string | null; ativa: boolean };
 }
 

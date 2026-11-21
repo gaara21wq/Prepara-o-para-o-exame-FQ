@@ -21,13 +21,16 @@ export function baralhar(arr) {
 export const eEM = q => q.tipo === 'escolha_multipla' && q.opcoes;
 export const href = (...p) => '#/' + p.map(encodeURIComponent).join('/');
 
+export const MARCA = '<a class="marca" href="#/"><img src="logo.svg" alt="" width="26" height="26">Vinte</a>';
+
 export function cabecalho(trilho = []) {
   const migalhas = trilho.map(([t, h]) => (h ? `<a href="${h}">${esc(t)}</a>` : `<span>${esc(t)}</span>`)).join('<span class="sep">›</span>');
   const p = progresso.perfilAtual();
   const extra = p?.papel === 'explicador' ? `<a class="topo-link" href="#/centro">O meu centro</a>`
     : p?.papel === 'admin' ? `<a class="topo-link" href="#/admin">Administração</a>` : '';
   const conta = p ? `${extra}<a class="conta-link" href="#/conta" title="A minha conta">${esc(p.nome_utilizador || p.nome || 'conta')}</a>` : '';
-  return `<header class="topo"><a class="marca" href="#/">Vinte</a>${trilho.length ? `<nav class="trilho">${migalhas}</nav>` : ''}<span class="topo-dir">${conta}</span></header>`;
+  const demo = progresso.eDemo() ? `<div class="faixa-demo">Modo demonstração — pode ver e experimentar tudo; nada do que fizer é guardado. <a href="#/apresentacao">Saber mais</a></div>` : '';
+  return demo + `<header class="topo">${MARCA}${trilho.length ? `<nav class="trilho">${migalhas}</nav>` : ''}<span class="topo-dir">${conta}</span></header>`;
 }
 
 export function barra(r) {
@@ -96,7 +99,10 @@ export function gerarPalavraPasse() {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-export function mensagem(el, texto, ok) { el.className = 'feedback ' + (ok ? 'ok' : 'mal'); el.textContent = texto; }
+export function mensagem(el, texto, ok) {
+  if (!ok && progresso.eDemo()) texto = 'Esta é uma conta de demonstração: pode ver e experimentar tudo, mas as alterações não são guardadas.';
+  el.className = 'feedback ' + (ok ? 'ok' : 'mal'); el.textContent = texto;
+}
 
 
 export function vistaErro(msg) {
