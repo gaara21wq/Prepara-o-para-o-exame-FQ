@@ -15,7 +15,7 @@ export const PRECOS = {
     { ate: 60, mes: 2.0 },
     { ate: Infinity, mes: 1.5 },
   ],
-  mesesAnoLetivo: 10,   // setembro a junho
+  mesesAnoLetivo: 9,    // setembro a maio/junho (até aos exames)
   descontoAnual: 0.2,   // pagar o ano letivo inteiro: 20% mais barato
   minimoMes: 15,        // valor mínimo por mês
   diasGratis: 14,
