@@ -40,7 +40,7 @@ export function licencaAtiva(p = perfil) {
 // ---------- sessão ----------
 async function carregarPerfil() {
   const { data, error } = await supabase.from('perfis')
-    .select('id, nome, nome_utilizador, papel, centro_id, ativa, deve_mudar_palavra_passe, centros(id, nome, licenca_ate, ativo, max_alunos)')
+    .select('id, nome, nome_utilizador, papel, centro_id, ativa, deve_mudar_palavra_passe, centros(id, nome, licenca_ate, ativo, max_alunos, demo)')
     .eq('id', utilizador.id).single();
   if (error) throw error;
   perfil = data;
@@ -160,8 +160,10 @@ function linha(id, r) {
   };
 }
 
+export function eDemo(p = perfil) { return !!p?.centros?.demo; }
+
 async function enviar(ids) {
-  if (!utilizador || !ids.length) return;
+  if (!utilizador || !ids.length || eDemo()) return; // na demonstração, o progresso fica só neste browser
   const dono = utilizador.id;
   for (let i = 0; i < ids.length; i += 500) {
     const lote = ids.slice(i, i + 500).filter(id => estado.respostas[id]);
