@@ -113,7 +113,7 @@ async function vistaExames(id) {
   app.innerHTML = cabecalho([[dd.disciplina.nome, href('d', id)], ['Simular exame']]) + `<main class="conteudo">
     <h1>Simular exame — ${esc(dd.disciplina.nome)}</h1>
     <p class="sub">Faz uma prova completa, com o tempo do exame (${dd.disciplina.minutos} minutos). No fim tens a nota e a correção.</p>
-    <p class="nota"><a href="${dd.disciplina.formulario}" target="_blank" rel="noopener">Abrir o formulário oficial (PDF)</a> — tal como no exame.</p>
+    <p class="nota"><a href="${dd.disciplina.formulario}" target="_blank" rel="noopener">Abrir o formulário</a> (o mesmo que é dado no exame, abre noutro separador).</p>
     <div class="cartoes-mini">${dd.provas.map(pr => {
       const r = progresso.resumo(pr.questoes);
       return `<a class="cartao-mini" href="${href('exame', id, pr.ano, pr.fase)}"><b>${pr.ano} · ${esc(pr.fase)}</b><span class="meta">${plural(pr.questoes.length, 'item', 'itens')}${r.respondidas ? ` · ${r.certas}/${r.respondidas} certas` : ''}</span></a>`;
@@ -130,15 +130,25 @@ async function vistaExame(id, ano, fase) {
   app.innerHTML = cabecalho(trilho) + `<main class="conteudo estreito">
     <h1>Exame ${ano} · ${esc(fase)}</h1>
     <p>${plural(pr.questoes.length, 'item', 'itens')} · ${dd.disciplina.minutos} minutos. O tempo começa quando carregares em «Começar». Quando acabar, a prova termina sozinha.</p>
-    <p class="nota">Nos itens de resposta aberta, resolve no papel e depois compara com a resolução (autoavaliação). <a href="${dd.disciplina.formulario}" target="_blank" rel="noopener">Formulário (PDF)</a></p>
+    <p class="nota">Nos itens de resposta aberta, resolve no papel e depois compara com a resolução (autoavaliação). <a href="${dd.disciplina.formulario}" target="_blank" rel="noopener">Formulário</a></p>
     <div class="acoes"><button class="btn" id="comecar">Começar</button><a class="btn btn-sec" href="${href('exame', id)}">Voltar</a></div></main>`;
   document.getElementById('comecar').onclick = () => {
-    const cfg = { chave, qs: pr.questoes, titulo: `Exame ${ano} · ${fase}`, minutos: dd.disciplina.minutos, trilho,
+    const cfg = { chave, qs: pr.questoes, titulo: `Exame ${ano} · ${fase}`, minutos: dd.disciplina.minutos, trilho, exame: true, formulario: dd.disciplina.formulario,
       voltar: ['Outras provas', href('exame', id)], textoRepetir: 'Fazer outra vez' };
     cfg.repetir = () => iniciarTeste(cfg);
     iniciarTeste(cfg);
     desenharTeste();
   };
+}
+
+// ---------- formulário ----------
+function vistaFormulario(id) {
+  const d = DISCIPLINAS[id];
+  app.innerHTML = cabecalho([[d.nome, href('d', id)], ['Formulário']]) + `<main class="conteudo formulario">
+    <h1>Formulário — ${esc(d.nome)}</h1>
+    <p class="nota">É o formulário${id === 'fq' ? ', a tabela de constantes e a tabela periódica' : ''} que vem no enunciado do exame nacional (prova de 2026).</p>
+    ${d.imgsFormulario.map(src => `<img src="${src}" alt="Formulário de ${esc(d.nome)}" loading="lazy">`).join('')}
+  </main>`;
 }
 
 // ---------- estatísticas ----------
@@ -318,10 +328,10 @@ function desenharTeste() {
   const n = teste.qs.length;
   const feitas = teste.qs.filter(x => respondida(x, teste.estados[x.id] || {})).length;
   app.innerHTML = topo + `<main class="conteudo">
-    <div class="titulo-tema"><h1>${esc(teste.titulo)}</h1>${teste.fimEm ? `<span class="relogio${teste.fimEm - Date.now() < 600000 ? ' pouco' : ''}" id="relogio">${tempoRestante()}</span>` : ''}</div>
+    <div class="titulo-tema"><h1>${esc(teste.titulo)}</h1><span class="topo-teste">${teste.formulario ? `<a class="btn btn-sec btn-mini" href="${teste.formulario}" target="_blank" rel="noopener">Formulário</a>` : ''}${teste.fimEm ? `<span class="relogio${teste.fimEm - Date.now() < 600000 ? ' pouco' : ''}" id="relogio">${tempoRestante()}</span>` : ''}</span></div>
     <p class="sub">Pergunta ${teste.i + 1} de ${n} · ${feitas} respondidas</p>
     ${n > 12 ? `<div class="mapa-q">${teste.qs.map((x, k) => `<button class="mq ${k === teste.i ? 'atual' : ''} ${respondida(x, teste.estados[x.id] || {}) ? 'feita' : ''}" data-acao="ir" data-i="${k}">${esc(x.numero)}</button>`).join('')}</div>` : ''}
-    <div id="q">${htmlQuestao(q, { escolhida: est.escolhida, mostrarResolucao: est.mostrarResolucao, autoavaliacao: est.autoavaliacao })}</div>
+    <div id="q">${htmlQuestao(q, { escolhida: est.escolhida, mostrarResolucao: est.mostrarResolucao, autoavaliacao: est.autoavaliacao, semLinks: !!teste.exame })}</div>
     <div class="navq">
       <button class="btn btn-sec" data-acao="ant" ${teste.i === 0 ? 'disabled' : ''}>← Anterior</button>
       ${teste.i < n - 1 ? '<button class="btn" data-acao="seg">Seguinte →</button>'
@@ -386,13 +396,36 @@ async function terminarTeste() {
   }
 }
 
+// Nota com as cotações oficiais: itens obrigatórios + os N melhores opcionais.
+// Itens em alternativa (ex.: «5 (AE2018)» e «5 (AE2023)») contam como um só: vale o melhor.
+function notaPorCotacoes(qs, certa) {
+  if (!qs.length || qs.some(q => !q.cotacao)) return null;
+  const slots = new Map();
+  for (const q of qs) {
+    const k = String(q.numero).replace(/\s*\(AE20\d\d\)/, '');
+    const s = slots.get(k) || { pts: q.cotacao, n: q.opcional_contam || 0, obtido: 0 };
+    if (certa(q)) s.obtido = s.pts;
+    slots.set(k, s);
+  }
+  const todos = [...slots.values()], ob = todos.filter(s => !s.n), op = todos.filter(s => s.n);
+  const n = op[0]?.n || 0;
+  const melhores = op.map(s => s.obtido).sort((a, b) => b - a).slice(0, n);
+  const maxOp = op.map(s => s.pts).sort((a, b) => b - a).slice(0, n);
+  const soma = a => a.reduce((x, y) => x + y, 0);
+  const pontos = soma(ob.map(s => s.obtido)) + soma(melhores), max = soma(ob.map(s => s.pts)) + soma(maxOp);
+  return { pontos, max, nota: Math.round(pontos / max * 200) / 10,
+           ob: [soma(ob.map(s => s.obtido)), soma(ob.map(s => s.pts))], op: [soma(melhores), soma(maxOp), n, op.length] };
+}
+
 function desenharResultado(topo) {
   const n = teste.qs.length;
-  const nota = Math.round((teste.certas / n) * 200) / 10;
+  const cot = teste.exame ? notaPorCotacoes(teste.qs, q => certaNoTeste(q, teste.estados[q.id] || {})) : null;
+  const nota = cot ? cot.nota : Math.round((teste.certas / n) * 200) / 10;
   app.innerHTML = topo + `<main class="conteudo">
     <h1>Resultado</h1>
     <div class="nota-final ${nota >= 9.5 ? 'ok' : 'mal'}"><span>${String(nota).replace('.', ',')}</span><small>valores</small></div>
     <p class="sub">${teste.certas} de ${n} certas.</p>
+    ${cot ? `<p class="nota">Nota calculada com as cotações oficiais: ${cot.pontos} de ${cot.max} pontos. Itens obrigatórios: ${cot.ob[0]}/${cot.ob[1]} pontos${cot.op[2] ? `; dos ${cot.op[3]} itens opcionais contam os ${cot.op[2]} melhores: ${cot.op[0]}/${cot.op[1]} pontos` : ''}. Nas respostas abertas, conta a tua autoavaliação (certo vale a cotação toda, errado vale zero).</p>` : ''}
     ${teste.entregue ? '<p class="feedback ok">Trabalho entregue ao teu explicador.</p>' : ''}
     ${teste.erroEntrega ? `<p class="feedback mal">Não foi possível entregar: ${esc(teste.erroEntrega)}</p>` : ''}
     <div class="acoes">${teste.repetir ? `<button class="btn" data-acao="repetir">${esc(teste.textoRepetir || 'Novo teste')}</button>` : ''}
@@ -608,6 +641,7 @@ async function router() {
     else if (p[0] === 'exame' && p[1] && p[2] && p[3]) await vistaExame(p[1], p[2], p[3]);
     else if (p[0] === 'exame' && p[1]) await vistaExames(p[1]);
     else if (p[0] === 'estatisticas') await vistaEstatisticas();
+    else if (p[0] === 'formulario' && DISCIPLINAS[p[1]]) vistaFormulario(p[1]);
     else if (p[0] === 'admin') await vistaAdmin();
     else await vistaInicio();
     window.scrollTo(0, 0);

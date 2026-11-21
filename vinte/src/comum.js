@@ -75,13 +75,13 @@ export function htmlQuestao(q, estado = {}) {
               : `<div class="feedback ${estado.autoavaliacao ? 'ok' : 'mal'}">${estado.autoavaliacao ? '✓ Marcaste como certa.' : '✗ Marcaste como errada.'}</div>`}`
         : `<button class="btn" data-acao="resolucao">Ver resolução</button>`);
   return `<article class="questao">
-    <p class="ref">Exame ${q.ano} · ${esc(q.fase)} · item ${esc(q.numero)} · ${ROTULO_TIPO[q.tipo] || esc(q.tipo)}</p>
+    <p class="ref">Exame ${q.ano} · ${esc(q.fase)} · item ${esc(q.numero)} · ${ROTULO_TIPO[q.tipo] || esc(q.tipo)}${q.cotacao ? ` · ${q.cotacao} pontos${q.opcional_contam ? ' (opcional)' : ''}` : ''}</p>
     ${q.contexto ? `<div class="contexto">${rico(q.contexto)}</div>` : ''}
     ${htmlFiguras(q)}
     <div class="enunciado">${rico(q.enunciado)}</div>
     ${eEM(q) ? htmlOpcoes(q, estado.escolhida, estado.corrigir) : '<p class="nota">Resolve no papel e depois compara com a resolução.</p>'}
     ${resol}
-    ${htmlLinks(q)}
+    ${estado.semLinks ? '' : htmlLinks(q)}
   </article>`;
 }
 

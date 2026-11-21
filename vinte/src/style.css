@@ -168,3 +168,5 @@ label.mini { display: inline-flex; align-items: center; gap: .4rem; color: var(-
 .form .btn[type=submit] { justify-self: start; }
 .lista-check label { color: var(--texto); }
 .grafico .col b { font-size: .75rem; color: var(--suave); margin-bottom: .15rem; }
+.formulario img { display: block; width: 100%; max-width: 900px; height: auto; margin: 1rem auto; background: #fff; border: 1px solid var(--linha); border-radius: 10px; }
+.topo-teste { display: inline-flex; gap: .6rem; align-items: center; }

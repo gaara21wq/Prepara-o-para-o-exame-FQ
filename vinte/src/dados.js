@@ -3,9 +3,9 @@ import { supabase } from './supabase.js';
 
 export const DISCIPLINAS = {
   fq:  { id: 'fq',  nome: 'Física e Química A', prova: '715', cor: 'fq', minutos: 120,
-         formulario: 'https://iave.pt/wp-content/uploads/2026/04/IR-TC-CC-EX-FQA715-2026.pdf' },
+         formulario: '#/formulario/fq', imgsFormulario: ['img/formulario-fq.webp', 'img/tabela-periodica.webp'] },
   mat: { id: 'mat', nome: 'Matemática A',       prova: '635', cor: 'mat', minutos: 150,
-         formulario: 'https://www.examesnacionais.com.pt/exames-nacionais/12ano/2025-1fase/Matematica.pdf#page=2' },
+         formulario: '#/formulario/mat', imgsFormulario: ['img/formulario-mat.webp'] },
 };
 
 let cache = {};
