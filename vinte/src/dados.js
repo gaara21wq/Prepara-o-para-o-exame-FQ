@@ -2,8 +2,10 @@
 import { supabase } from './supabase.js';
 
 export const DISCIPLINAS = {
-  fq:  { id: 'fq',  nome: 'Física e Química A', prova: '715', cor: 'fq' },
-  mat: { id: 'mat', nome: 'Matemática A',       prova: '635', cor: 'mat' },
+  fq:  { id: 'fq',  nome: 'Física e Química A', prova: '715', cor: 'fq', minutos: 120,
+         formulario: 'https://iave.pt/wp-content/uploads/2026/04/IR-TC-CC-EX-FQA715-2026.pdf' },
+  mat: { id: 'mat', nome: 'Matemática A',       prova: '635', cor: 'mat', minutos: 150,
+         formulario: 'https://www.examesnacionais.com.pt/exames-nacionais/12ano/2025-1fase/Matematica.pdf#page=2' },
 };
 
 let cache = {};
@@ -75,9 +77,17 @@ function preparar(id, lista) {
     g.subtemas.push(s);
   }
   const anos = [...new Set(lista.map(q => q.ano))].sort();
+  const provas = new Map();
+  for (const q of lista) {
+    const k = `${q.ano}|${q.fase}`;
+    if (!provas.has(k)) provas.set(k, { ano: q.ano, fase: q.fase, questoes: [] });
+    provas.get(k).questoes.push(q);
+  }
+  const listaProvas = [...provas.values()].sort((a, b) => b.ano - a.ano || (ORDEM_FASE[a.fase] ?? 9) - (ORDEM_FASE[b.fase] ?? 9));
+  for (const pr of listaProvas) pr.questoes.sort((a, b) => String(a.numero).localeCompare(String(b.numero), 'pt', { numeric: true }));
   return {
     id, disciplina: DISCIPLINAS[id], questoes: lista, total, grupos,
-    subtemas: ordenados, porCod: subtemas, porId: new Map(lista.map(q => [q.id, q])),
+    subtemas: ordenados, porCod: subtemas, porId: new Map(lista.map(q => [q.id, q])), provas: listaProvas,
     anos: anos.length ? `${anos[0]}–${anos[anos.length - 1]}` : '',
   };
 }

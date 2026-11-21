@@ -120,6 +120,7 @@ export function registar(id, certa) {
 }
 
 export function resposta(id) { return estado.respostas[id] || null; }
+export function todasRespostas() { return estado.respostas; }
 
 export function resumo(questoes) {
   let respondidas = 0, certas = 0;

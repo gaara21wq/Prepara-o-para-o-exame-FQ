@@ -4,47 +4,31 @@ import { DISCIPLINAS, carregar, limparCache } from './dados.js';
 import { esc, rico, imgSegura, urlSegura } from './texto.js';
 import * as progresso from './progresso.js';
 import { supabase } from './supabase.js';
+import { vistaCentro, vistaLote, vistaTurma, vistaNovoTrabalho, vistaTrabalho, vistaRelatorioAluno } from './centro.js';
 
-const app = document.getElementById('app');
-const LETRAS = ['A', 'B', 'C', 'D'];
-const ROTULO_TIPO = {
-  escolha_multipla: 'Escolha múltipla', calculo: 'Cálculo',
-  resposta_aberta: 'Resposta aberta', associacao: 'Associação',
-};
-const TAMANHO_TESTE = 10;
-
-// ---------- utilitários ----------
-const plural = (n, s, p) => `${n} ${n === 1 ? s : p}`;
-const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
-function baralhar(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a;
-}
-const eEM = q => q.tipo === 'escolha_multipla' && q.opcoes;
-const href = (...p) => '#/' + p.map(encodeURIComponent).join('/');
-
-function cabecalho(trilho = []) {
-  const migalhas = trilho.map(([t, h]) => (h ? `<a href="${h}">${esc(t)}</a>` : `<span>${esc(t)}</span>`)).join('<span class="sep">›</span>');
-  const p = progresso.perfilAtual();
-  const extra = p?.papel === 'explicador' ? `<a class="topo-link" href="#/centro">O meu centro</a>`
-    : p?.papel === 'admin' ? `<a class="topo-link" href="#/admin">Administração</a>` : '';
-  const conta = p ? `${extra}<a class="conta-link" href="#/conta" title="A minha conta">${esc(p.nome_utilizador || p.nome || 'conta')}</a>` : '';
-  return `<header class="topo"><a class="marca" href="#/">Vinte</a>${trilho.length ? `<nav class="trilho">${migalhas}</nav>` : ''}<span class="topo-dir">${conta}</span></header>`;
-}
-
-function barra(r) {
-  const feitas = pct(r.respondidas, r.total), certas = pct(r.certas, r.total);
-  return `<div class="barra" title="${r.certas} certas · ${r.respondidas} respondidas de ${r.total}">
-    <span class="b-feitas" style="width:${feitas}%"></span><span class="b-certas" style="width:${certas}%"></span></div>`;
-}
+import { app, LETRAS, ROTULO_TIPO, TAMANHO_TESTE, plural, pct, baralhar, eEM, href, cabecalho, barra, htmlFiguras, htmlOpcoes, htmlLinks, htmlQuestao, dataPT, gerarPalavraPasse, mensagem, vistaErro } from './comum.js';
 
 // ---------- vistas ----------
+async function trabalhosDoAluno() {
+  const p = progresso.perfilAtual();
+  if (p?.papel !== 'aluno') return [];
+  const { data, error } = await supabase.from('trabalhos')
+    .select('id, titulo, disciplina, questoes, prazo, criado_em, entregas(certas, total, entregue_em)')
+    .order('criado_em', { ascending: false }).limit(30);
+  return error ? [] : data;
+}
+
 async function vistaInicio() {
-  app.innerHTML = cabecalho() + `<main class="conteudo"><h1>Treina para os exames nacionais</h1>
+  const p = progresso.perfilAtual();
+  app.innerHTML = cabecalho() + `<main class="conteudo"><h1>${p?.nome ? 'Olá, ' + esc(p.nome.split(' ')[0]) + '!' : 'Treina para os exames nacionais'}</h1>
     <p class="sub">Perguntas dos exames oficiais do IAVE, organizadas por matéria, com resoluções.</p>
+    <div id="tpc"></div>
     <div class="cartoes" id="cartoes">${Object.values(DISCIPLINAS).map(d =>
       `<a class="cartao disc-${d.cor}" href="${href('d', d.id)}"><h2>${esc(d.nome)}</h2><p class="meta">Prova ${d.prova}</p><p class="meta" data-n="${d.id}">a carregar…</p></a>`).join('')}
+    </div>
+    <div class="atalhos">
+      <a class="atalho" href="#/estatisticas"><b>As minhas estatísticas</b><span>Evolução, temas fortes e fracos</span></a>
+      ${Object.values(DISCIPLINAS).map(d => `<a class="atalho" href="${href('exame', d.id)}"><b>Simular exame — ${d.id === 'fq' ? 'FQ' : 'Matemática'}</b><span>Prova completa com tempo (${d.minutos} min)</span></a>`).join('')}
     </div></main>`;
   for (const id of Object.keys(DISCIPLINAS)) {
     carregar(id).then(dd => {
@@ -52,6 +36,147 @@ async function vistaInicio() {
       if (el) el.textContent = `${dd.total} perguntas · ${dd.subtemas.length} temas · exames ${dd.anos}`;
     }).catch(() => {});
   }
+  const tpc = await trabalhosDoAluno();
+  const el = document.getElementById('tpc');
+  if (el && tpc.length) {
+    const hojeS = new Date().toISOString().slice(0, 10);
+    const porFazer = tpc.filter(w => !w.entregas.length);
+    el.innerHTML = `<section class="prioridade"><h2>Trabalhos de casa${porFazer.length ? ` <span class="etiqueta mal">${porFazer.length} por fazer</span>` : ''}</h2><ul class="lista-tpc">
+      ${tpc.slice(0, 6).map(w => { const e = w.entregas[0];
+        return `<li><a href="${href('tpc', w.id)}">${esc(w.titulo)}</a> <span class="meta">${DISCIPLINAS[w.disciplina].nome} · ${plural(w.questoes.length, 'pergunta', 'perguntas')}${w.prazo ? ' · prazo ' + dataPT(w.prazo) : ''}</span>
+          ${e ? `<span class="etiqueta ok">entregue · ${String(Math.round(200 * e.certas / e.total) / 10).replace('.', ',')} val.</span>` : (w.prazo && w.prazo < hojeS ? '<span class="etiqueta mal">prazo terminado</span>' : '<span class="etiqueta">por fazer</span>')}</li>`; }).join('')}
+    </ul></section>`;
+  }
+}
+
+// ---------- trabalho de casa (aluno) ----------
+async function vistaTPC(id) {
+  const { data: w, error } = await supabase.from('trabalhos').select('id, titulo, disciplina, questoes, prazo, entregas(certas, total, entregue_em)').eq('id', id).single();
+  if (error || !w) return vistaErro('Trabalho não encontrado.');
+  const dd = await carregar(w.disciplina);
+  const qs = w.questoes.map(q => dd.porId.get(q)).filter(Boolean);
+  if (!qs.length) return vistaErro('Este trabalho não tem perguntas disponíveis.');
+  const chave = 'tpc/' + w.id;
+  if (!teste || teste.chave !== chave) {
+    const cfg = {
+      chave, qs, titulo: w.titulo, textoRepetir: 'Fazer outra vez',
+      trilho: [['Trabalho de casa'], [w.titulo]],
+      voltar: ['Voltar ao início', '#/'],
+      aoTerminar: async (certas, detalhe) => {
+        const { error: e } = await supabase.from('entregas')
+          .upsert({ trabalho_id: w.id, aluno_id: progresso.contaAtual().id, certas, total: qs.length, detalhe, entregue_em: new Date().toISOString() }, { onConflict: 'trabalho_id,aluno_id' });
+        if (e) throw e;
+      },
+    };
+    cfg.repetir = () => iniciarTeste(cfg);
+    iniciarTeste(cfg);
+  }
+  const e = w.entregas?.[0];
+  if (e && !teste.avisoEntrega && !teste.fim) {
+    teste.avisoEntrega = true;
+    app.innerHTML = cabecalho([['Trabalho de casa'], [w.titulo]]) + `<main class="conteudo estreito"><h1>${esc(w.titulo)}</h1>
+      <p>Já entregaste este trabalho a ${dataPT(e.entregue_em.slice(0, 10))}, com ${e.certas} de ${e.total} certas.</p>
+      <p class="nota">Podes fazê-lo outra vez: a nova entrega substitui a anterior.</p>
+      <div class="acoes"><button class="btn" id="refazer">Fazer outra vez</button><a class="btn btn-sec" href="#/">Voltar</a></div></main>`;
+    document.getElementById('refazer').onclick = () => desenharTeste();
+    return;
+  }
+  desenharTeste();
+}
+
+// ---------- rever erros ----------
+async function vistaErros(id) {
+  const dd = await carregar(id);
+  const erradas = dd.questoes.filter(q => progresso.resposta(q.id)?.ultima === false);
+  if (!erradas.length) {
+    app.innerHTML = cabecalho([[dd.disciplina.nome, href('d', id)], ['Rever erros']]) + `<main class="conteudo estreito"><h1>Rever erros</h1>
+      <p>Não tens perguntas erradas em ${esc(dd.disciplina.nome)}. 👏</p><p><a href="${href('d', id)}">Voltar aos temas</a></p></main>`;
+    return;
+  }
+  const chave = 'erros/' + id;
+  if (!teste || teste.chave !== chave || teste.fim) {
+    const montar = () => iniciarTeste({
+      chave, qs: baralhar(dd.questoes.filter(q => progresso.resposta(q.id)?.ultima === false)).slice(0, 20),
+      titulo: 'Rever erros — ' + dd.disciplina.nome,
+      trilho: [[dd.disciplina.nome, href('d', id)], ['Rever erros']],
+      voltar: ['Voltar aos temas', href('d', id)],
+      repetir: () => montar(),
+    });
+    montar();
+  }
+  desenharTeste();
+}
+
+// ---------- simular exame ----------
+async function vistaExames(id) {
+  const dd = await carregar(id);
+  app.innerHTML = cabecalho([[dd.disciplina.nome, href('d', id)], ['Simular exame']]) + `<main class="conteudo">
+    <h1>Simular exame — ${esc(dd.disciplina.nome)}</h1>
+    <p class="sub">Faz uma prova completa, com o tempo do exame (${dd.disciplina.minutos} minutos). No fim tens a nota e a correção.</p>
+    <p class="nota"><a href="${dd.disciplina.formulario}" target="_blank" rel="noopener">Abrir o formulário oficial (PDF)</a> — tal como no exame.</p>
+    <div class="cartoes-mini">${dd.provas.map(pr => {
+      const r = progresso.resumo(pr.questoes);
+      return `<a class="cartao-mini" href="${href('exame', id, pr.ano, pr.fase)}"><b>${pr.ano} · ${esc(pr.fase)}</b><span class="meta">${plural(pr.questoes.length, 'item', 'itens')}${r.respondidas ? ` · ${r.certas}/${r.respondidas} certas` : ''}</span></a>`;
+    }).join('')}</div></main>`;
+}
+
+async function vistaExame(id, ano, fase) {
+  const dd = await carregar(id);
+  const pr = dd.provas.find(x => String(x.ano) === String(ano) && x.fase === fase);
+  if (!pr) return vistaErro('Prova não encontrada.');
+  const chave = `exame/${id}/${ano}/${fase}`;
+  if (teste && teste.chave === chave) return desenharTeste();
+  const trilho = [[dd.disciplina.nome, href('d', id)], ['Simular exame', href('exame', id)], [`${ano} · ${fase}`]];
+  app.innerHTML = cabecalho(trilho) + `<main class="conteudo estreito">
+    <h1>Exame ${ano} · ${esc(fase)}</h1>
+    <p>${plural(pr.questoes.length, 'item', 'itens')} · ${dd.disciplina.minutos} minutos. O tempo começa quando carregares em «Começar». Quando acabar, a prova termina sozinha.</p>
+    <p class="nota">Nos itens de resposta aberta, resolve no papel e depois compara com a resolução (autoavaliação). <a href="${dd.disciplina.formulario}" target="_blank" rel="noopener">Formulário (PDF)</a></p>
+    <div class="acoes"><button class="btn" id="comecar">Começar</button><a class="btn btn-sec" href="${href('exame', id)}">Voltar</a></div></main>`;
+  document.getElementById('comecar').onclick = () => {
+    const cfg = { chave, qs: pr.questoes, titulo: `Exame ${ano} · ${fase}`, minutos: dd.disciplina.minutos, trilho,
+      voltar: ['Outras provas', href('exame', id)], textoRepetir: 'Fazer outra vez' };
+    cfg.repetir = () => iniciarTeste(cfg);
+    iniciarTeste(cfg);
+    desenharTeste();
+  };
+}
+
+// ---------- estatísticas ----------
+async function vistaEstatisticas() {
+  const dds = await Promise.all(Object.keys(DISCIPLINAS).map(carregar));
+  const todas = progresso.todasRespostas();
+  const semanas = 8, agora = Date.now(), SEM = 7 * 86400000;
+  const blocos = dds.map(dd => {
+    const r = progresso.resumo(dd.questoes);
+    const porSemana = Array(semanas).fill(0);
+    for (const q of dd.questoes) {
+      const x = todas[q.id];
+      if (!x?.quando) continue;
+      const k = Math.floor((agora - x.quando) / SEM);
+      if (k < semanas) porSemana[semanas - 1 - k]++;
+    }
+    const temas = dd.subtemas.map(s => ({ s, r: progresso.resumo(s.questoes) })).filter(t => t.r.respondidas >= 3);
+    const ord = temas.slice().sort((a, b) => a.r.certas / a.r.respondidas - b.r.certas / b.r.respondidas);
+    const taxa = t => t.r.certas / t.r.respondidas;
+    const fracos = ord.filter(t => taxa(t) < .75).slice(0, 3);
+    const fortes = ord.filter(t => taxa(t) >= .6 && !fracos.includes(t)).reverse().slice(0, 3);
+    const lista = (ts, ligar, vazio) => ts.length ? `<ol>${ts.map(t => `<li>${ligar ? `<a href="${href('d', dd.id, 's', t.s.cod)}">${esc(t.s.nome)}</a>` : esc(t.s.nome)} <span class="meta">${pct(t.r.certas, t.r.respondidas)}%</span></li>`).join('')}</ol>` : `<p class="meta">${vazio}</p>`;
+    const max = Math.max(1, ...porSemana);
+    const erradas = dd.questoes.filter(q => todas[q.id]?.ultima === false).length;
+    return `<section class="painel"><h2>${esc(dd.disciplina.nome)}</h2>
+      <div class="numeros"><div><b>${r.respondidas}</b><span>de ${dd.total} perguntas</span></div>
+        <div><b>${r.respondidas ? pct(r.certas, r.respondidas) + '%' : '—'}</b><span>certas</span></div>
+        <div><b>${r.respondidas ? String(Math.round(200 * r.certas / r.respondidas) / 10).replace('.', ',') : '—'}</b><span>nota estimada</span></div></div>
+      <p class="meta">Perguntas respondidas por semana (últimas ${semanas})</p>
+      <div class="grafico">${porSemana.map((n, i) => `<div class="col" title="${n}"><span style="height:${Math.round(100 * n / max)}%"></span><small>${i === semanas - 1 ? 'esta' : '-' + (semanas - 1 - i)}</small></div>`).join('')}</div>
+      ${ord.length ? `<div class="duas-col"><div><h3>A reforçar</h3>${lista(fracos, true, 'Nenhum tema abaixo de 75%. Muito bem!')}</div>
+        <div><h3>Pontos fortes</h3>${lista(fortes, false, 'Ainda nenhum tema acima de 60%.')}</div></div>`
+        : '<p class="nota">Responde a pelo menos 3 perguntas de um tema para veres os teus pontos fortes e fracos.</p>'}
+      ${erradas ? `<p><a class="btn btn-sec" href="${href('erros', dd.id)}">Rever as ${erradas} perguntas que erraste</a></p>` : ''}
+    </section>`;
+  });
+  app.innerHTML = cabecalho([['As minhas estatísticas']]) + `<main class="conteudo"><h1>As minhas estatísticas</h1>
+    <p class="nota">A nota estimada é a percentagem de respostas certas convertida para 0–20. Conta a última resposta a cada pergunta.</p>${blocos.join('')}</main>`;
 }
 
 async function vistaDisciplina(id) {
@@ -82,54 +207,6 @@ async function vistaDisciplina(id) {
         </div>`;
       }).join('')}</section>`).join('')}
   </main>`;
-}
-
-// ---------- questão ----------
-function htmlFiguras(q) {
-  return (q.imagens || []).map(imgSegura).filter(Boolean)
-    .map(u => `<img class="fig" src="${u}" alt="Figura da questão ${esc(q.numero)}" loading="lazy">`).join('');
-}
-
-function htmlOpcoes(q, escolhida, corrigir) {
-  const fig = q.opcoes_img && imgSegura(q.opcoes_img) ? `<img class="fig" src="${imgSegura(q.opcoes_img)}" alt="Opções (A) a (D)" loading="lazy">` : '';
-  return fig + `<div class="opcoes">${LETRAS.filter(l => q.opcoes[l] != null).map(l => {
-    let cls = 'opcao';
-    if (escolhida === l) cls += ' escolhida';
-    if (corrigir && l === q.resposta_certa) cls += ' certa';
-    if (corrigir && escolhida === l && l !== q.resposta_certa) cls += ' errada';
-    return `<button class="${cls}" data-acao="escolher" data-letra="${l}" ${corrigir ? 'disabled' : ''}>
-      <span class="letra">${l}</span><span>${rico(q.opcoes[l])}</span></button>`;
-  }).join('')}</div>`;
-}
-
-function htmlLinks(q) {
-  const e = urlSegura(q.pdf_enunciado), c = urlSegura(q.pdf_criterios);
-  return `<p class="links">${e ? `<a href="${e}" target="_blank" rel="noopener">Enunciado (PDF)</a>` : ''}
-    ${c ? `<a href="${c}" target="_blank" rel="noopener">Critérios (PDF)</a>` : ''}</p>`;
-}
-
-// estado: { escolhida, corrigir, mostrarResolucao, autoavaliacao }
-function htmlQuestao(q, estado = {}) {
-  const resol = eEM(q)
-    ? (estado.corrigir ? `<div class="feedback ${estado.escolhida === q.resposta_certa ? 'ok' : 'mal'}">
-        ${estado.escolhida === q.resposta_certa ? '✓ Certo!' : `✗ A resposta certa é a ${esc(q.resposta_certa)}.`}</div>` : '')
-    : (estado.mostrarResolucao
-        ? `<div class="resolucao"><h3>Resolução</h3><div>${rico(q.resposta_certa)}</div></div>
-           ${estado.autoavaliacao == null
-              ? `<div class="auto"><span>Como correu?</span>
-                 <button class="btn" data-acao="auto" data-certa="1">Acertei</button>
-                 <button class="btn btn-sec" data-acao="auto" data-certa="0">Errei</button></div>`
-              : `<div class="feedback ${estado.autoavaliacao ? 'ok' : 'mal'}">${estado.autoavaliacao ? '✓ Marcaste como certa.' : '✗ Marcaste como errada.'}</div>`}`
-        : `<button class="btn" data-acao="resolucao">Ver resolução</button>`);
-  return `<article class="questao">
-    <p class="ref">Exame ${q.ano} · ${esc(q.fase)} · item ${esc(q.numero)} · ${ROTULO_TIPO[q.tipo] || esc(q.tipo)}</p>
-    ${q.contexto ? `<div class="contexto">${rico(q.contexto)}</div>` : ''}
-    ${htmlFiguras(q)}
-    <div class="enunciado">${rico(q.enunciado)}</div>
-    ${eEM(q) ? htmlOpcoes(q, estado.escolhida, estado.corrigir) : '<p class="nota">Resolve no papel e depois compara com a resolução.</p>'}
-    ${resol}
-    ${htmlLinks(q)}
-  </article>`;
 }
 
 // ---------- prática ----------
@@ -185,61 +262,95 @@ function desenharPratica(dd, s) {
   };
 }
 
-// ---------- teste ----------
+// ---------- teste (motor comum: tema, trabalho de casa, rever erros, simulação de exame) ----------
 let teste = null;
+let relogio = null;
+
+// cfg: { chave, qs, titulo, trilho, voltar: [texto, href], repetir?: () => void, aoTerminar?: async (certas, detalhe) => void, minutos?: n }
+function iniciarTeste(cfg) {
+  teste = { ...cfg, i: 0, estados: {}, fim: false, avisado: false,
+            fimEm: cfg.minutos ? Date.now() + cfg.minutos * 60000 : null };
+}
 
 async function vistaTeste(id, cod) {
   const dd = await carregar(id);
   const s = dd.porCod.get(cod);
   if (!s) return vistaErro('Tema não encontrado.');
-  if (!teste || teste.chave !== id + '/' + cod || teste.fim) novoTeste(dd, s);
-  desenharTeste(dd, s);
+  const chave = 'tema/' + id + '/' + cod;
+  if (!teste || teste.chave !== chave || teste.fim) novoTesteTema(dd, s);
+  desenharTeste();
 }
 
-function novoTeste(dd, s) {
+function novoTesteTema(dd, s) {
   // dá prioridade às perguntas ainda não respondidas ou erradas
   const porFazer = baralhar(s.questoes.filter(q => !progresso.resposta(q.id)?.ultima));
   const resto = baralhar(s.questoes.filter(q => progresso.resposta(q.id)?.ultima));
-  const qs = [...porFazer, ...resto].slice(0, TAMANHO_TESTE);
-  teste = { chave: dd.id + '/' + s.cod, qs, i: 0, estados: {}, fim: false };
+  iniciarTeste({
+    chave: 'tema/' + dd.id + '/' + s.cod, qs: [...porFazer, ...resto].slice(0, TAMANHO_TESTE),
+    titulo: 'Teste — ' + s.nome,
+    trilho: [[dd.disciplina.nome, href('d', dd.id)], [s.nome, href('d', dd.id, 's', s.cod)], ['Teste']],
+    voltar: ['Voltar aos temas', href('d', dd.id)],
+    repetir: () => novoTesteTema(dd, s),
+  });
 }
 
 function respondida(q, est) {
   return eEM(q) ? est.escolhida != null : est.autoavaliacao != null;
 }
+const certaNoTeste = (q, est) => (eEM(q) ? est.escolhida === q.resposta_certa : est.autoavaliacao === true);
 
-function desenharTeste(dd, s) {
-  const trilho = cabecalho([[dd.disciplina.nome, href('d', dd.id)], [s.nome, href('d', dd.id, 's', s.cod)], ['Teste']]);
-  if (teste.fim) return desenharResultado(dd, s, trilho);
+function tempoRestante() {
+  const ms = Math.max(0, teste.fimEm - Date.now());
+  const m = Math.floor(ms / 60000), sgs = Math.floor((ms % 60000) / 1000);
+  return `${m}:${String(sgs).padStart(2, '0')}`;
+}
+
+function desenharTeste() {
+  clearInterval(relogio);
+  const topo = cabecalho(teste.trilho);
+  if (teste.fim) return desenharResultado(topo);
   const q = teste.qs[teste.i];
   const est = teste.estados[q.id] || {};
   const n = teste.qs.length;
   const feitas = teste.qs.filter(x => respondida(x, teste.estados[x.id] || {})).length;
-  app.innerHTML = trilho + `<main class="conteudo">
-    <h1>Teste — ${esc(s.nome)}</h1>
+  app.innerHTML = topo + `<main class="conteudo">
+    <div class="titulo-tema"><h1>${esc(teste.titulo)}</h1>${teste.fimEm ? `<span class="relogio${teste.fimEm - Date.now() < 600000 ? ' pouco' : ''}" id="relogio">${tempoRestante()}</span>` : ''}</div>
     <p class="sub">Pergunta ${teste.i + 1} de ${n} · ${feitas} respondidas</p>
+    ${n > 12 ? `<div class="mapa-q">${teste.qs.map((x, k) => `<button class="mq ${k === teste.i ? 'atual' : ''} ${respondida(x, teste.estados[x.id] || {}) ? 'feita' : ''}" data-acao="ir" data-i="${k}">${esc(x.numero)}</button>`).join('')}</div>` : ''}
     <div id="q">${htmlQuestao(q, { escolhida: est.escolhida, mostrarResolucao: est.mostrarResolucao, autoavaliacao: est.autoavaliacao })}</div>
     <div class="navq">
       <button class="btn btn-sec" data-acao="ant" ${teste.i === 0 ? 'disabled' : ''}>← Anterior</button>
       ${teste.i < n - 1 ? '<button class="btn" data-acao="seg">Seguinte →</button>'
-        : `<button class="btn" data-acao="terminar">Terminar teste</button>`}
+        : `<button class="btn" data-acao="terminar">Terminar</button>`}
     </div>
   </main>`;
-  app.querySelector('main').onclick = e => {
+  if (teste.fimEm) {
+    relogio = setInterval(async () => {
+      const el = document.getElementById('relogio');
+      if (!el || !teste || teste.fim) return clearInterval(relogio);
+      el.textContent = tempoRestante();
+      el.classList.toggle('pouco', teste.fimEm - Date.now() < 600000);
+      if (Date.now() >= teste.fimEm) { clearInterval(relogio); await terminarTeste(); desenharTeste(); }
+    }, 1000);
+  }
+  app.querySelector('main').onclick = async e => {
     const b = e.target.closest('[data-acao]');
     if (!b || b.disabled) return;
     const a = b.dataset.acao;
     if (a === 'ant') teste.i--;
     else if (a === 'seg') teste.i++;
+    else if (a === 'ir') teste.i = +b.dataset.i;
     else if (a === 'escolher') teste.estados[q.id] = { escolhida: b.dataset.letra };
     else if (a === 'resolucao') teste.estados[q.id] = { ...est, mostrarResolucao: true };
     else if (a === 'auto') teste.estados[q.id] = { ...est, mostrarResolucao: true, autoavaliacao: b.dataset.certa === '1' };
     else if (a === 'terminar') {
       const faltam = n - feitas;
       if (faltam && !confirmarFim(faltam)) return;
-      terminarTeste();
+      b.disabled = true;
+      await terminarTeste();
     }
-    desenharTeste(dd, s);
+    desenharTeste();
+    if (a === 'seg' || a === 'ant' || a === 'ir') window.scrollTo(0, 0);
   };
 }
 
@@ -248,60 +359,55 @@ function confirmarFim(faltam) {
   if (teste.avisado) return true;
   teste.avisado = true;
   const nav = app.querySelector('.navq');
-  nav.insertAdjacentHTML('beforebegin', `<p class="aviso">Faltam ${plural(faltam, 'pergunta', 'perguntas')} por responder (contam como erradas). Clica outra vez em «Terminar teste» para confirmar.</p>`);
+  nav.insertAdjacentHTML('beforebegin', `<p class="aviso">Faltam ${plural(faltam, 'pergunta', 'perguntas')} por responder (contam como erradas). Clica outra vez em «Terminar» para confirmar.</p>`);
   return false;
 }
 
-function terminarTeste() {
+async function terminarTeste() {
+  if (teste.fim) return;
   let certas = 0;
+  const detalhe = {};
   for (const q of teste.qs) {
     const est = teste.estados[q.id] || {};
-    const certa = eEM(q) ? est.escolhida === q.resposta_certa : est.autoavaliacao === true;
+    const certa = certaNoTeste(q, est);
     if (respondida(q, est)) progresso.registar(q.id, certa);
+    detalhe[q.id] = certa;
     if (certa) certas++;
   }
   teste.certas = certas;
   teste.fim = true;
+  if (teste.aoTerminar) {
+    try { await teste.aoTerminar(certas, detalhe); teste.entregue = true; }
+    catch (e) { teste.erroEntrega = e.message; }
+  }
 }
 
-function desenharResultado(dd, s, trilho) {
+function desenharResultado(topo) {
   const n = teste.qs.length;
   const nota = Math.round((teste.certas / n) * 200) / 10;
-  app.innerHTML = trilho + `<main class="conteudo">
+  app.innerHTML = topo + `<main class="conteudo">
     <h1>Resultado</h1>
     <div class="nota-final ${nota >= 9.5 ? 'ok' : 'mal'}"><span>${String(nota).replace('.', ',')}</span><small>valores</small></div>
     <p class="sub">${teste.certas} de ${n} certas.</p>
-    <div class="acoes"><button class="btn" data-acao="repetir">Novo teste</button>
-      <a class="btn btn-sec" href="${href('d', dd.id)}">Voltar aos temas</a></div>
+    ${teste.entregue ? '<p class="feedback ok">Trabalho entregue ao teu explicador.</p>' : ''}
+    ${teste.erroEntrega ? `<p class="feedback mal">Não foi possível entregar: ${esc(teste.erroEntrega)}</p>` : ''}
+    <div class="acoes">${teste.repetir ? `<button class="btn" data-acao="repetir">${esc(teste.textoRepetir || 'Novo teste')}</button>` : ''}
+      <a class="btn btn-sec" href="${teste.voltar[1]}">${esc(teste.voltar[0])}</a></div>
     <h2>Correção</h2>
     ${teste.qs.map((q, k) => {
       const est = teste.estados[q.id] || {};
       return `<details class="corr"><summary>${k + 1}. Exame ${q.ano} · ${esc(q.fase)} · item ${esc(q.numero)}
-        ${(eEM(q) ? est.escolhida === q.resposta_certa : est.autoavaliacao) ? '<b class="ok">✓</b>' : '<b class="mal">✗</b>'}</summary>
+        ${certaNoTeste(q, est) ? '<b class="ok">✓</b>' : '<b class="mal">✗</b>'}</summary>
         ${htmlQuestao(q, eEM(q) ? { escolhida: est.escolhida, corrigir: true } : { mostrarResolucao: true, autoavaliacao: est.autoavaliacao ?? false })}</details>`;
     }).join('')}
   </main>`;
   app.querySelector('main').onclick = e => {
     const b = e.target.closest('[data-acao="repetir"]');
     if (!b) return;
-    novoTeste(dd, s);
-    desenharTeste(dd, s);
+    teste.repetir();
+    desenharTeste();
   };
 }
-
-// ---------- contas ----------
-const dataPT = d => (d ? d.split('-').reverse().join('/') : '');
-
-function gerarPalavraPasse() {
-  const letras = 'abcdefghjkmnpqrstuvwxyz', nums = '23456789';
-  const r = new Uint32Array(8); crypto.getRandomValues(r);
-  let s = '';
-  for (let i = 0; i < 5; i++) s += letras[r[i] % letras.length];
-  for (let i = 5; i < 8; i++) s += nums[r[i] % nums.length];
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
-function mensagem(el, texto, ok) { el.className = 'feedback ' + (ok ? 'ok' : 'mal'); el.textContent = texto; }
 
 function vistaEntrar() {
   app.innerHTML = cabecalho() + `<main class="conteudo estreito">
@@ -410,96 +516,6 @@ function vistaConta() {
   };
 }
 
-// ---------- painel do explicador ----------
-async function respostasDoCentro() {
-  const linhas = [];
-  for (let de = 0; ; de += 1000) {
-    const { data, error } = await supabase.from('respostas').select('user_id, ultima, atualizado_em').range(de, de + 999);
-    if (error) throw error;
-    linhas.push(...data);
-    if (data.length < 1000) break;
-  }
-  return linhas;
-}
-
-async function vistaCentro() {
-  const eu = progresso.perfilAtual();
-  if (eu?.papel !== 'explicador') return vistaErro('Esta página é só para explicadores.');
-  const c = eu.centros;
-  app.innerHTML = cabecalho([['O meu centro']]) + `<main class="conteudo"><h1>${esc(c.nome)}</h1><p class="sub">A carregar…</p></main>`;
-  const [{ data: alunos, error }, resp] = await Promise.all([
-    supabase.from('perfis').select('id, nome, nome_utilizador, ativa, deve_mudar_palavra_passe, criado_em').eq('papel', 'aluno').order('nome'),
-    respostasDoCentro().catch(() => []),
-  ]);
-  if (error) return vistaErro(error.message);
-  const est = {};
-  for (const r of resp) {
-    const e = est[r.user_id] ||= { n: 0, certas: 0, ultima: '' };
-    e.n++; if (r.ultima) e.certas++;
-    if (r.atualizado_em > e.ultima) e.ultima = r.atualizado_em;
-  }
-  const ativos = alunos.filter(a => a.ativa).length;
-  app.innerHTML = cabecalho([['O meu centro']]) + `<main class="conteudo">
-    <h1>${esc(c.nome)}</h1>
-    <p class="sub">${ativos} de ${c.max_alunos} alunos ativos · licença até ${dataPT(c.licenca_ate)}</p>
-    <section class="painel">
-      <h2>Criar conta de aluno</h2>
-      <form id="novo" class="form form-linha">
-        <input name="nome" required minlength="2" maxlength="80" placeholder="Nome do aluno">
-        <input name="util" required pattern="[a-z0-9][a-z0-9._\\-]{2,39}" placeholder="Nome de utilizador (ex.: ana.silva)" autocapitalize="none" spellcheck="false">
-        <input name="pass" required minlength="8" maxlength="72" placeholder="Password provisória">
-        <button class="btn" type="submit">Criar</button>
-      </form>
-      <p id="msg" role="status"></p>
-    </section>
-    <h2>Alunos</h2>
-    ${alunos.length ? `<div class="tabela-wrap"><table class="tabela"><thead><tr><th>Aluno</th><th>Utilizador</th><th>Respostas</th><th>Certas</th><th>Última atividade</th><th></th></tr></thead><tbody>
-      ${alunos.map(a => {
-        const e = est[a.id] || { n: 0, certas: 0, ultima: '' };
-        return `<tr class="${a.ativa ? '' : 'inativo'}"><td>${esc(a.nome || '')}${a.deve_mudar_palavra_passe ? ' <span class="etiqueta">ainda não entrou</span>' : ''}${a.ativa ? '' : ' <span class="etiqueta">desativado</span>'}</td>
-          <td>${esc(a.nome_utilizador)}</td><td>${e.n}</td><td>${e.n ? pct(e.certas, e.n) + '%' : '—'}</td>
-          <td>${e.ultima ? dataPT(e.ultima.slice(0, 10)) : '—'}</td>
-          <td class="acoes-linha"><button class="btn-mini" data-acao="pass" data-id="${a.id}" data-u="${esc(a.nome_utilizador)}">Nova password</button>
-          <button class="btn-mini" data-acao="estado" data-id="${a.id}" data-ativa="${a.ativa ? 0 : 1}">${a.ativa ? 'Desativar' : 'Ativar'}</button></td></tr>`;
-      }).join('')}</tbody></table></div>` : '<p class="nota">Ainda não há alunos. Cria a primeira conta acima.</p>'}
-  </main>`;
-  const f = document.getElementById('novo'), msg = document.getElementById('msg');
-  f.pass.value = gerarPalavraPasse();
-  f.nome.oninput = () => {
-    if (f.util.dataset.mexido) return;
-    const partes = f.nome.value.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 ]/g, '').trim().split(/\s+/);
-    f.util.value = partes.length > 1 ? partes[0] + '.' + partes[partes.length - 1] : (partes[0] || '');
-  };
-  f.util.oninput = () => { f.util.dataset.mexido = '1'; };
-  f.onsubmit = async e => {
-    e.preventDefault();
-    const btn = f.querySelector('button'); btn.disabled = true;
-    const dados = { nome: f.nome.value.trim(), util: f.util.value.trim().toLowerCase(), pass: f.pass.value };
-    try {
-      await progresso.gerirContas({ acao: 'criar_aluno', nome: dados.nome, nome_utilizador: dados.util, palavra_passe: dados.pass });
-      await vistaCentro();
-      mensagem(document.getElementById('msg'), `Conta criada. Dá ao aluno → utilizador: ${dados.util} · password provisória: ${dados.pass} (vai ter de a mudar ao entrar).`, true);
-    } catch (err) { mensagem(msg, err.message, false); btn.disabled = false; }
-  };
-  app.querySelector('.tabela')?.addEventListener('click', async e => {
-    const b = e.target.closest('[data-acao]');
-    if (!b) return;
-    b.disabled = true;
-    try {
-      if (b.dataset.acao === 'estado') {
-        await progresso.gerirContas({ acao: 'definir_estado', user_id: b.dataset.id, ativa: b.dataset.ativa === '1' });
-        await vistaCentro();
-      } else {
-        const nova = gerarPalavraPasse();
-        await progresso.gerirContas({ acao: 'redefinir_palavra_passe', user_id: b.dataset.id, palavra_passe: nova });
-        mensagem(msg, `Nova password provisória de ${b.dataset.u}: ${nova}`, true);
-        b.disabled = false;
-        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    } catch (err) { mensagem(msg, err.message, false); b.disabled = false; msg.scrollIntoView({ block: 'center' }); }
-  });
-}
-
 // ---------- administração (Gaara) ----------
 async function vistaAdmin() {
   const eu = progresso.perfilAtual();
@@ -565,10 +581,6 @@ async function vistaAdmin() {
 }
 
 
-function vistaErro(msg) {
-  app.innerHTML = cabecalho() + `<main class="conteudo"><h1>Ups</h1><p>${esc(msg)}</p><p><a href="#/">Voltar ao início</a></p></main>`;
-}
-
 // ---------- router ----------
 async function router() {
   const p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
@@ -581,7 +593,17 @@ async function router() {
     else if (p[0] === 'd' && p[1]) await vistaDisciplina(p[1]);
     else if (p[0] === 'teste' && p[1] && p[2]) await vistaTeste(p[1], p[2]);
     else if (p[0] === 'conta') vistaConta();
+    else if (p[0] === 'centro' && p[1] === 'lote') await vistaLote();
+    else if (p[0] === 'centro' && p[1] === 'turma' && p[2]) await vistaTurma(p[2]);
+    else if (p[0] === 'centro' && p[1] === 'trabalho' && p[2] === 'novo' && p[3]) await vistaNovoTrabalho(p[3]);
+    else if (p[0] === 'centro' && p[1] === 'trabalho' && p[2]) await vistaTrabalho(p[2]);
+    else if (p[0] === 'centro' && p[1] === 'aluno' && p[2]) await vistaRelatorioAluno(p[2]);
     else if (p[0] === 'centro') await vistaCentro();
+    else if (p[0] === 'tpc' && p[1]) await vistaTPC(p[1]);
+    else if (p[0] === 'erros' && p[1]) await vistaErros(p[1]);
+    else if (p[0] === 'exame' && p[1] && p[2] && p[3]) await vistaExame(p[1], p[2], p[3]);
+    else if (p[0] === 'exame' && p[1]) await vistaExames(p[1]);
+    else if (p[0] === 'estatisticas') await vistaEstatisticas();
     else if (p[0] === 'admin') await vistaAdmin();
     else await vistaInicio();
     window.scrollTo(0, 0);
