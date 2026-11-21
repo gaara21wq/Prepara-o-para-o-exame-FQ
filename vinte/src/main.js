@@ -167,8 +167,12 @@ async function vistaEstatisticas() {
       <div class="numeros"><div><b>${r.respondidas}</b><span>de ${dd.total} perguntas</span></div>
         <div><b>${r.respondidas ? pct(r.certas, r.respondidas) + '%' : '—'}</b><span>certas</span></div>
         <div><b>${r.respondidas ? String(Math.round(200 * r.certas / r.respondidas) / 10).replace('.', ',') : '—'}</b><span>nota estimada</span></div></div>
-      <p class="meta">Perguntas respondidas por semana (últimas ${semanas})</p>
-      <div class="grafico">${porSemana.map((n, i) => `<div class="col" title="${n}"><span style="height:${Math.round(100 * n / max)}%"></span><small>${i === semanas - 1 ? 'esta' : '-' + (semanas - 1 - i)}</small></div>`).join('')}</div>
+      <p class="meta">Perguntas respondidas por semana (a data é o início de cada semana)</p>
+      ${porSemana.some(n => n) ? `<div class="grafico">${porSemana.map((n, i) => {
+        const ini = new Date(agora - (semanas - i) * SEM + 86400000);
+        const rot = i === semanas - 1 ? 'esta sem.' : `${ini.getDate()}/${ini.getMonth() + 1}`;
+        return `<div class="col" title="${plural(n, 'pergunta', 'perguntas')}">${n ? `<b>${n}</b>` : ''}<span style="height:${Math.round(100 * n / max)}%"></span><small>${rot}</small></div>`;
+      }).join('')}</div>` : '<p class="nota">Ainda não respondeste a perguntas nas últimas 8 semanas.</p>'}
       ${ord.length ? `<div class="duas-col"><div><h3>A reforçar</h3>${lista(fracos, true, 'Nenhum tema abaixo de 75%. Muito bem!')}</div>
         <div><h3>Pontos fortes</h3>${lista(fortes, false, 'Ainda nenhum tema acima de 60%.')}</div></div>`
         : '<p class="nota">Responde a pelo menos 3 perguntas de um tema para veres os teus pontos fortes e fracos.</p>'}

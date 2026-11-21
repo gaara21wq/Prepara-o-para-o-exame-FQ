@@ -167,3 +167,4 @@ label.mini { display: inline-flex; align-items: center; gap: .4rem; color: var(-
 .form-linha label.mini input[type=number] { width: 90px; }
 .form .btn[type=submit] { justify-self: start; }
 .lista-check label { color: var(--texto); }
+.grafico .col b { font-size: .75rem; color: var(--suave); margin-bottom: .15rem; }
